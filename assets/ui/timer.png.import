@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqchrgem7ws88"
-path="res://.godot/imported/Opponent's Turn Name.png-544642e609cf3dbb988aae255101ed0b.ctex"
+uid="uid://c6nusal4xvfm3"
+path="res://.godot/imported/timer.png-b7ad1407976c38840ab82f951279b4db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Opponent's Turn Name.png"
-dest_files=["res://.godot/imported/Opponent's Turn Name.png-544642e609cf3dbb988aae255101ed0b.ctex"]
+source_file="res://assets/ui/timer.png"
+dest_files=["res://.godot/imported/timer.png-b7ad1407976c38840ab82f951279b4db.ctex"]
 
 [params]
 

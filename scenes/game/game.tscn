@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=41 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -8,13 +8,12 @@
 [ext_resource type="Resource" uid="uid://qq7tsqamuc7d" path="res://resources/card_data/climate/cold/iceberg.tres" id="4_l175b"]
 [ext_resource type="Resource" uid="uid://2wysvlp17bvv" path="res://resources/card_data/meta/dud.tres" id="4_lwy3h"]
 [ext_resource type="Resource" uid="uid://blcg1kjolafe5" path="res://resources/card_data/thermal/heat/match.tres" id="4_psr8p"]
-[ext_resource type="Texture2D" uid="uid://dbjfwg0lhwqpy" path="res://assets/ui/Player's Turn Name.png" id="4_xcckx"]
 [ext_resource type="Resource" uid="uid://codcsjm3n13wy" path="res://resources/card_data/climate/heat/magnifier.tres" id="5_dqfjo"]
 [ext_resource type="Resource" uid="uid://d2mbkn3soaygq" path="res://resources/card_data/climate/cold/rain.tres" id="5_dvl5v"]
 [ext_resource type="Resource" uid="uid://c7lil5vq1eh8o" path="res://resources/card_data/meter/crystal_ball.tres" id="6_0hf3h"]
 [ext_resource type="Theme" uid="uid://bvgd2wroq4sh7" path="res://assets/ui/theme.tres" id="6_fan8s"]
 [ext_resource type="Resource" uid="uid://1kvdp1n5ngn5" path="res://resources/card_data/thermal/cold/ice_cube.tres" id="6_rb8ak"]
-[ext_resource type="Texture2D" uid="uid://bqchrgem7ws88" path="res://assets/ui/opponent_player_name.png" id="6_s1jiu"]
+[ext_resource type="Texture2D" uid="uid://cq6t0hpmyal8u" path="res://assets/ui/opponent_player_name.png" id="6_s1jiu"]
 [ext_resource type="Resource" uid="uid://db1byjgt1u7gi" path="res://resources/card_data/thermal/heat/flame.tres" id="7_3vj2g"]
 [ext_resource type="Resource" uid="uid://utirnpp13503" path="res://resources/card_data/meta/duds_to_deck.tres" id="7_abmaq"]
 [ext_resource type="Resource" uid="uid://cgbeiahplvw55" path="res://resources/card_data/climate/heat/meteorite.tres" id="8_1o41y"]
@@ -23,8 +22,8 @@
 [ext_resource type="Resource" uid="uid://c53l4pa5n4qyd" path="res://resources/card_data/thermal/cold/water_droplet.tres" id="8_w82ig"]
 [ext_resource type="Resource" uid="uid://dtdbu3xucddl4" path="res://resources/card_data/climate/heat/sun.tres" id="9_kn5mi"]
 [ext_resource type="Resource" uid="uid://w2xc2bhqcq7f" path="res://resources/card_data/climate/heat/spicy_sauce.tres" id="9_mf810"]
-[ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
-[ext_resource type="Resource" path="res://resources/card_data/climate/reverse.tres" id="11_1i5bd"]
+[ext_resource type="Texture2D" uid="uid://dptyqf3p1f7s1" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
+[ext_resource type="Resource" uid="uid://b01vgic5v27fx" path="res://resources/card_data/climate/reverse.tres" id="11_1i5bd"]
 [ext_resource type="Resource" uid="uid://1yf6hsgxxcda" path="res://resources/card_data/meta/discard.tres" id="12_i8kge"]
 [ext_resource type="Resource" uid="uid://bj08khb3btj0m" path="res://resources/card_data/meta/draw_1.tres" id="13_8ppeq"]
 [ext_resource type="Resource" uid="uid://cvnt5k5bg1fec" path="res://resources/card_data/meta/draw_2.tres" id="14_7cn3c"]
@@ -33,6 +32,9 @@
 [ext_resource type="Resource" uid="uid://cvto0ooavynx1" path="res://resources/card_data/meter/eyeball.tres" id="19_3hmlb"]
 [ext_resource type="Resource" uid="uid://d35xtl8mq2x2s" path="res://resources/card_data/thermal/cold/snow.tres" id="21_qxs2p"]
 [ext_resource type="Resource" uid="uid://dy25kjdobfssa" path="res://resources/card_data/thermal/heat/torch.tres" id="25_r8le7"]
+[ext_resource type="Texture2D" uid="uid://dspv21b2xumjv" path="res://assets/ui/active_player_name.png" id="26_y6yuo"]
+[ext_resource type="Texture2D" uid="uid://c6nusal4xvfm3" path="res://assets/ui/timer.png" id="31_ws4k2"]
+[ext_resource type="Texture2D" uid="uid://m6ntpjm512ka" path="res://assets/ui/settings.png" id="32_d04lk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
 
@@ -44,6 +46,15 @@ gradient = SubResource("Gradient_gweuy")
 width = 600
 height = 300
 fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gc8wc"]
+gradient = SubResource("Gradient_gweuy")
+width = 600
+height = 300
+fill = 1
+fill_from = Vector2(0, 1)
+fill_to = Vector2(1, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t6she"]
@@ -81,6 +92,13 @@ size_flags_vertical = 0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_3i4ma")
 
+[node name="BottomLeft" type="TextureRect" parent="UI/Shadows"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_gc8wc")
+
 [node name="BottomRight" type="TextureRect" parent="UI/Shadows"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -105,7 +123,7 @@ custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("4_xcckx")
+texture = ExtResource("26_y6yuo")
 expand_mode = 3
 script = ExtResource("2_bjjhx")
 player = NodePath("../../../Player1")
@@ -161,41 +179,52 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player 1"
 horizontal_alignment = 1
 
-[node name="EndTurn" type="TextureButton" parent="UI/Margins"]
+[node name="VBox" type="VBoxContainer" parent="UI/Margins"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-texture_normal = ExtResource("9_mtb6r")
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="UI/Margins/EndTurn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 100.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_fan8s")
-text = "End Turn"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="ProgressBar" type="TextureProgressBar" parent="UI/Margins/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="EffectsScroll" type="ScrollContainer" parent="UI/Margins"]
+[node name="Timer" type="TextureRect" parent="UI/Margins/VBox"]
+layout_mode = 2
+texture = ExtResource("31_ws4k2")
+
+[node name="EffectsScroll" type="ScrollContainer" parent="UI/Margins/VBox"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Margins/EffectsScroll"]
+[node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Margins/VBox/EffectsScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("15_qadym")
+
+[node name="EndTurn" type="TextureButton" parent="UI/Margins"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("9_mtb6r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Settings" type="TextureButton" parent="UI/Margins"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("32_d04lk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="UI/Margins"]
+layout_mode = 2
 
 [node name="StandbyScreen" type="ColorRect" parent="UI"]
 visible = false
@@ -206,6 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleScreen" type="ColorRect" parent="UI"]
+visible = false
 top_level = true
 anchors_preset = 15
 anchor_right = 1.0

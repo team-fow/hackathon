@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbjfwg0lhwqpy"
-path="res://.godot/imported/Player's Turn Name.png-9821fe10737556acd52082234e16a724.ctex"
+uid="uid://m6ntpjm512ka"
+path="res://.godot/imported/settings.png-435f898c4db449a7f67af74c7b04347e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Player's Turn Name.png"
-dest_files=["res://.godot/imported/Player's Turn Name.png-9821fe10737556acd52082234e16a724.ctex"]
+source_file="res://assets/ui/settings.png"
+dest_files=["res://.godot/imported/settings.png-435f898c4db449a7f67af74c7b04347e.ctex"]
 
 [params]
 

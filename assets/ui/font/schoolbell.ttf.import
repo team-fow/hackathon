@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://diu6d7tppnq3i"
-path="res://.godot/imported/liberator_heavy.ttf-e95581f8ba05398c90a3bd935ad1fbeb.fontdata"
+uid="uid://btxf8skp1a0e5"
+path="res://.godot/imported/schoolbell.ttf-f6027aa339a347a6f90dae4b80a904e9.fontdata"
 
 [deps]
 
-source_file="res://assets/ui/liberator_heavy.ttf"
-dest_files=["res://.godot/imported/liberator_heavy.ttf-e95581f8ba05398c90a3bd935ad1fbeb.fontdata"]
+source_file="res://assets/ui/font/schoolbell.ttf"
+dest_files=["res://.godot/imported/schoolbell.ttf-f6027aa339a347a6f90dae4b80a904e9.fontdata"]
 
 [params]
 
