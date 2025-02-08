@@ -12,7 +12,7 @@ var up: int = -1 : set = _set_up
 
 func _order_cards() -> void:
 	for i: int in cards.size():
-		cards[i].position = Vector2(0, CARD_SEPARATION * i * up)
+		_tween_card(cards[i], Vector2(0, CARD_SEPARATION * i * up), 0)
 
 
 func _set_up(value: int) -> void:
