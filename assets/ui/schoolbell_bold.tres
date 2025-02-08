@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ddrjae0a7mson"]
+
+[ext_resource type="FontFile" uid="uid://btxf8skp1a0e5" path="res://assets/ui/schoolbell.ttf" id="1_ppn54"]
+
+[resource]
+base_font = ExtResource("1_ppn54")
+variation_embolden = 1.0
+spacing_glyph = 2
