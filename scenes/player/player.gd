@@ -25,12 +25,9 @@ func _ready() -> void:
 	for i in 5:
 		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 		card.card_resource = load("res://resources/card_data/test.tres")
-		deck.add_card(card)
-	
-	for i in 5:
-		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
-		card.card_resource = load("res://resources/card_data/test.tres")
 		hand.add_card.call_deferred(card)
+	
+	draw(5)
 
 
 func draw(amount: int) -> void:

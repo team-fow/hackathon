@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcyws5g745xvt"
-path="res://.godot/imported/sample.png-5b6da43a2108dbfebc633cbb93331e67.ctex"
+uid="uid://djp4m2nxrkhyd"
+path="res://.godot/imported/Fire_scroll.png-af86a336a226b005f11e6ada22c4dbe2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card/backgrounds/sample.png"
-dest_files=["res://.godot/imported/sample.png-5b6da43a2108dbfebc633cbb93331e67.ctex"]
+source_file="res://assets/card/backgrounds/Fire_scroll.png"
+dest_files=["res://.godot/imported/Fire_scroll.png-af86a336a226b005f11e6ada22c4dbe2.ctex"]
 
 [params]
 

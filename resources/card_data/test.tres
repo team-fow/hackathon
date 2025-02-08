@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://rwvb6uqo7wmh"]
 
 [ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_syp1x"]
-[ext_resource type="Texture2D" uid="uid://bcyws5g745xvt" path="res://assets/card/backgrounds/sample.png" id="2_qvt6j"]
+[ext_resource type="Texture2D" uid="uid://ck1wpm4yjkmto" path="res://assets/card/backgrounds/fish_dud.png" id="2_qvt6j"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_uq4hf"]
 
 [sub_resource type="GDScript" id="GDScript_8mhpf"]
