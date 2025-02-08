@@ -26,7 +26,7 @@ var card_queue: Array[Card]
 @export var active_player_disp: TextureRect
 @export var inactive_player_disp: TextureRect
 @export var end_turn_button: TextureButton
-@onready var active_effects_container: VBoxContainer = $UI/Margins/VBox/EffectsScroll/ActiveEffectsContainer
+@onready var active_effects_container: VBoxContainer = $UI/Margins/VBox2/EffectsScroll/ActiveEffectsContainer
 @onready var begin_game: Button = $UI/TitleScreen/BeginGame
 @onready var title_screen: ColorRect = $UI/TitleScreen
 
