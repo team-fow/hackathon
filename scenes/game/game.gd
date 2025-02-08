@@ -33,6 +33,8 @@ var card_queue: Array[Card]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	title_screen.show()
+	standby_screen.modulate = Color(1,1,1,1)
 	await begin_game.pressed
 	title_screen.hide()
 	active = true
@@ -125,11 +127,10 @@ func _resolve_cards() -> void:
 
 # Hides the game state and waits for player input.
 func _standby() -> void:
-	standby_screen.show()
-	
+	if standby_screen.modulate != Color(1,1,1,1):
+		standby_screen.fadein()
 	while true:
 		var event: InputEvent = await standby_screen.gui_input
 		if event.is_action_pressed("click"):
 			break
-	
-	standby_screen.hide()
+	standby_screen.fadeout()
