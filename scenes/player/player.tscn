@@ -1,13 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqlbtioqk3m5q"]
+[gd_scene load_steps=17 format=3 uid="uid://dqlbtioqk3m5q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g6b4q"]
 [ext_resource type="Script" path="res://scenes/card_list/hand.gd" id="2_jjdp4"]
 [ext_resource type="Script" path="res://scenes/card_list/deck.gd" id="3_5fsjs"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played.gd" id="4_kj1xb"]
+[ext_resource type="Texture2D" uid="uid://d2j15iqklklxc" path="res://assets/fire_particles.png" id="5_7uoy0"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played_history.gd" id="5_iuisj"]
+[ext_resource type="Texture2D" uid="uid://bm2hf34illh4j" path="res://assets/cold_particles.png" id="6_miuve"]
+
+[sub_resource type="Curve" id="Curve_qiwpx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_4ut5x"]
+curve = SubResource("Curve_qiwpx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l777y"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4ut5x")
+
+[sub_resource type="Gradient" id="Gradient_ne6wg"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr440"]
+gradient = SubResource("Gradient_ne6wg")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_snwrr"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ugo8c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_iht17"]
+curve = SubResource("Curve_ugo8c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_agu3c"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_iht17")
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_g6b4q")
+temperature = null
+is_active = null
+player_name = null
 
 [node name="Hand" type="Node2D" parent="."]
 position = Vector2(0, 350)
@@ -35,6 +90,30 @@ horizontal_alignment = 1
 [node name="CardPlayed" type="Node2D" parent="."]
 scale = Vector2(1.25, 1.25)
 script = ExtResource("4_kj1xb")
+
+[node name="Clouds" type="GPUParticles2D" parent="CardPlayed"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_l777y")
+texture = SubResource("GradientTexture2D_wr440")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+
+[node name="Heat" type="GPUParticles2D" parent="CardPlayed"]
+material = SubResource("CanvasItemMaterial_snwrr")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_agu3c")
+texture = ExtResource("5_7uoy0")
+one_shot = true
+explosiveness = 0.75
+
+[node name="Cold" type="GPUParticles2D" parent="CardPlayed"]
+material = SubResource("CanvasItemMaterial_snwrr")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_agu3c")
+texture = ExtResource("6_miuve")
+one_shot = true
+explosiveness = 0.75
 
 [node name="CardPlayedHistory" type="Node2D" parent="."]
 position = Vector2(300, 0)

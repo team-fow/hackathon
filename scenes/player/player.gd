@@ -77,7 +77,10 @@ func _send_card_to_played(card: Card) -> void:
 	if card_played.accepting_card:
 		hand.remove_card(card)
 		card_played.add_card(card)
+		
 		await get_tree().create_timer(0.5).timeout
+		
+		
 		add_card_to_queue.emit(card)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
