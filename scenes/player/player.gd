@@ -53,8 +53,6 @@ func _send_card_to_played(card: Card) -> void:
 func update_disp():
 	match is_active:
 		true:
-			rotation_degrees = 0
 			deck.show()
 		false:
-			rotation_degrees = 180
 			deck.hide()
