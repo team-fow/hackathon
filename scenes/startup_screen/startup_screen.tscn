@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://8gs3f0wh5o46"]
+
+[ext_resource type="Script" path="res://scenes/startup_screen/startup_screen.gd" id="1_fcu2g"]
+
+[node name="StartupScreen" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcu2g")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Game"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBox/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBox/Quit" to="." method="_on_quit_pressed"]
