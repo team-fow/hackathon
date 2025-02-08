@@ -5,6 +5,7 @@ const CARD_SEPARATION: float = Card.SIZE.x / 2 ## Horizontal spacing between car
 const MAX_FAN_ROTATION: float = PI / 8 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = Card.SIZE.y / 4 ## Maximum vertical offset for fanning.
 const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currently hovered card.
+const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
 
 var held_card: Card ## The card currently being dragged out of the hand.
 var held_card_idx: int ## The previous index of [member held_card] in the list.
@@ -46,21 +47,28 @@ func _order_cards() -> void:
 	var left: float = -width / 2.0
 	
 	if cards.size() == 1: # displaying single card
-		cards[0].position.x = 0
-		cards[0].position.y = MAX_FAN_OFFSET
-		cards[0].rotation = 0
+		_tween_card(cards[0], Vector2(0, MAX_FAN_OFFSET), 0)
 	
 	elif cards.size() > 1: # fanning multiple cards
 		var half_count: float = (cards.size() - 1) / 2.0
 		for i: int in cards.size():
 			var percent: float = (i - half_count) / half_count
-			cards[i].position.x = left + CARD_SEPARATION * i
-			cards[i].position.y = abs(percent) * MAX_FAN_OFFSET
-			cards[i].rotation = percent * MAX_FAN_ROTATION
+			_tween_card(
+				cards[i],
+				Vector2(left + CARD_SEPARATION * i, abs(percent) * MAX_FAN_OFFSET),
+				percent * MAX_FAN_ROTATION
+			)
 	
 	# resizing drop area
 	drop_area.position.x = left - CARD_SEPARATION
 	drop_area.size.x = width + CARD_SEPARATION * 2
+
+
+# Smoothly animates positioning and rotating a card.
+func _tween_card(card: Card, pos: Vector2, rot: float) -> void:
+	var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(card, "position", pos, TWEEN_DURATION)
+	tween.tween_property(card, "rotation", rot, TWEEN_DURATION)
 
 
 func _on_card_moused(card: Card, mouse_inside: bool) -> void:
