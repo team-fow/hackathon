@@ -1,19 +1,26 @@
 class_name Hand
 extends CardList
 
+signal move_card_to_played(card)
+
 const CARD_SEPARATION: float = Card.SIZE.x / 2 ## Horizontal spacing between cards.
 const MAX_FAN_ROTATION: float = PI / 8 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = Card.SIZE.y / 4 ## Maximum vertical offset for fanning.
 const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currently hovered card.
-const PLAYED_CARD_POSITION := Vector2(0, -400) ## Position played cards are moved to.
 const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
 
 @export var flipped: bool : set = _set_flipped ## Whether cards are face-up and can be interacted with.
-
 var held_card: Card ## The card currently being dragged out of the hand.
 var held_card_idx: int ## The previous index of [member held_card] in the list.
 var drop_area := Rect2(0, -Card.SIZE.y/2, 0, Card.SIZE.y + MAX_FAN_OFFSET) ## The area in which [member held_card] can be dropped without playing it.
 
+
+# flipping
+
+func _set_flipped(value: bool) -> void:
+	flipped = value
+	for card: Card in cards:
+		card.set_flipped(value)
 
 
 # grabbing cards
@@ -38,23 +45,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				_add_card_to_list(held_card, held_card_idx)
 				held_card.z_index = 0
 			else:
-				_play_card(held_card)
+				move_card_to_played.emit(held_card)
 			held_card = null
-
-
-func _play_card(card: Card) -> void:
-	await _tween_card(card, PLAYED_CARD_POSITION, 0)
-	await get_tree().create_timer(1).timeout
-	card.queue_free() # temp
-
-
-
-# flipping
-
-func _set_flipped(value: bool) -> void:
-	flipped = value
-	for card: Card in cards:
-		card.set_flipped(value)
 
 
 
@@ -94,7 +86,7 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 	if not held_card:
 		card.z_index = mouse_inside
 		card.scale = HOVERED_CARD_SCALE if mouse_inside else Vector2.ONE
-
+	
 
 
 # modifying list

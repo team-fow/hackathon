@@ -8,10 +8,10 @@ const SIZE := Vector2(200, 300)
 var card_script : Object
 
 @onready var background: TextureRect = $Background
-@onready var info: VBoxContainer = $Info
-@onready var cardname: Label = $Info/CardName
-@onready var art: TextureRect = $Info/Art
-@onready var description: Label = $Info/Description
+@onready var info: VBoxContainer = $VBoxContainer
+@onready var cardname: Label = $VBoxContainer/CardName
+@onready var art: TextureRect = $VBoxContainer/Art
+@onready var description: Label = $VBoxContainer/Description
 
 
 # Called when the node enters the scene tree for the first time.

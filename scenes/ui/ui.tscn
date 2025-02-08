@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvxmgqf4qb4r0"]
+[gd_scene load_steps=2 format=3 uid="uid://dvxmgqf4qb4r0"]
 
 [ext_resource type="Script" path="res://scenes/game/button.gd" id="1_el6gn"]
-[ext_resource type="Script" path="res://scenes/ui/button_2.gd" id="2_8qcv0"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -26,11 +25,6 @@ size_flags_vertical = 0
 layout_mode = 2
 text = "Add card"
 script = ExtResource("1_el6gn")
-
-[node name="Button2" type="Button" parent="Margins/VBoxContainer"]
-layout_mode = 2
-text = "Flip"
-script = ExtResource("2_8qcv0")
 
 [node name="Phase_Label" type="Label" parent="Margins/VBoxContainer"]
 layout_mode = 2

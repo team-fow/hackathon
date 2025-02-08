@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqlbtioqk3m5q"]
+[gd_scene load_steps=5 format=3 uid="uid://dqlbtioqk3m5q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g6b4q"]
 [ext_resource type="Script" path="res://scenes/card_list/hand.gd" id="2_jjdp4"]
+[ext_resource type="Script" path="res://scenes/card_list/deck.gd" id="3_5fsjs"]
+[ext_resource type="Script" path="res://scenes/card_list/card_played.gd" id="4_kj1xb"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_g6b4q")
 
 [node name="Hand" type="Node2D" parent="."]
 script = ExtResource("2_jjdp4")
+
+[node name="Deck" type="Node2D" parent="."]
+script = ExtResource("3_5fsjs")
+
+[node name="CardPlayed" type="Node2D" parent="."]
+script = ExtResource("4_kj1xb")

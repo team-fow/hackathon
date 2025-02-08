@@ -9,6 +9,10 @@ script = ExtResource("1_yqxqw")
 
 [node name="UI" parent="." instance=ExtResource("2_k4g7f")]
 
-[node name="Player" parent="." instance=ExtResource("2_thlmk")]
+[node name="Player1" parent="." instance=ExtResource("2_thlmk")]
+is_active = true
+
+[node name="Player2" parent="." instance=ExtResource("2_thlmk")]
+rotation = 3.14159
 
 [node name="Camera" type="Camera2D" parent="."]

@@ -42,9 +42,8 @@ func _turn() -> void:
 	players[0].rotation = 0
 	players[1].flipped = false
 	players[1].rotation = PI
-	
 	await get_tree().create_timer(2).timeout
-
+	
 
 # Hides the game state and waits for player input.
 func _standby() -> void:
@@ -56,3 +55,4 @@ func _standby() -> void:
 			break
 	
 	standby_screen.hide()
+	
