@@ -69,6 +69,9 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 	if not held_card:
 		card.z_index = mouse_inside
 		card.scale = HOVERED_CARD_SCALE if mouse_inside else Vector2.ONE
+		
+		if mouse_inside: _tween_card(card, card.position, 0)
+		else: _order_cards()
 	
 
 

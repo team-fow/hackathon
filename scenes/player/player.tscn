@@ -10,7 +10,7 @@
 script = ExtResource("1_g6b4q")
 
 [node name="Hand" type="Node2D" parent="."]
-position = Vector2(0, 400)
+position = Vector2(0, 350)
 script = ExtResource("2_jjdp4")
 
 [node name="Deck" type="Node2D" parent="."]
