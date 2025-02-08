@@ -1,6 +1,9 @@
 class_name Game
 extends Node2D
 
+signal turn_ended
+signal round_ended
+
 enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
 
 @export var players: Array[Player]
@@ -8,6 +11,12 @@ enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
 
 var curr_phase : Phase = Phase.AWAIT_PLAYER_1
 var turn_idx: int
+
+var heat_bonus: int
+var heat_multiplier: int
+var cold_bonus: int
+var cold_multiplier: int
+var reverse: int
 
 @export var active: bool
 
@@ -33,9 +42,9 @@ func _ready() -> void:
 
 func cycle() -> void:
 	while active:
-		curr_phase = (curr_phase + 1) % Phase.MAX
 		await _standby()
 		await _turn()
+		if turn_idx % 2: round_ended.emit()
 
 
 # Called when the player's health reaches an extreme
@@ -65,7 +74,8 @@ func _turn() -> void:
 	players[0].draw(1)
 	
 	await end_turn_button.pressed
-	
+	turn_ended.emit()
+
 
 # Hides the game state and waits for player input.
 func _standby() -> void:

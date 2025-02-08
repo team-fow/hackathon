@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=6 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_juss8"]
 [ext_resource type="PackedScene" uid="uid://dqlbtioqk3m5q" path="res://scenes/player/player.tscn" id="2_thlmk"]
+[ext_resource type="Resource" uid="uid://c38h230pv1nsi" path="res://resources/card_data/climate/hail.tres" id="3_y728b"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("players", "end_turn_button")]
 position = Vector2(1000, 600)
 script = ExtResource("1_yqxqw")
 players = [NodePath("Player1"), NodePath("Player2")]
+initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_y728b")])
 active = true
 end_turn_button = NodePath("UI/Margins/EndTurn")
 

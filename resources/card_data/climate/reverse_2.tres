@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=2 format=3 uid="uid://dbbit2ww74ng"]
+
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="1_oibc2"]
+
+[resource]
+script = ExtResource("1_oibc2")
+effect = "reverse"
+value = 0
+duration = 2
+name = "Thermal Shock"
+description = "Reverses 🔥 and ❄️ for 2 rounds."

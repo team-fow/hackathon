@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=2 format=3 uid="uid://c38h230pv1nsi"]
+
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="1_6aed0"]
+
+[resource]
+script = ExtResource("1_6aed0")
+effect = "cold_bonus"
+value = 2
+duration = 2
+name = "Hail"
+description = "Increases ❄️ by 2 for 5 rounds."
