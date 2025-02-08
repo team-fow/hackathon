@@ -3,9 +3,9 @@
 [ext_resource type="FontFile" uid="uid://btxf8skp1a0e5" path="res://assets/ui/schoolbell.ttf" id="1_76gbu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0q3w"]
-content_margin_left = 4.0
+content_margin_left = 8.0
 content_margin_top = 4.0
-content_margin_right = 4.0
+content_margin_right = 8.0
 content_margin_bottom = 4.0
 bg_color = Color(0.960784, 0.968627, 0.827451, 1)
 border_width_left = 2
@@ -26,4 +26,5 @@ default_font = SubResource("FontVariation_bcpjc")
 default_font_size = 20
 CardLabel/base_type = &"Label"
 CardLabel/colors/font_color = Color(0, 0, 0, 1)
+CardLabel/constants/line_spacing = 0
 CardLabel/styles/normal = SubResource("StyleBoxFlat_w0q3w")
