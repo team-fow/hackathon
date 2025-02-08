@@ -62,3 +62,4 @@ func _send_card_to_played(card: Card) -> void:
 func update_disp():
 	deck.visible = is_active
 	hand.flipped = !is_active
+	card_played_history.flipped = !is_active
