@@ -14,5 +14,5 @@ player_affected = 0
 name = "Meteor Shower"
 front = ExtResource("3_6ymwu")
 back = ExtResource("1_1uc4k")
-description = "Increases 🔥 effects by 1 for 2 round."
+description = "Increases 🔥 effects by 1 for 2 rounds."
 card_script = ExtResource("2_nhvgy")
