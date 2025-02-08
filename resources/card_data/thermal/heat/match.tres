@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://blcg1kjolafe5"]
+
+[ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="1_udklq"]
+[ext_resource type="Script" path="res://resources/card_behavior/match.gd" id="2_qmkkc"]
+[ext_resource type="Texture2D" uid="uid://cpkd8su3h50xu" path="res://assets/card/front/thermal/match.png" id="3_wnbq6"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_tgfvs"]
+
+[resource]
+script = ExtResource("4_tgfvs")
+name = "Match"
+front = ExtResource("3_wnbq6")
+back = ExtResource("1_udklq")
+description = "1 🔥 to both players."
+card_script = ExtResource("2_qmkkc")

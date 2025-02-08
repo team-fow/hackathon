@@ -7,10 +7,10 @@
 [resource]
 script = ExtResource("1_hiaa4")
 effect = "cold_bonus"
-value = 0
-duration = 0
+value = 1
+duration = 2
 player_affected = 0
 name = "Fog"
 front = ExtResource("2_3r4f1")
 back = ExtResource("1_qlnkk")
-description = "Increases ❄️ effects by 1 for 2 rounds."
+description = "Decreases incoming ❄️ by 1 for 2 rounds."

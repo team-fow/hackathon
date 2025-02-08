@@ -7,12 +7,12 @@
 
 [resource]
 script = ExtResource("1_bu4qu")
-effect = "heat_bonus"
-value = 0
-duration = 0
+effect = "cold_multiplier"
+value = 2
+duration = 2
 player_affected = 0
-name = "Iceberg"
+name = "Ice Age"
 front = ExtResource("3_vo0pm")
 back = ExtResource("1_huaa2")
-description = "Description"
+description = "Doubles ❄️ for 2 rounds."
 card_script = ExtResource("1_ha24r")

@@ -6,11 +6,11 @@
 
 [resource]
 script = ExtResource("3_rfe6a")
-effect = "cold_bonus"
-value = 1
-duration = 2
+effect = "heat_bonus"
+value = 0
+duration = 0
 player_affected = 0
-name = "Icy Wind"
+name = "Earthquake"
 front = ExtResource("2_8il02")
 back = ExtResource("1_7b67r")
 description = "Increases ❄️ effects by 2 for 1 round."

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=5 format=3 uid="uid://cgbeiahplvw55"]
+
+[ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="1_1uc4k"]
+[ext_resource type="Script" path="res://resources/card_behavior/climate_card_behavior.gd" id="2_nhvgy"]
+[ext_resource type="Texture2D" uid="uid://cb17wcq1xjgro" path="res://assets/card/front/climate/meteorite.png" id="3_6ymwu"]
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="4_4n1xm"]
+
+[resource]
+script = ExtResource("4_4n1xm")
+effect = "heat_bonus"
+value = 2
+duration = 2
+player_affected = 0
+name = "Meteor Shower"
+front = ExtResource("3_6ymwu")
+back = ExtResource("1_1uc4k")
+description = "Increases 🔥 effects by 1 for 2 round."
+card_script = ExtResource("2_nhvgy")

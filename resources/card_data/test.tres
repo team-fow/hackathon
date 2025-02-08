@@ -13,8 +13,8 @@ func play(game: Node) -> void:
 
 [resource]
 script = ExtResource("2_uq4hf")
-name = "Test"
+name = "Card"
 front = ExtResource("1_g0t5e")
 back = ExtResource("1_g0t5e")
-description = "This is a Test Card"
+description = "Description"
 card_script = SubResource("GDScript_8mhpf")

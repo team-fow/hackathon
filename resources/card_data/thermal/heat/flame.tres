@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://db1byjgt1u7gi"]
+
+[ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="1_lh64p"]
+[ext_resource type="Script" path="res://resources/card_behavior/flame.gd" id="2_6sin2"]
+[ext_resource type="Texture2D" uid="uid://yabwkd5btx7u" path="res://assets/card/front/thermal/flame.png" id="3_bcdce"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_ykndc"]
+
+[resource]
+script = ExtResource("4_ykndc")
+name = "Flame"
+front = ExtResource("3_bcdce")
+back = ExtResource("1_lh64p")
+description = "2 🔥 to both players."
+card_script = ExtResource("2_6sin2")

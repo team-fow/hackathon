@@ -8,4 +8,4 @@ func play(game: Node) -> void:
 		var card = load("res://scenes/card/card.tscn")
 		card.card_resource = dud
 		card = card.instantiate()
-		game.get_opponent(card.player).hand.add_card(card) 
+		game.get_opponent(card.player).deck.add_card(card) 

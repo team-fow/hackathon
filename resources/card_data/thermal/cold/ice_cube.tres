@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://1kvdp1n5ngn5"]
+
+[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_benhf"]
+[ext_resource type="Script" path="res://resources/card_behavior/ice_cube.gd" id="2_45dki"]
+[ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/front/thermal/ice_cube.png" id="3_c5dbk"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_we0yi"]
+
+[resource]
+script = ExtResource("4_we0yi")
+name = "Ice Cube"
+front = ExtResource("3_c5dbk")
+back = ExtResource("1_benhf")
+description = "1 ❄️ to both players."
+card_script = ExtResource("2_45dki")
