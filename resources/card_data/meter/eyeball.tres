@@ -2,17 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://btyoku1mjjl5f" path="res://assets/card/back/meter.png" id="1_e0ndw"]
 [ext_resource type="Texture2D" uid="uid://bm7d7wo54hquc" path="res://assets/card/front/meter/eyeball.png" id="1_kba4m"]
+[ext_resource type="Script" path="res://resources/card_behavior/eyeball.gd" id="2_tu57o"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="3_wwkjk"]
-
-[sub_resource type="GDScript" id="GDScript_86jiy"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node):
-	super(game)
-	var card_back = card.background
-	
-"
 
 [resource]
 script = ExtResource("3_wwkjk")
@@ -20,4 +11,4 @@ name = "Eyeball It"
 front = ExtResource("1_kba4m")
 back = ExtResource("1_e0ndw")
 description = "Tells you whether you're hot or cold."
-card_script = SubResource("GDScript_86jiy")
+card_script = ExtResource("2_tu57o")

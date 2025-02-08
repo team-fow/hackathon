@@ -1,17 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://1yf6hsgxxcda"]
 
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_5h864"]
-
-[sub_resource type="GDScript" id="GDScript_yid54"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	game.get_opponent(card.player).discard(1)
-"
+[ext_resource type="Script" path="res://resources/card_behavior/discard.gd" id="1_o80ow"]
 
 [resource]
 script = ExtResource("1_5h864")
 name = "Discard"
 description = "Force your opponent to discard a card."
-card_script = SubResource("GDScript_yid54")
+card_script = ExtResource("1_o80ow")

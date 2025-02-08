@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=20 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -19,22 +19,13 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
 
 [sub_resource type="Gradient" id="Gradient_gweuy"]
-offsets = PackedFloat32Array(0, 0.996753)
 colors = PackedColorArray(0, 0, 0, 0.376471, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3i4ma"]
 gradient = SubResource("Gradient_gweuy")
 width = 600
 height = 300
-fill = 1
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nflkr"]
-gradient = SubResource("Gradient_gweuy")
-width = 600
-height = 300
-fill = 1
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t6she"]
@@ -67,19 +58,11 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2nvf1")
 
-[node name="TopLeft" type="TextureRect" parent="UI/Shadows"]
+[node name="Top" type="TextureRect" parent="UI/Shadows"]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_3i4ma")
-
-[node name="TopRight" type="TextureRect" parent="UI/Shadows"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-mouse_filter = 2
-texture = SubResource("GradientTexture2D_nflkr")
 
 [node name="BottomRight" type="TextureRect" parent="UI/Shadows"]
 layout_mode = 2

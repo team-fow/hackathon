@@ -2,17 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://btyoku1mjjl5f" path="res://assets/card/back/meter.png" id="1_itgt1"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_uvbrk"]
+[ext_resource type="Script" path="res://resources/card_behavior/crystal_ball.gd" id="2_04u1y"]
 [ext_resource type="Texture2D" uid="uid://cuel47m3pnlg0" path="res://assets/card/front/meter/crystal_ball.png" id="2_d2067"]
-
-[sub_resource type="GDScript" id="GDScript_86jiy"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node):
-	super(game)
-	var card_back = card.background
-	
-"
 
 [resource]
 script = ExtResource("1_uvbrk")
@@ -20,4 +11,4 @@ name = "Oracle"
 front = ExtResource("2_d2067")
 back = ExtResource("1_itgt1")
 description = "Tells you your temperature relative to your opponent's."
-card_script = SubResource("GDScript_86jiy")
+card_script = ExtResource("2_04u1y")

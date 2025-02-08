@@ -3,16 +3,7 @@
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_fkyds"]
 [ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="1_o5sp8"]
 [ext_resource type="Texture2D" uid="uid://yabwkd5btx7u" path="res://assets/card/front/thermal/flame.png" id="2_87o1v"]
-
-[sub_resource type="GDScript" id="GDScript_vkvsv"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	super(game)
-	# add_damage(card.player, 2)
-	# add_damage(game.get_opponent(card.player), 2)
-"
+[ext_resource type="Script" path="res://resources/card_behavior/flame.gd" id="2_evw0g"]
 
 [resource]
 script = ExtResource("1_fkyds")
@@ -20,4 +11,4 @@ name = "Flame"
 front = ExtResource("2_87o1v")
 back = ExtResource("1_o5sp8")
 description = "Increases you and your opponent's temperature by 2."
-card_script = SubResource("GDScript_vkvsv")
+card_script = ExtResource("2_evw0g")

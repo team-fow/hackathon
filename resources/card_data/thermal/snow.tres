@@ -3,15 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_bkbgk"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_veoq8"]
 [ext_resource type="Texture2D" uid="uid://bgpjgjmqig3uf" path="res://assets/card/front/thermal/snow.png" id="2_5aa47"]
-
-[sub_resource type="GDScript" id="GDScript_hwsig"]
-script/source = "extends CardBehavior
-
-
-func play(game : Node) -> void:
-	game.get_opponent(card.player).temperature -= 2
-	card.player.temperature -= 2
-"
+[ext_resource type="Script" path="res://resources/card_behavior/snow.gd" id="2_o7nij"]
 
 [resource]
 script = ExtResource("1_veoq8")
@@ -19,4 +11,4 @@ name = "Snow"
 front = ExtResource("2_5aa47")
 back = ExtResource("1_bkbgk")
 description = "Decrease you and your opponent's temperature by 2."
-card_script = SubResource("GDScript_hwsig")
+card_script = ExtResource("2_o7nij")

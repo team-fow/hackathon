@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_51ywa"]
 [ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="2_mgrr6"]
-[ext_resource type="FontVariation" path="res://assets/ui/schoolbell_bold.tres" id="3_axucj"]
+[ext_resource type="FontVariation" uid="uid://ddrjae0a7mson" path="res://assets/ui/schoolbell_bold.tres" id="3_axucj"]
 
 [node name="Card" type="Control"]
 layout_mode = 3

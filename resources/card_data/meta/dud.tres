@@ -1,16 +1,9 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://2wysvlp17bvv"]
 
 [ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="1_dw1ao"]
+[ext_resource type="Script" path="res://resources/card_behavior/dud.gd" id="2_5ubsf"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_hrro3"]
 [ext_resource type="Texture2D" uid="uid://ck1wpm4yjkmto" path="res://assets/card/front/meta/dud.png" id="2_isxlt"]
-
-[sub_resource type="GDScript" id="GDScript_yid54"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	pass
-"
 
 [resource]
 script = ExtResource("2_hrro3")
@@ -18,4 +11,4 @@ name = "Dud"
 front = ExtResource("2_isxlt")
 back = ExtResource("1_dw1ao")
 description = "Useless."
-card_script = SubResource("GDScript_yid54")
+card_script = ExtResource("2_5ubsf")

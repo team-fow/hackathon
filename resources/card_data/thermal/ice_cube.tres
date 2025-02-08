@@ -3,14 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_7eceg"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_53tqc"]
 [ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/front/thermal/ice_cube.png" id="2_8hcjl"]
-
-[sub_resource type="GDScript" id="GDScript_ictys"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	add_damage(game.get_opponent(card.player), -2)
-"
+[ext_resource type="Script" path="res://resources/card_behavior/ice_cube.gd" id="2_frh3x"]
 
 [resource]
 script = ExtResource("1_53tqc")
@@ -18,4 +11,4 @@ name = "Ice Cube"
 front = ExtResource("2_8hcjl")
 back = ExtResource("1_7eceg")
 description = "Decrease your opponent's temperature by 2."
-card_script = SubResource("GDScript_ictys")
+card_script = ExtResource("2_frh3x")

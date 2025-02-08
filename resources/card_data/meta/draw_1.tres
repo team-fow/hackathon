@@ -3,14 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_alt41"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_n7hpp"]
 [ext_resource type="Texture2D" uid="uid://3rkkapqn4f6i" path="res://assets/card/front/meta/draw_1.png" id="2_rqxo8"]
-
-[sub_resource type="GDScript" id="GDScript_y0ngj"]
-script/source = "extends CardBehavior
-
-
-func play(game : Node) -> void:
-	card.player.draw(1)
-"
+[ext_resource type="Script" path="res://resources/card_behavior/draw_1.gd" id="2_s2k33"]
 
 [resource]
 script = ExtResource("1_n7hpp")
@@ -18,4 +11,4 @@ name = "Draw 2"
 front = ExtResource("2_rqxo8")
 back = ExtResource("1_alt41")
 description = "Draw 1 card."
-card_script = SubResource("GDScript_y0ngj")
+card_script = ExtResource("2_s2k33")

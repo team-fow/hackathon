@@ -3,20 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_2ppdl"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_gd6gw"]
 [ext_resource type="Texture2D" uid="uid://qhjc28lnq1xa" path="res://assets/card/front/meta/dud_to_deck.png" id="2_882w8"]
-
-[sub_resource type="GDScript" id="GDScript_82gry"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	super(game)
-	for i: int in 2:
-		var dud = load(\"res://resources/card_data/meta/dud.tres\")
-		var card = load(\"res://scenes/card/card.tscn\")
-		card.card_resource = dud
-		card = card.instantiate()
-		game.get_opponent(card.player).hand.add_card(card) 
-"
+[ext_resource type="Script" path="res://resources/card_behavior/duds_to_deck.gd" id="2_vft1x"]
 
 [resource]
 script = ExtResource("1_gd6gw")
@@ -24,4 +11,4 @@ name = "Doom"
 front = ExtResource("2_882w8")
 back = ExtResource("1_2ppdl")
 description = "Adds 2 dud cards to your opponent's deck."
-card_script = SubResource("GDScript_82gry")
+card_script = ExtResource("2_vft1x")

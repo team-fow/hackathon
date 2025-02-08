@@ -2,21 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_4v1pn"]
 [ext_resource type="Texture2D" uid="uid://7rbl27pcmafu" path="res://assets/card/front/meta/dud_to_hand.png" id="2_3ldp1"]
+[ext_resource type="Script" path="res://resources/card_behavior/duds_to_hand.gd" id="2_jgfif"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="3_s3udb"]
-
-[sub_resource type="GDScript" id="GDScript_82gry"]
-script/source = "extends CardBehavior
-
-
-func play(game: Node) -> void:
-	super(game)
-	for i: int in 2:
-		var dud = load(\"res://resources/card_data/meta/dud.tres\")
-		var card = load(\"res://scenes/card/card.tscn\")
-		card.card_resource = dud
-		card = card.instantiate()
-		game.get_opponent(card.player).hand.add_card(card) 
-"
 
 [resource]
 script = ExtResource("3_s3udb")
@@ -24,4 +11,4 @@ name = "Fish Slap"
 front = ExtResource("2_3ldp1")
 back = ExtResource("1_4v1pn")
 description = "Adds 2 dud cards to your opponent's hand."
-card_script = SubResource("GDScript_82gry")
+card_script = ExtResource("2_jgfif")
