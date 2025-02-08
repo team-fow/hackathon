@@ -32,6 +32,9 @@ layout_mode = 2
 text = "Add card"
 script = ExtResource("1_1bw2p")
 
+[node name="Phase_Label" type="Label" parent="UI/Margins/VBoxContainer"]
+layout_mode = 2
+
 [node name="Player" parent="." instance=ExtResource("2_thlmk")]
 temperature = 10
 
