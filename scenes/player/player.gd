@@ -3,6 +3,7 @@ extends Node2D
 
 signal temperature_changed
 signal died
+signal add_card_to_queue(card: Card)
 
 const MAX_HAND_SIZE: int = 7 ## Maximum number of cards in the hand.
 
@@ -76,7 +77,8 @@ func _send_card_to_played(card: Card) -> void:
 	if card_played.accepting_card:
 		hand.remove_card(card)
 		card_played.add_card(card)
-		await card.play(get_tree().current_scene)
+		await get_tree().create_timer(0.5).timeout
+		add_card_to_queue.emit(card)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
 	else:

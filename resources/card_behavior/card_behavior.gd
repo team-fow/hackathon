@@ -5,12 +5,10 @@ var game: Node
 
 
 func play(game_node: Node) -> void:
-	print("1")
 	game = game_node
 	
 
 func add_damage(player: Player, damage_value: int) -> void:
-	print("2")
 	damage_value *= game.reverse
 	if damage_value < 0:
 		player.temperature -= (damage_value + game.cold_bonus + player.cold_bonus) * game.cold_multiplier * player.cold_multiplier

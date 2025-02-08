@@ -4,7 +4,7 @@ extends Node2D
 signal turn_ended
 signal round_ended
 
-enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
+enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, ACTION}
 
 @export var players: Array[Player]
 @export var initial_deck: Array[CardData]
@@ -13,10 +13,11 @@ var curr_phase : Phase = Phase.AWAIT_PLAYER_1
 var turn_idx: int
 
 var heat_bonus: int
-var heat_multiplier: int
+var heat_multiplier: int = 1
 var cold_bonus: int
-var cold_multiplier: int
-var reverse: int
+var cold_multiplier: int = 1
+var reverse: int = 1
+var card_queue: Array[Card]
 
 @export var active: bool
 
@@ -32,6 +33,7 @@ var reverse: int
 func _ready() -> void:
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
+		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
 		
 		for data: CardData in initial_deck:
 			var card: Card = preload("res://scenes/card/card.tscn").instantiate()
@@ -47,7 +49,8 @@ func cycle() -> void:
 	while active:
 		await _standby()
 		await _turn()
-		if turn_idx % 2: round_ended.emit()
+		if !turn_idx%2:
+			await _resolve_cards()
 
 
 # Called when the player's health reaches an extreme
@@ -84,6 +87,33 @@ func _turn() -> void:
 	
 	await end_turn_button.pressed
 	turn_ended.emit()
+
+
+func _resolve_cards() -> void:
+	for player : Player in players:
+		player.is_active = false
+		player.update_disp()
+	active_player_disp.hide()
+	inactive_player_disp.hide()
+	active_effects_container.hide()
+	
+	for card in card_queue:
+		var pile = card.player.card_played_history
+		var center = card.player.card_played
+		pile.remove_card(card)
+		center.add_card(card)
+		await get_tree().create_timer(0.5).timeout
+		card.play(self)
+		center.remove_card(card)
+		pile.add_card(card)
+
+	card_queue.clear()
+	for player : Player in players:
+		player.card_played_history._order_cards()
+	await end_turn_button.pressed
+	active_player_disp.show()
+	inactive_player_disp.show()
+	active_effects_container.show()
 
 
 # Hides the game state and waits for player input.
