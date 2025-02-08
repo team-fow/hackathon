@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-@export var card_resource: CardData
+@export var card_resource: ClimateCardData
 @onready var effect_name: Label = $EffectName
 @onready var effect_description: Label = $EffectDescription
 

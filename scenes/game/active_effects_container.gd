@@ -1,15 +1,14 @@
 extends VBoxContainer
 
-func add_effect(res: CardData):
-	var display = load("res://scenes/game/active_effect.tscn")
+
+func add_effect(res: ClimateCardData):
+	var display = load("res://scenes/game/active_effect.tscn").instantiate()
 	display.card_resource = res
-	add_child(display.instantiate())
+	add_child(display)
 	
 
-func remove_effect(res: CardData) -> bool:
-	var children = get_children()
-	for child in children:
-		if child.card_resource == res:
-			child.queue_free()
-			return true
-	return false
+func load_effects(effects: Array[ClimateCardData]) -> void:
+	for child in get_children():
+		child.queue_free()
+	for eff in effects:
+		add_effect(eff)

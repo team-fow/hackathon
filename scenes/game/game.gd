@@ -25,6 +25,7 @@ var reverse: int
 @export var active_player_disp: TextureRect
 @export var inactive_player_disp: TextureRect
 @export var end_turn_button: TextureButton
+@onready var active_effects_container: VBoxContainer = $UI/Margins/EffectsScroll/ActiveEffectsContainer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -68,6 +69,10 @@ func _turn() -> void:
 	players.reverse()
 	active_player_disp.show_info(players[0])
 	inactive_player_disp.show_info(players[1])
+	
+	var active_effects = players[0].active_effects
+	active_effects_container.load_effects(active_effects)
+	
 	players[0].is_active = true
 	players[0].rotation = 0
 	players[0].update_disp()

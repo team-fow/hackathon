@@ -9,7 +9,12 @@ const MAX_HAND_SIZE: int = 7 ## Maximum number of cards in the hand.
 @export_range(-10, 10) var temperature : int : set = _set_temperature
 @export var is_active: bool
 @export var player_name : String
-var active_effects : Array[CardData]
+
+var active_effects : Array[ClimateCardData]
+var heat_bonus: int
+var heat_multiplier: int
+var cold_bonus: int
+var cold_multiplier: int
 
 @onready var hand: Hand = $Hand
 @onready var deck: Deck = $Deck
