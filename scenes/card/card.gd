@@ -1,4 +1,7 @@
+class_name Card
 extends Control
+
+const SIZE := Vector2(200, 300)
 
 @export var card_resource: Card_Data
 var card_script : Object
@@ -8,7 +11,7 @@ var card_script : Object
 @onready var art: TextureRect = $VBoxContainer/Art
 @onready var description: Label = $VBoxContainer/Description
 
-	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var card = card_resource
@@ -17,7 +20,11 @@ func _ready() -> void:
 	art.texture = card.art
 	description.text = card.description
 	card_script = card.card_script.new()
-	
+
 
 func play():
 	card_script.play()
+
+
+func set_input(value: bool) -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP if value else Control.MOUSE_FILTER_IGNORE
