@@ -11,7 +11,6 @@ enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
 
 var curr_phase : Phase = Phase.AWAIT_PLAYER_1
 var turn_idx: int
-var active_effects : Array[CardData]
 
 var heat_bonus: int
 var heat_multiplier: int

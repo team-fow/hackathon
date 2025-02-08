@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=22 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/game/inactive_player_display.gd" id="8_8sx5v"]
 [ext_resource type="Resource" uid="uid://bjed1l1rr4eyi" path="res://resources/card_data/climate/wind.tres" id="8_fuu2g"]
 [ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/End Turn.png" id="9_mtb6r"]
+[ext_resource type="Script" path="res://scenes/game/active_effects_container.gd" id="15_qadym"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
 
@@ -183,6 +184,18 @@ theme = ExtResource("6_fan8s")
 text = "End Turn"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EffectsScroll" type="ScrollContainer" parent="UI/Margins"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Margins/EffectsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("15_qadym")
 
 [node name="StandbyScreen" type="ColorRect" parent="UI"]
 visible = false

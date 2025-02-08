@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://7g8wn0qyidpx"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://7g8wn0qyidpx"]
 
-[ext_resource type="Texture2D" uid="uid://cpkd8su3h50xu" path="res://assets/card/backgrounds/match.png" id="1_if7w4"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_l8v7r"]
 
 [sub_resource type="GDScript" id="GDScript_p6oja"]
@@ -14,6 +13,5 @@ func play(game : Node) -> void:
 [resource]
 script = ExtResource("1_l8v7r")
 name = "Match"
-background = ExtResource("1_if7w4")
 description = "Increase your opponent's temperature by 1."
 card_script = SubResource("GDScript_p6oja")

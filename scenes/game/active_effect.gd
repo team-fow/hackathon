@@ -1,0 +1,11 @@
+extends HBoxContainer
+
+@export var card_resource: CardData
+@onready var effect_name: Label = $EffectName
+@onready var effect_description: Label = $EffectDescription
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	effect_name.text = card_resource.name
+	effect_description.text = card_resource.description
