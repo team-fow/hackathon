@@ -24,6 +24,10 @@ func _ready() -> void:
 		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 		card.card_resource = load("res://resources/card_data/test.tres")
 		deck.add_card(card)
+	for i in 5:
+		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
+		card.card_resource = load("res://resources/card_data/test.tres")
+		hand.add_card(card)
 
 
 # Checks whether the player's temperature is at an extreme
@@ -51,8 +55,5 @@ func _send_card_to_played(card: Card) -> void:
 
 
 func update_disp():
-	match is_active:
-		true:
-			deck.show()
-		false:
-			deck.hide()
+	deck.visible = is_active
+	hand.flipped = !is_active

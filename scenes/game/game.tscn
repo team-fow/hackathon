@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dvxmgqf4qb4r0" path="res://scenes/ui/ui.tscn" id="2_k4g7f"]
 [ext_resource type="PackedScene" uid="uid://dqlbtioqk3m5q" path="res://scenes/player/player.tscn" id="2_thlmk"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("players")]
 script = ExtResource("1_yqxqw")
+players = [NodePath("Player1"), NodePath("Player2")]
 
 [node name="UI" parent="." instance=ExtResource("2_k4g7f")]
 
