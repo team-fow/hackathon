@@ -44,6 +44,7 @@ func check_temperature() -> bool:
 # Moves the card in the played zone back to the player's hand
 func _send_card_to_hand(card: Card) -> void:
 	hand.add_card(card)
+	card.player = self
 
 
 # Moves a card from the player's hand to their played card zone
@@ -51,7 +52,7 @@ func _send_card_to_played(card: Card) -> void:
 	if card_played.accepting_card:
 		hand.remove_card(card)
 		card_played.add_card(card)
-		await get_tree().create_timer(1.0).timeout
+		await card.play(get_tree().current_scene)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
 	else:

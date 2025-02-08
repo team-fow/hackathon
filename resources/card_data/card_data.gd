@@ -5,4 +5,4 @@ extends Resource
 @export var background : Texture2D
 @export var art : Texture2D
 @export var description : String
-@export var card_script : GDScript
+@export var card_script : GDScript = load("res://resources/card_behavior/card_behavior.gd")

@@ -11,6 +11,7 @@ var curr_phase : Phase = Phase.AWAIT_PLAYER_1
 
 @onready var phase_label: Label = $UI/Margins/VBoxContainer/Phase_Label
 @onready var standby_screen: ColorRect = $UI/StandbyScreen
+@onready var test_label: Label = $UI/Test
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +33,10 @@ func cycle() -> void:
 # Called when the player's health reaches an extreme
 func _on_player_died(player: Player):
 	active = false
+
+
+func get_opponent(player: Player) -> Player:
+	return players[(players.find(player) + 1) % players.size()]
 
 
 
@@ -59,4 +64,7 @@ func _standby() -> void:
 			break
 	
 	standby_screen.hide()
-	
+
+
+func _process(delta: float) -> void:
+	test_label.text = "Player 1 temperature: %s\nPlayer 2 temperature: %s" % [players[0].temperature, players[1].temperature]

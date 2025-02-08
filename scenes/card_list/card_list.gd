@@ -16,6 +16,7 @@ func add_card(card: Card, idx: int = -1) -> void:
 		card.reparent(self)
 	else:
 		add_child(card)
+	
 	move_child(card, idx)
 	_add_card_to_list(card, idx)
 
@@ -23,7 +24,6 @@ func add_card(card: Card, idx: int = -1) -> void:
 ## Removes a card.
 func remove_card(card: Card) -> void:
 	_remove_card_from_list(card)
-	#remove_child(card)
 
 
 # Adds a card to cards at index idx. Does not add it as a child.

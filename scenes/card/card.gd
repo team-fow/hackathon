@@ -5,7 +5,8 @@ const SIZE := Vector2(200, 300)
 
 @export var card_resource: CardData
 
-var card_script : Object
+var card_script: CardBehavior
+var player: Player
 
 @onready var background: TextureRect = $Background
 @onready var info: VBoxContainer = $VBoxContainer
@@ -22,11 +23,12 @@ func _ready() -> void:
 	art.texture = card.art
 	description.text = card.description
 	card_script = card.card_script.new()
+	card_script.card = self
 	modulate = Color(randf(), randf(), randf()) # temp
 
 
 func play(game: Node):
-	card_script.play(game)
+	await card_script.play(game)
 
 
 func set_input(value: bool) -> void:
