@@ -8,15 +8,12 @@ var curr_phase : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-<<<<<<< Updated upstream
 	player.died.connect(_on_player_died)
-=======
 	curr_phase = AWAIT_PLAYER_1
 	player.died.connect(_on_player_died)
 	while true:
 		await get_tree().create_timer(1).timeout
 		next_phase()
->>>>>>> Stashed changes
 
 
 # Called when the player's health reaches an extreme
