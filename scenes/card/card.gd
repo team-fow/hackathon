@@ -8,9 +8,10 @@ const SIZE := Vector2(200, 300)
 var card_script : Object
 
 @onready var background: TextureRect = $Background
-@onready var cardname: Label = $VBoxContainer/CardName
-@onready var art: TextureRect = $VBoxContainer/Art
-@onready var description: Label = $VBoxContainer/Description
+@onready var info: VBoxContainer = $Info
+@onready var cardname: Label = $Info/CardName
+@onready var art: TextureRect = $Info/Art
+@onready var description: Label = $Info/Description
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,3 +31,8 @@ func play():
 
 func set_input(value: bool) -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP if value else Control.MOUSE_FILTER_IGNORE
+
+
+func set_flipped(value: bool) -> void:
+	info.visible = not value
+	set_input(not value)

@@ -8,7 +8,7 @@ const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currentl
 const PLAYED_CARD_POSITION := Vector2(0, -400) ## Position played cards are moved to.
 const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
 
-@export var flipped: bool ## Whether cards are face-up and can be interacted with.
+@export var flipped: bool : set = _set_flipped ## Whether cards are face-up and can be interacted with.
 
 var held_card: Card ## The card currently being dragged out of the hand.
 var held_card_idx: int ## The previous index of [member held_card] in the list.
@@ -20,7 +20,7 @@ var drop_area := Rect2(0, -Card.SIZE.y/2, 0, Card.SIZE.y + MAX_FAN_OFFSET) ## Th
 
 # Handles grabbing cards.
 func _on_card_input(event: InputEvent, card: Card) -> void:
-	if event.is_action_pressed("click") and not flipped:
+	if event.is_action_pressed("click"):
 		held_card = card
 		held_card_idx = cards.find(held_card)
 		_remove_card_from_list(card)
@@ -46,6 +46,15 @@ func _play_card(card: Card) -> void:
 	await _tween_card(card, PLAYED_CARD_POSITION, 0)
 	await get_tree().create_timer(1).timeout
 	card.queue_free() # temp
+
+
+
+# flipping
+
+func _set_flipped(value: bool) -> void:
+	flipped = value
+	for card: Card in cards:
+		card.set_flipped(value)
 
 
 
@@ -95,6 +104,7 @@ func add_card(card: Card, idx: int = -1) -> void:
 	card.gui_input.connect(_on_card_input.bind(card))
 	card.mouse_entered.connect(_on_card_moused.bind(card, true))
 	card.mouse_exited.connect(_on_card_moused.bind(card, false))
+	card.set_flipped(flipped)
 
 
 func remove_card(card: Card) -> void:
