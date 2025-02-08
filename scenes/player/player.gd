@@ -9,6 +9,7 @@ signal died
 @onready var hand: Hand = $Hand
 @onready var deck: Deck = $Deck
 @onready var card_played: CardPlayed = $CardPlayed
+@onready var card_played_history: CardPlayedHistory = $CardPlayedHistory
 
 
 func _ready() -> void:
@@ -16,6 +17,8 @@ func _ready() -> void:
 	hand.position.y = view_rect.size.y/4.0
 	deck.position.y = view_rect.size.y/4.0
 	deck.position.x = view_rect.size.x/3.0
+	card_played_history.position = deck.position
+	card_played_history.position.x *= -1
 	card_played.position.x = view_rect.size.x/16.0
 	card_played.send_to_hand.connect(_send_card_to_hand)
 	hand.move_card_to_played.connect(_send_card_to_played)
@@ -50,6 +53,10 @@ func _send_card_to_played(card: Card) -> void:
 		card.reparent(card_played, true)
 		card.scale = Vector2.ONE
 		card_played.add_card(card)
+		await get_tree().create_timer(1.0).timeout
+		card_played._tween_card(card, card_played_history.position, 0)
+		card_played.remove_card(card)
+		card_played_history.add_card(card)
 	else:
 		hand._add_card_to_list(card, hand.held_card_idx)
 
