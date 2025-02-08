@@ -32,8 +32,16 @@ func _ready() -> void:
 
 
 func draw(amount: int) -> void:
+	if deck.cards.is_empty():
+		if not card_played_history.cards.is_empty():
+			for played_card: Card in card_played_history.cards:
+				card_played_history.remove_card(played_card)
+				deck.add_card(played_card)
+		else:
+			return
+	
 	for i: int in amount:
-		var card: Card = deck.cards[-1]
+		var card: Card = deck.cards.back()
 		deck.remove_card(card)
 		_send_card_to_hand(card)
 
