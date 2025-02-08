@@ -10,7 +10,6 @@ var curr_phase : int
 func _ready() -> void:
 	player.died.connect(_on_player_died)
 	curr_phase = AWAIT_PLAYER_1
-	player.died.connect(_on_player_died)
 	while true:
 		await get_tree().create_timer(1).timeout
 		next_phase()
@@ -27,4 +26,4 @@ func next_phase() -> int:
 	if curr_phase > PLAYER_2:
 		curr_phase = 0
 	phase_label.text = "Current Phase: " + str(curr_phase)
-	return curr_phase		
+	return curr_phase

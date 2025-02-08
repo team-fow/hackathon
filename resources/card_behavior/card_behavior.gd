@@ -1,5 +1,5 @@
 class_name CardBehavior
 
 
-func act():
+func play():
 	pass

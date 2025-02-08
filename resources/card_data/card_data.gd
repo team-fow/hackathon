@@ -1,4 +1,4 @@
-class_name Card_Data
+class_name CardData
 extends Resource
 
 @export var background : Texture2D

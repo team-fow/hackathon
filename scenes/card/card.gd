@@ -3,7 +3,8 @@ extends Control
 
 const SIZE := Vector2(200, 300)
 
-@export var card_resource: Card_Data
+@export var card_resource: CardData
+
 var card_script : Object
 
 @onready var background: TextureRect = $Background
@@ -20,6 +21,7 @@ func _ready() -> void:
 	art.texture = card.art
 	description.text = card.description
 	card_script = card.card_script.new()
+	modulate = Color(randf(), randf(), randf()) # temp
 
 
 func play():

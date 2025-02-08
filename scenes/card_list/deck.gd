@@ -1,7 +1,7 @@
 class_name Deck
 extends CardList
 
-const CARD_SEPARATION: float = 4
+const CARD_SEPARATION: float = 4 ## Vertical spacing between cards.
 
 
 

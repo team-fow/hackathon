@@ -3,7 +3,7 @@ extends Node2D
 
 signal died
 
-@export var temperature : int
+@export_range(-10, 10) var temperature : int
 
 @onready var hand: Hand = $Hand
 
