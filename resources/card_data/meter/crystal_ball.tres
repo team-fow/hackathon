@@ -12,3 +12,4 @@ front = ExtResource("2_d2067")
 back = ExtResource("1_itgt1")
 description = "Tells you your relative temperature."
 card_script = ExtResource("2_04u1y")
+element = 0
