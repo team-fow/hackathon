@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqlbtioqk3m5q"]
+[gd_scene load_steps=18 format=3 uid="uid://dqlbtioqk3m5q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g6b4q"]
 [ext_resource type="Script" path="res://scenes/card_list/hand.gd" id="2_jjdp4"]
 [ext_resource type="Script" path="res://scenes/card_list/deck.gd" id="3_5fsjs"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played.gd" id="4_kj1xb"]
+[ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="4_vi6xc"]
 [ext_resource type="Texture2D" uid="uid://d2j15iqklklxc" path="res://assets/fire_particles.png" id="5_7uoy0"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played_history.gd" id="5_iuisj"]
 [ext_resource type="Texture2D" uid="uid://bm2hf34illh4j" path="res://assets/cold_particles.png" id="6_miuve"]
@@ -84,6 +85,8 @@ offset_right = 50.0
 offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_vi6xc")
+theme_override_font_sizes/font_size = 24
 text = "Deck"
 horizontal_alignment = 1
 
@@ -131,5 +134,7 @@ offset_right = 50.0
 offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_vi6xc")
+theme_override_font_sizes/font_size = 24
 text = "Played Cards"
 horizontal_alignment = 1

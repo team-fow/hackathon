@@ -94,6 +94,7 @@ func _turn() -> void:
 	
 	players[0].draw(1)
 	
+	print(1)
 	await end_turn_button.pressed
 	turn_ended.emit()
 
@@ -129,8 +130,10 @@ func _resolve_cards() -> void:
 func _standby() -> void:
 	if standby_screen.modulate != Color(1,1,1,1):
 		standby_screen.fadein()
+	
 	while true:
 		var event: InputEvent = await standby_screen.gui_input
 		if event.is_action_pressed("click"):
 			break
+	
 	standby_screen.fadeout()

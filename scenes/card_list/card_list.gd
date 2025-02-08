@@ -81,5 +81,5 @@ func _set_flipped(value: bool) -> void:
 
 # editor
 
-func _draw() -> void:
-	draw_rect(Rect2(-Card.SIZE/2, Card.SIZE), Color.GRAY, false)
+#func _draw() -> void:
+	#draw_rect(Rect2(-Card.SIZE/2, Card.SIZE), Color.GRAY, false)
