@@ -14,3 +14,4 @@ name = "Spicy Sauce"
 front = ExtResource("2_dlwmj")
 back = ExtResource("1_2t0ij")
 description = "Decreases 🔥 by 2 for 1 rounds."
+element = 1

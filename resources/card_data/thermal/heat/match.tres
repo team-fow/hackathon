@@ -12,3 +12,4 @@ front = ExtResource("3_wnbq6")
 back = ExtResource("1_udklq")
 description = "1 🔥 to both players."
 card_script = ExtResource("2_qmkkc")
+element = 1

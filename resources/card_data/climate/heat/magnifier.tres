@@ -1,18 +1,19 @@
 [gd_resource type="Resource" script_class="ClimateCardData" load_steps=5 format=3 uid="uid://codcsjm3n13wy"]
 
-[ext_resource type="Texture2D" uid="uid://b2p3irb8qkt7e" path="res://assets/card/back/hot_climate.png" id="1_2s7yt"]
-[ext_resource type="Texture2D" uid="uid://uq3ys1mbvbhl" path="res://assets/card/front/climate/magifier.png" id="2_2lu8c"]
-[ext_resource type="Script" path="res://resources/card_behavior/climate_card_behavior.gd" id="2_sonam"]
-[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_owsxm"]
+[ext_resource type="Texture2D" uid="uid://b2p3irb8qkt7e" path="res://assets/card/back/hot_climate.png" id="1_h760c"]
+[ext_resource type="Script" path="res://resources/card_behavior/climate_card_behavior.gd" id="2_xokux"]
+[ext_resource type="Texture2D" uid="uid://uq3ys1mbvbhl" path="res://assets/card/front/climate/magifier.png" id="3_5gs0n"]
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="4_0ouxn"]
 
 [resource]
-script = ExtResource("3_owsxm")
+script = ExtResource("4_0ouxn")
 effect = "heat_bonus"
 value = 1
 duration = 1
 player_affected = 0
 name = "Magnifier"
-front = ExtResource("2_2lu8c")
-back = ExtResource("1_2s7yt")
+front = ExtResource("3_5gs0n")
+back = ExtResource("1_h760c")
 description = "Increases 🔥 effects by 1 for 1 round."
-card_script = ExtResource("2_sonam")
+card_script = ExtResource("2_xokux")
+element = 1

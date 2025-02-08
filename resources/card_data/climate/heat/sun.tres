@@ -14,3 +14,4 @@ name = "Fury"
 front = ExtResource("2_heldl")
 back = ExtResource("1_dqa8d")
 description = "Doubles 🔥 for 2 rounds."
+element = 1
