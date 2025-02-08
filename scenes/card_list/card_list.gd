@@ -1,8 +1,11 @@
+@tool
 class_name CardList
 extends Node2D
 ## A list of [Card] nodes.
 
 const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
+
+@export var flipped: bool : set = _set_flipped ## Whether cards are face-up and can be interacted with.
 
 var cards: Array[Card] ## All cards stored in this list.
 
@@ -56,3 +59,16 @@ func _tween_card(card: Card, pos: Vector2, rot: float) -> void:
 	tween.tween_property(card, "position", pos, TWEEN_DURATION)
 	tween.tween_property(card, "rotation", rot, TWEEN_DURATION)
 	await tween.finished
+
+
+func _set_flipped(value: bool) -> void:
+	flipped = value
+	for card: Card in cards:
+		card.set_flipped(value)
+
+
+
+# editor
+
+func _draw() -> void:
+	draw_rect(Rect2(-Card.SIZE/2, Card.SIZE), Color.GRAY, false)

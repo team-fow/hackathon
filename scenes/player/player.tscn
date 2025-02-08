@@ -10,13 +10,49 @@
 script = ExtResource("1_g6b4q")
 
 [node name="Hand" type="Node2D" parent="."]
+position = Vector2(0, 400)
 script = ExtResource("2_jjdp4")
 
 [node name="Deck" type="Node2D" parent="."]
+position = Vector2(-800, 300)
 script = ExtResource("3_5fsjs")
+flipped = null
+
+[node name="Label" type="Label" parent="Deck"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 160.0
+offset_right = 50.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Deck"
+horizontal_alignment = 1
 
 [node name="CardPlayed" type="Node2D" parent="."]
 script = ExtResource("4_kj1xb")
+flipped = null
 
 [node name="CardPlayedHistory" type="Node2D" parent="."]
+position = Vector2(400, 50)
 script = ExtResource("5_iuisj")
+flipped = null
+
+[node name="Label" type="Label" parent="CardPlayedHistory"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 160.0
+offset_right = 50.0
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Played Cards"
+horizontal_alignment = 1

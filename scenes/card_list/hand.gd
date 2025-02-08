@@ -1,3 +1,4 @@
+@tool
 class_name Hand
 extends CardList
 
@@ -8,18 +9,9 @@ const MAX_FAN_ROTATION: float = PI / 8 ## Maximum rotation for fanning.
 const MAX_FAN_OFFSET: float = Card.SIZE.y / 4 ## Maximum vertical offset for fanning.
 const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currently hovered card.
 
-@export var flipped: bool : set = _set_flipped ## Whether cards are face-up and can be interacted with.
 var held_card: Card ## The card currently being dragged out of the hand.
 var held_card_idx: int ## The previous index of [member held_card] in the list.
 var drop_area := Rect2(0, -Card.SIZE.y/2, 0, Card.SIZE.y + MAX_FAN_OFFSET) ## The area in which [member held_card] can be dropped without playing it.
-
-
-# flipping
-
-func _set_flipped(value: bool) -> void:
-	flipped = value
-	for card: Card in cards:
-		card.set_flipped(value)
 
 
 # grabbing cards

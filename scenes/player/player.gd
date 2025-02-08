@@ -1,9 +1,10 @@
 class_name Player
 extends Node2D
 
+signal temperature_changed
 signal died
 
-@export_range(-10, 10) var temperature : int
+@export_range(-10, 10) var temperature : int : set = _set_temperature
 @export var is_active: bool
 
 @onready var hand: Hand = $Hand
@@ -14,23 +15,26 @@ signal died
 
 func _ready() -> void:
 	var view_rect = get_viewport_rect()
-	hand.position.y = view_rect.size.y/4.0
-	deck.position.y = view_rect.size.y/4.0
-	deck.position.x = view_rect.size.x/3.0
-	card_played_history.position = deck.position
-	card_played_history.position.x *= -1
-	card_played.position.x = view_rect.size.x/16.0
 	card_played.send_to_hand.connect(_send_card_to_hand)
 	hand.move_card_to_played.connect(_send_card_to_played)
 	update_disp()
+	
 	for i in 5:
 		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 		card.card_resource = load("res://resources/card_data/test.tres")
 		deck.add_card(card)
+	
 	for i in 5:
 		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 		card.card_resource = load("res://resources/card_data/test.tres")
 		hand.add_card.call_deferred(card)
+
+
+func draw(amount: int) -> void:
+	for i: int in amount:
+		var card: Card = deck.cards[-1]
+		deck.remove_card(card)
+		_send_card_to_hand(card)
 
 
 # Checks whether the player's temperature is at an extreme
@@ -39,6 +43,11 @@ func check_temperature() -> bool:
 		died.emit()
 		return true
 	return false
+
+
+func _set_temperature(value: int) -> void:
+	temperature = value
+	temperature_changed.emit(value)
 
 
 # Moves the card in the played zone back to the player's hand
@@ -60,6 +69,6 @@ func _send_card_to_played(card: Card) -> void:
 
 
 func update_disp():
-	deck.visible = is_active
+	deck.flipped = !is_active
 	hand.flipped = !is_active
 	card_played_history.flipped = !is_active
