@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card_Data" load_steps=4 format=3 uid="uid://rwvb6uqo7wmh"]
+
+[ext_resource type="Script" path="res://Card/card_behavior.gd" id="1_l7pvk"]
+[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_syp1x"]
+[ext_resource type="Script" path="res://Card/card_data.gd" id="2_uq4hf"]
+
+[resource]
+script = ExtResource("2_uq4hf")
+background = ExtResource("1_syp1x")
+name = "Test"
+art = ExtResource("1_syp1x")
+description = "This is a Test Card"
+card_script = ExtResource("1_l7pvk")
