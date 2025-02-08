@@ -27,10 +27,15 @@ var card_queue: Array[Card]
 @export var inactive_player_disp: TextureRect
 @export var end_turn_button: TextureButton
 @onready var active_effects_container: VBoxContainer = $UI/Margins/EffectsScroll/ActiveEffectsContainer
+@onready var begin_game: Button = $UI/TitleScreen/BeginGame
+@onready var title_screen: ColorRect = $UI/TitleScreen
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await begin_game.pressed
+	title_screen.hide()
+	active = true
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
 		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
@@ -51,6 +56,7 @@ func cycle() -> void:
 		await _standby()
 		await _turn()
 		if !turn_idx%2:
+			await _standby()
 			await _resolve_cards()
 
 

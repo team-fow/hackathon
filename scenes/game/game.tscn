@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://dtdbu3xucddl4" path="res://resources/card_data/climate/heat/sun.tres" id="9_kn5mi"]
 [ext_resource type="Resource" uid="uid://w2xc2bhqcq7f" path="res://resources/card_data/climate/heat/spicy_sauce.tres" id="9_mf810"]
 [ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
-[ext_resource type="Resource" uid="uid://b01vgic5v27fx" path="res://resources/card_data/climate/reverse.tres" id="11_1i5bd"]
+[ext_resource type="Resource" path="res://resources/card_data/climate/reverse.tres" id="11_1i5bd"]
 [ext_resource type="Resource" uid="uid://1yf6hsgxxcda" path="res://resources/card_data/meta/discard.tres" id="12_i8kge"]
 [ext_resource type="Resource" uid="uid://bj08khb3btj0m" path="res://resources/card_data/meta/draw_1.tres" id="13_8ppeq"]
 [ext_resource type="Resource" uid="uid://cvnt5k5bg1fec" path="res://resources/card_data/meta/draw_2.tres" id="14_7cn3c"]
@@ -60,7 +60,6 @@ position = Vector2(1000, 600)
 script = ExtResource("1_yqxqw")
 players = [NodePath("Player1"), NodePath("Player2")]
 initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_0bl3m"), ExtResource("4_l175b"), ExtResource("5_dvl5v"), ExtResource("8_fuu2g"), ExtResource("5_dqfjo"), ExtResource("8_1o41y"), ExtResource("9_mf810"), ExtResource("9_kn5mi"), ExtResource("11_1i5bd"), ExtResource("12_i8kge"), ExtResource("13_8ppeq"), ExtResource("14_7cn3c"), ExtResource("4_lwy3h"), ExtResource("7_abmaq"), ExtResource("17_oef1q"), ExtResource("6_0hf3h"), ExtResource("19_3hmlb"), ExtResource("6_rb8ak"), ExtResource("21_qxs2p"), ExtResource("8_w82ig"), ExtResource("7_3vj2g"), ExtResource("4_psr8p"), ExtResource("25_r8le7")])
-active = true
 active_player_disp = NodePath("UI/Margins/ActivePlayerDisplay")
 inactive_player_disp = NodePath("UI/Margins/InactivePlayerDisplay")
 end_turn_button = NodePath("UI/Margins/EndTurn")
@@ -206,8 +205,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TitleScreen" type="ColorRect" parent="UI"]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/TitleScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_fan8s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 180
+text = "Video Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BeginGame" type="Button" parent="UI/TitleScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 211.0
+offset_right = -22.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Play"
+
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
 is_active = true
 
 [node name="Player2" parent="." instance=ExtResource("2_thlmk")]
 rotation = 3.14159
+
+[connection signal="pressed" from="UI/TitleScreen/BeginGame" to="." method="_on_begin_game_pressed"]
