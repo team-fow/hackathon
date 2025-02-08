@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bf3qv0aevngfs"]
+
+[node name="ActiveEffect" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EffectName" type="Label" parent="."]
+layout_mode = 2
+
+[node name="EffectDescription" type="Label" parent="."]
+layout_mode = 2
