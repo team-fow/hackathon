@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://7g8wn0qyidpx"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_l8v7r"]
+[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_y7cxa"]
+
+[sub_resource type="GDScript" id="GDScript_p6oja"]
+script/source = "extends CardBehavior
+
+
+func play(game : Node) -> void:
+	game.get_opponent(card.player).temperature += 1
+"
+
+[resource]
+script = ExtResource("1_l8v7r")
+name = "Match"
+background = ExtResource("1_y7cxa")
+art = ExtResource("1_y7cxa")
+description = "Increase your opponent's temperature by 1."
+card_script = SubResource("GDScript_p6oja")
