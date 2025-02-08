@@ -9,11 +9,11 @@ var card_script: CardBehavior
 var player: Player
 var tween: Tween
 
-@onready var background: TextureRect = $Background
-@onready var info: VBoxContainer = $VBoxContainer
-@onready var cardname: Label = $VBoxContainer/CardName
-@onready var art: TextureRect = $VBoxContainer/Art
-@onready var description: Label = $VBoxContainer/Description
+@onready var background: TextureRect = $Panel/Background
+@onready var info: VBoxContainer = $Panel/Margins/VBox
+@onready var cardname: Label = $Panel/Margins/VBox/Name
+@onready var art: TextureRect = $Panel/Margins/VBox/Art
+@onready var description: Label = $Panel/Margins/VBox/Description
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,6 @@ func _ready() -> void:
 	description.text = card.description
 	card_script = card.card_script.new()
 	card_script.card = self
-	modulate = Color(randf(), randf(), randf()) # temp
 
 
 func play(game: Node):

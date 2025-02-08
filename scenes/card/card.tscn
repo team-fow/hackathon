@@ -1,49 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://k7ws2r7woadr"]
+[gd_scene load_steps=3 format=3 uid="uid://k7ws2r7woadr"]
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_51ywa"]
+[ext_resource type="Texture2D" uid="uid://bcyws5g745xvt" path="res://assets/card/backgrounds/sample.png" id="2_oeu5x"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_51ywa")
 
-[node name="Background" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(200, 300)
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 282.903)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -70.0
+offset_right = 100.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_oeu5x")
+expand_mode = 1
+
+[node name="Margins" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margins"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(200, 300)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CardName" type="Label" parent="VBoxContainer"]
+[node name="Name" type="Label" parent="Panel/Margins/VBox"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_type_variation = &"CardLabel"
 horizontal_alignment = 1
 
-[node name="Art" type="TextureRect" parent="VBoxContainer"]
+[node name="Art" type="TextureRect" parent="Panel/Margins/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="Description" type="Label" parent="VBoxContainer"]
+[node name="Description" type="Label" parent="Panel/Margins/VBox"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
+theme_type_variation = &"CardLabel"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true

@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bvgd2wroq4sh7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0q3w"]
+bg_color = Color(0.960784, 0.968627, 0.827451, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[resource]
+default_font_size = 16
+CardLabel/base_type = &"Label"
+CardLabel/colors/font_color = Color(0, 0, 0, 1)
+CardLabel/styles/normal = SubResource("StyleBoxFlat_w0q3w")
