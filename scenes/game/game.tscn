@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=16 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -11,6 +11,36 @@
 [ext_resource type="Script" path="res://scenes/game/inactive_player_display.gd" id="8_8sx5v"]
 [ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/End Turn.png" id="9_mtb6r"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
+
+[sub_resource type="Gradient" id="Gradient_gweuy"]
+offsets = PackedFloat32Array(0, 0.996753)
+colors = PackedColorArray(0, 0, 0, 0.376471, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3i4ma"]
+gradient = SubResource("Gradient_gweuy")
+width = 600
+height = 300
+fill = 1
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nflkr"]
+gradient = SubResource("Gradient_gweuy")
+width = 600
+height = 300
+fill = 1
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6she"]
+gradient = SubResource("Gradient_gweuy")
+width = 600
+height = 300
+fill = 1
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("players", "active_player_disp", "inactive_player_disp", "end_turn_button")]
 position = Vector2(1000, 600)
 script = ExtResource("1_yqxqw")
@@ -22,6 +52,36 @@ inactive_player_disp = NodePath("UI/Margins/InactivePlayerDisplay")
 end_turn_button = NodePath("UI/Margins/EndTurn")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Shadows" type="PanelContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2nvf1")
+
+[node name="TopLeft" type="TextureRect" parent="UI/Shadows"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_3i4ma")
+
+[node name="TopRight" type="TextureRect" parent="UI/Shadows"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_nflkr")
+
+[node name="BottomRight" type="TextureRect" parent="UI/Shadows"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_t6she")
 
 [node name="Margins" type="MarginContainer" parent="UI"]
 anchors_preset = 15
@@ -36,12 +96,12 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="ActivePlayerDisplay" type="TextureRect" parent="UI/Margins" node_paths=PackedStringArray("player")]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("4_xcckx")
-expand_mode = 5
+expand_mode = 3
 script = ExtResource("2_bjjhx")
 player = NodePath("../../../Player1")
 
@@ -58,12 +118,12 @@ text = "Player 1"
 horizontal_alignment = 1
 
 [node name="InactivePlayerDisplay" type="TextureRect" parent="UI/Margins"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = ExtResource("6_s1jiu")
-expand_mode = 5
+expand_mode = 3
 script = ExtResource("8_8sx5v")
 
 [node name="Temperature" type="Label" parent="UI/Margins/InactivePlayerDisplay"]

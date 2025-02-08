@@ -4,6 +4,8 @@ extends Node2D
 signal temperature_changed
 signal died
 
+const MAX_HAND_SIZE: int = 7 ## Maximum number of cards in the hand.
+
 @export_range(-10, 10) var temperature : int : set = _set_temperature
 @export var is_active: bool
 @export var player_name : String
@@ -32,6 +34,7 @@ func _ready() -> void:
 
 
 func draw(amount: int) -> void:
+	# safeproofing if deck is empty
 	if deck.cards.is_empty():
 		if not card_played_history.cards.is_empty():
 			for played_card: Card in card_played_history.cards:
@@ -40,31 +43,30 @@ func draw(amount: int) -> void:
 		else:
 			return
 	
+	# drawing cards
 	for i: int in amount:
 		var card: Card = deck.cards.back()
 		deck.remove_card(card)
 		_send_card_to_hand(card)
+	
+	# discarding extra cards
+	if hand.cards.size() > MAX_HAND_SIZE:
+		discard(hand.cards.size() - MAX_HAND_SIZE)
 
 
-func discard_random(amount: int) -> void:
+func discard(amount: int) -> void:
 	for i: int in amount:
-		var card: Card = hand.cards.pick_random()
+		var card: Card = hand.cards.front()
 		hand.remove_card(card)
-		card.rotation = 0
 		card_played_history.add_card(card)
-
-
-# Checks whether the player's temperature is at an extreme
-func check_temperature() -> bool:
-	if temperature < -10 or temperature > 10:
-		died.emit()
-		return true
-	return false
 
 
 func _set_temperature(value: int) -> void:
 	temperature = value
 	temperature_changed.emit(value)
+	
+	if absi(temperature) > 10:
+		died.emit()
 
 
 # Moves the card in the played zone back to the player's hand
