@@ -8,7 +8,7 @@ script/source = "extends CardBehavior
 
 
 func play(game: Node) -> void:
-	game.get_opponent(card.player).discard_random(1)
+	game.get_opponent(card.player).discard(1)
 "
 
 [resource]

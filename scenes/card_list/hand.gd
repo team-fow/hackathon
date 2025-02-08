@@ -34,7 +34,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_released("click"):
 			if drop_area.has_point(get_local_mouse_position()):
 				_add_card_to_list(held_card, held_card_idx)
-				held_card.z_index = 0
 			else:
 				move_card_to_played.emit(held_card)
 			held_card = null
@@ -71,7 +70,10 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 		card.scale = HOVERED_CARD_SCALE if mouse_inside else Vector2.ONE
 		
 		if mouse_inside: _tween_card(card, card.position, 0)
-		else: _order_cards()
+		else:
+			var half_count: float = (cards.size() - 1) / 2.0
+			var percent: float = (cards.find(card) - half_count) / half_count
+			_tween_card(card, card.position, percent * MAX_FAN_ROTATION)
 	
 
 
