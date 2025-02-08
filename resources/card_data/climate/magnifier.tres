@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://codcsjm3n13wy"]
+
+[ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="1_y7xyq"]
+[ext_resource type="Texture2D" uid="uid://uq3ys1mbvbhl" path="res://assets/card/front/climate/magifier.png" id="2_2lu8c"]
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_owsxm"]
+
+[resource]
+script = ExtResource("3_owsxm")
+effect = "heat_bonus"
+value = 2
+duration = 2
+player_affected = 0
+name = "Magnifying Glass"
+front = ExtResource("2_2lu8c")
+back = ExtResource("1_y7xyq")
+description = "Increases 🔥 effects by 1 for 1 round."

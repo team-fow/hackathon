@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://blv3kmi1plrp6"]
+
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="1_hiaa4"]
+[ext_resource type="Texture2D" uid="uid://b46g5pr6c5vgp" path="res://assets/card/back/cold_climate.png" id="1_qlnkk"]
+[ext_resource type="Texture2D" uid="uid://m0p6q60udfg5" path="res://assets/card/front/climate/cloud.png" id="2_3r4f1"]
+
+[resource]
+script = ExtResource("1_hiaa4")
+effect = "cold_bonus"
+value = 0
+duration = 0
+player_affected = 0
+name = "Fog"
+front = ExtResource("2_3r4f1")
+back = ExtResource("1_qlnkk")
+description = "Increases ❄️ effects by 1 for 2 rounds."

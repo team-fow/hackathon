@@ -17,5 +17,5 @@ script = ExtResource("2_hrro3")
 name = "Dud"
 front = ExtResource("2_isxlt")
 back = ExtResource("1_dw1ao")
-description = "Useless"
+description = "Useless."
 card_script = SubResource("GDScript_yid54")
