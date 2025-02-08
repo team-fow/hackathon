@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c7lil5vq1eh8o"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_uvbrk"]
+
+[sub_resource type="GDScript" id="GDScript_86jiy"]
+script/source = "extends CardBehavior
+
+
+func play(game: Node):
+	super(game)
+	var card_back = card.background
+	
+"
+
+[resource]
+script = ExtResource("1_uvbrk")
+name = "Crystal Ball"
+description = "Displays whether your temperature is warmer or colder than your opponent's."
+card_script = SubResource("GDScript_86jiy")
