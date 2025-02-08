@@ -22,9 +22,9 @@ var reverse: int
 
 @export_group("Nodes")
 @onready var standby_screen: ColorRect = $UI/StandbyScreen
-@export var player_1_label: Label
-@export var player_2_label: Label
-@export var end_turn_button: Button
+@export var active_player_disp: TextureRect
+@export var inactive_player_disp: TextureRect
+@export var end_turn_button: TextureButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -64,6 +64,8 @@ func _turn() -> void:
 	turn_idx += 1
 	
 	players.reverse()
+	active_player_disp.show_info(players[0])
+	inactive_player_disp.show_info(players[1])
 	players[0].is_active = true
 	players[0].rotation = 0
 	players[0].update_disp()
