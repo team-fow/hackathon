@@ -9,4 +9,4 @@ const CARD_SEPARATION: float = 4 ## Vertical spacing between cards.
 
 func _order_cards() -> void:
 	for i: int in cards.size():
-		cards[i].position.y = CARD_SEPARATION * -i
+		cards[i].position = Vector2(0, CARD_SEPARATION * -i)

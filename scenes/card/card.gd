@@ -25,8 +25,8 @@ func _ready() -> void:
 	modulate = Color(randf(), randf(), randf()) # temp
 
 
-func play():
-	card_script.play()
+func play(game: Node):
+	card_script.play(game)
 
 
 func set_input(value: bool) -> void:

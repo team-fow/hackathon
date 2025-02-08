@@ -30,7 +30,7 @@ func _ready() -> void:
 	for i in 5:
 		var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 		card.card_resource = load("res://resources/card_data/test.tres")
-		hand.add_card(card)
+		hand.add_card.call_deferred(card)
 
 
 # Checks whether the player's temperature is at an extreme
@@ -49,12 +49,9 @@ func _send_card_to_hand(card: Card) -> void:
 # Moves a card from the player's hand to their played card zone
 func _send_card_to_played(card: Card) -> void:
 	if card_played.accepting_card:
-		hand._tween_card(card, card_played.position, 0)
-		card.reparent(card_played, true)
-		card.scale = Vector2.ONE
+		hand.remove_card(card)
 		card_played.add_card(card)
 		await get_tree().create_timer(1.0).timeout
-		card_played._tween_card(card, card_played_history.position, 0)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
 	else:

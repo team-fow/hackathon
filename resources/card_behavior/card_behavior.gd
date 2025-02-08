@@ -1,5 +1,5 @@
 class_name CardBehavior
 
 
-func play():
+func play(game: Node):
 	pass

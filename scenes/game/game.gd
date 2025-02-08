@@ -1,3 +1,4 @@
+class_name Game
 extends Node
 
 enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
