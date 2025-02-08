@@ -10,11 +10,10 @@ var cards: Array[Card] ## All cards stored in this list.
 
 ## Adds a card at index [member idx].
 func add_card(card: Card, idx: int = -1) -> void:
+	_add_card_to_list(card, idx)
 	if idx == -1:
-		_add_card_to_list(card, cards.size())
 		add_child(card)
 	else:
-		_add_card_to_list(card, idx)
 		cards[idx - 1].add_sibling(card)
 
 
@@ -26,7 +25,10 @@ func remove_card(card: Card) -> void:
 
 # Adds a card to cards at index idx. Does not add it as a child.
 func _add_card_to_list(card: Card, idx: int) -> void:
-	cards.insert(idx, card)
+	if idx == -1:
+		cards.append(card)
+	else:
+		cards.insert(idx, card)
 	_order_cards()
 
 
