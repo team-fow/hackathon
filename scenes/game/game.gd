@@ -39,6 +39,7 @@ func _ready() -> void:
 			var card: Card = preload("res://scenes/card/card.tscn").instantiate()
 			card.card_resource = data
 			player.deck.add_card(card)
+			player.deck.shuffle()
 		
 		player.draw(5)
 	
