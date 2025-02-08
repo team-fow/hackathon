@@ -27,6 +27,7 @@ func add_card(card: Card, idx: int = -1) -> void:
 ## Removes a card.
 func remove_card(card: Card) -> void:
 	_remove_card_from_list(card)
+	if card.tween: card.tween.kill()
 
 
 # Adds a card to cards at index idx. Does not add it as a child.

@@ -87,7 +87,6 @@ func remove_card(card: Card) -> void:
 	card.gui_input.disconnect(_on_card_input)
 	card.mouse_entered.disconnect(_on_card_moused)
 	card.mouse_exited.disconnect(_on_card_moused)
-	if card.tween: card.tween.kill()
 
 
 func _add_card_to_list(card: Card, idx: int) -> void:
