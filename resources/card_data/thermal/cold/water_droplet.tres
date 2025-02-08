@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("4_m8uxg")
-name = "Water Droplet"
+name = "Spray"
 front = ExtResource("3_7l5gw")
 back = ExtResource("1_kjv83")
 description = "1 ❄️ to your opponent."

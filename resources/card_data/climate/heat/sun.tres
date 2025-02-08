@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://dtdbu3xucddl4"]
 
-[ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="1_0wm18"]
-[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="1_gh7yv"]
-[ext_resource type="Texture2D" uid="uid://cc4cqdml0hesx" path="res://assets/card/front/climate/sun.png" id="2_0t408"]
+[ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="1_dqa8d"]
+[ext_resource type="Texture2D" uid="uid://cc4cqdml0hesx" path="res://assets/card/front/climate/sun.png" id="2_heldl"]
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_ruvbh"]
 
 [resource]
-script = ExtResource("1_gh7yv")
+script = ExtResource("3_ruvbh")
 effect = "heat_multipler"
 value = 2
 duration = 5
 player_affected = 0
-name = "Here Comes the Sun"
-front = ExtResource("2_0t408")
-back = ExtResource("1_0wm18")
+name = "Fury"
+front = ExtResource("2_heldl")
+back = ExtResource("1_dqa8d")
 description = "Doubles 🔥 for 2 rounds."

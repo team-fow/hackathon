@@ -45,6 +45,14 @@ func _remove_card_from_list(card: Card) -> void:
 	_order_cards()
 
 
+## Shuffles the list.
+func shuffle() -> void:
+	cards.shuffle()
+	for i: int in cards.size():
+		move_child(cards[i], i)
+	_order_cards()
+
+
 
 # display
 
