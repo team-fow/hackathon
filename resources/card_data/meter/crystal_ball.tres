@@ -16,8 +16,8 @@ func play(game: Node):
 
 [resource]
 script = ExtResource("1_uvbrk")
-name = "Crystal Ball"
+name = "Oracle"
 front = ExtResource("2_d2067")
 back = ExtResource("1_itgt1")
-description = "Tells you whether your temperature is warmer or colder than your opponent's."
+description = "Tells you your temperature relative to your opponent's."
 card_script = SubResource("GDScript_86jiy")

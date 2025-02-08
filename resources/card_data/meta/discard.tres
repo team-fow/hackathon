@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://1yf6hsgxxcda"]
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://1yf6hsgxxcda"]
 
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_5h864"]
-[ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_btwt8"]
 
 [sub_resource type="GDScript" id="GDScript_yid54"]
 script/source = "extends CardBehavior
@@ -14,7 +13,5 @@ func play(game: Node) -> void:
 [resource]
 script = ExtResource("1_5h864")
 name = "Discard"
-front = ExtResource("1_btwt8")
-back = ExtResource("1_btwt8")
 description = "Force your opponent to discard a card."
 card_script = SubResource("GDScript_yid54")

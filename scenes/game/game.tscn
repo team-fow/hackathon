@@ -1,20 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=21 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_juss8"]
 [ext_resource type="PackedScene" uid="uid://dqlbtioqk3m5q" path="res://scenes/player/player.tscn" id="2_thlmk"]
 [ext_resource type="Resource" uid="uid://c38h230pv1nsi" path="res://resources/card_data/climate/hail.tres" id="3_y728b"]
-[ext_resource type="Resource" uid="uid://db7mjxx45p5mk" path="res://resources/card_data/meta/dud.tres" id="4_lwy3h"]
+[ext_resource type="Resource" uid="uid://2wysvlp17bvv" path="res://resources/card_data/meta/dud.tres" id="4_lwy3h"]
 [ext_resource type="Texture2D" uid="uid://dbjfwg0lhwqpy" path="res://assets/ui/Player's Turn Name.png" id="4_xcckx"]
-[ext_resource type="Resource" uid="uid://7g8wn0qyidpx" path="res://resources/card_data/thermal/match.tres" id="5_qbn0q"]
 [ext_resource type="Theme" uid="uid://bvgd2wroq4sh7" path="res://assets/ui/theme.tres" id="6_fan8s"]
-[ext_resource type="Resource" uid="uid://cet5vyic0fd5m" path="res://resources/card_data/thermal/ice_cube.tres" id="6_rb8ak"]
-[ext_resource type="Texture2D" uid="uid://bqchrgem7ws88" path="res://assets/ui/Opponent's Turn Name.png" id="6_s1jiu"]
-[ext_resource type="Resource" uid="uid://7barblicselj" path="res://resources/card_data/thermal/flame.tres" id="7_3vj2g"]
+[ext_resource type="Resource" uid="uid://1kvdp1n5ngn5" path="res://resources/card_data/thermal/ice_cube.tres" id="6_rb8ak"]
+[ext_resource type="Texture2D" uid="uid://bqchrgem7ws88" path="res://assets/ui/opponent_player_name.png" id="6_s1jiu"]
+[ext_resource type="Resource" uid="uid://db1byjgt1u7gi" path="res://resources/card_data/thermal/flame.tres" id="7_3vj2g"]
 [ext_resource type="Script" path="res://scenes/game/inactive_player_display.gd" id="8_8sx5v"]
 [ext_resource type="Resource" uid="uid://bjed1l1rr4eyi" path="res://resources/card_data/climate/wind.tres" id="8_fuu2g"]
-[ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/End Turn.png" id="9_mtb6r"]
+[ext_resource type="Texture2D" uid="uid://c3atmnodomd3d" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
 [ext_resource type="Script" path="res://scenes/game/active_effects_container.gd" id="15_qadym"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
@@ -51,7 +50,7 @@ metadata/_snap_enabled = true
 position = Vector2(1000, 600)
 script = ExtResource("1_yqxqw")
 players = [NodePath("Player1"), NodePath("Player2")]
-initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_y728b"), ExtResource("4_lwy3h"), ExtResource("5_qbn0q"), ExtResource("6_rb8ak"), ExtResource("4_lwy3h"), ExtResource("7_3vj2g"), ExtResource("8_fuu2g"), ExtResource("3_y728b")])
+initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_y728b"), ExtResource("4_lwy3h"), ExtResource("6_rb8ak"), ExtResource("4_lwy3h"), ExtResource("7_3vj2g"), ExtResource("8_fuu2g"), ExtResource("3_y728b")])
 active = true
 active_player_disp = NodePath("UI/Margins/ActivePlayerDisplay")
 inactive_player_disp = NodePath("UI/Margins/InactivePlayerDisplay")

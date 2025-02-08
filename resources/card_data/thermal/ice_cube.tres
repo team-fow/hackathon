@@ -1,31 +1,21 @@
-<<<<<<< Updated upstream
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cet5vyic0fd5m"]
-=======
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cet5vyic0fd5m"]
->>>>>>> Stashed changes
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://1kvdp1n5ngn5"]
 
-[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_fnyob"]
-[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_jx4e1"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/front/thermal/ice_cube.png" id="2_vq3p5"]
->>>>>>> Stashed changes
+[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_7eceg"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_53tqc"]
+[ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/front/thermal/ice_cube.png" id="2_8hcjl"]
 
-[sub_resource type="GDScript" id="GDScript_ied6d"]
+[sub_resource type="GDScript" id="GDScript_ictys"]
 script/source = "extends CardBehavior
 
 
-func play(game : Node) -> void:
-	game.get_opponent(card.player).temperature -= 2
+func play(game: Node) -> void:
+	pass
 "
 
 [resource]
-script = ExtResource("1_jx4e1")
+script = ExtResource("1_53tqc")
 name = "Ice Cube"
-<<<<<<< Updated upstream
-=======
-front = ExtResource("2_vq3p5")
-back = ExtResource("1_fnyob")
->>>>>>> Stashed changes
-description = "Decrease your opponent's temperature by 2."
-card_script = SubResource("GDScript_ied6d")
+front = ExtResource("2_8hcjl")
+back = ExtResource("1_7eceg")
+description = "Description"
+card_script = SubResource("GDScript_ictys")
