@@ -36,7 +36,6 @@ func draw(amount: int) -> void:
 		var card: Card = deck.cards[-1]
 		deck.remove_card(card)
 		_send_card_to_hand(card)
-		discard_random(1)
 
 
 func discard_random(amount: int) -> void:
