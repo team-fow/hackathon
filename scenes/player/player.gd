@@ -13,9 +13,9 @@ const MAX_HAND_SIZE: int = 7 ## Maximum number of cards in the hand.
 
 var active_effects : Array[ClimateCardData]
 var heat_bonus: int
-var heat_multiplier: int
+var heat_multiplier: int = 1
 var cold_bonus: int
-var cold_multiplier: int
+var cold_multiplier: int = 1
 
 @onready var hand: Hand = $Hand
 @onready var deck: Deck = $Deck
