@@ -6,6 +6,7 @@ signal died
 
 @export_range(-10, 10) var temperature : int : set = _set_temperature
 @export var is_active: bool
+@export var player_name : String
 
 @onready var hand: Hand = $Hand
 @onready var deck: Deck = $Deck

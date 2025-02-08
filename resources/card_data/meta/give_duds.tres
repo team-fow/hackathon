@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://bm6l7vylwtmdx"]
+
+[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_wx8rs"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_51d5h"]
+
+[sub_resource type="GDScript" id="GDScript_82gry"]
+script/source = "extends CardBehavior
+
+
+func play(game: Node) -> void:
+	for i: int in 2:
+		var dud = load(\"res://resources/card_data/meta/dud.tres\")
+"
+
+[resource]
+script = ExtResource("2_51d5h")
+name = "Give Duds"
+background = ExtResource("1_wx8rs")
+art = ExtResource("1_wx8rs")
+description = "Force your opponent to draw two useless dud cards."
+card_script = SubResource("GDScript_82gry")
