@@ -29,13 +29,13 @@ func add_card(card: Card, idx: int = -1) -> void:
 	
 	match card.card_resource.element:
 		CardData.Element.HEAT:
-			cloud_particles.modulate = Color.RED
+			cloud_particles.modulate = Color("#fa3e16bf")
 			heat_particles.restart()
 		CardData.Element.COLD:
-			cloud_particles.modulate = Color.BLUE
+			cloud_particles.modulate = Color("4797d2bf")
 			cold_particles.restart()
 		CardData.Element.NEUTRAL:
-			cloud_particles.modulate = Color.YELLOW
+			cloud_particles.modulate = Color("#ded56bbf")
 	cloud_particles.restart()
 
 
