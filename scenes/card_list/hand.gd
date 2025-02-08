@@ -69,12 +69,12 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 		card.z_index = mouse_inside
 		card.scale = HOVERED_CARD_SCALE if mouse_inside else Vector2.ONE
 		
-		if mouse_inside: _tween_card(card, card.position, 0)
-		else:
+		if mouse_inside:
+			_tween_card(card, card.position, 0)
+		elif cards.size() > 1:
 			var half_count: float = (cards.size() - 1) / 2.0
 			var percent: float = (cards.find(card) - half_count) / half_count
 			_tween_card(card, card.position, percent * MAX_FAN_ROTATION)
-	
 
 
 # modifying list

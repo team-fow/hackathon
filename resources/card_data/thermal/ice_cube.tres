@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://cet5vyic0fd5m"]
 
-[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_csxeg"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_jx4e1"]
+[ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/backgrounds/ice_cube.png" id="1_uhi2r"]
 
 [sub_resource type="GDScript" id="GDScript_ied6d"]
 script/source = "extends CardBehavior
@@ -14,7 +14,6 @@ func play(game : Node) -> void:
 [resource]
 script = ExtResource("1_jx4e1")
 name = "Ice Cube"
-background = ExtResource("1_csxeg")
-art = ExtResource("1_csxeg")
+background = ExtResource("1_uhi2r")
 description = "Decrease your opponent's temperature by 2."
 card_script = SubResource("GDScript_ied6d")

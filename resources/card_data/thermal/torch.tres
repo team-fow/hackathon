@@ -15,6 +15,5 @@ func play(game : Node) -> void:
 script = ExtResource("1_puo13")
 name = "Torch"
 background = ExtResource("1_tvtot")
-art = ExtResource("1_tvtot")
 description = "Increase your opponent's temperature by 2."
 card_script = SubResource("GDScript_y03k5")

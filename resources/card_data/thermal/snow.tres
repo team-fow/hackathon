@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://d35xtl8mq2x2s"]
 
-[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_b71lp"]
+[ext_resource type="Texture2D" uid="uid://bgpjgjmqig3uf" path="res://assets/card/backgrounds/snow.png" id="1_3xwpq"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_veoq8"]
 
 [sub_resource type="GDScript" id="GDScript_hwsig"]
@@ -15,7 +15,6 @@ func play(game : Node) -> void:
 [resource]
 script = ExtResource("1_veoq8")
 name = "Snow"
-background = ExtResource("1_b71lp")
-art = ExtResource("1_b71lp")
+background = ExtResource("1_3xwpq")
 description = "Decrease you and your opponent's temperature by 2."
 card_script = SubResource("GDScript_hwsig")

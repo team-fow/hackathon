@@ -18,7 +18,7 @@ var tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var card = card_resource
-	background.texture = card.background
+	background.texture = card.front
 	cardname.text = card.name
 	description.text = card.description
 	card_script = card.card_script.new()
@@ -35,4 +35,5 @@ func set_input(value: bool) -> void:
 
 func set_flipped(value: bool) -> void:
 	info.visible = not value
+	background.texture = card_resource.back if value else card_resource.front
 	set_input(not value)
