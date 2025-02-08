@@ -10,6 +10,14 @@ players = [NodePath("Player1"), NodePath("Player2")]
 
 [node name="UI" parent="." instance=ExtResource("2_k4g7f")]
 
+[node name="StandbyScreen" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
 is_active = true
 

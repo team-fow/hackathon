@@ -5,7 +5,8 @@ enum Phase {AWAIT_PLAYER_1, PLAYER_1, AWAIT_PLAYER_2, PLAYER_2, MAX}
 @export var players: Array[Player]
 
 var curr_phase : Phase = Phase.AWAIT_PLAYER_1
-var active: bool
+
+@export var active: bool
 
 @onready var phase_label: Label = $UI/Margins/VBoxContainer/Phase_Label
 @onready var standby_screen: ColorRect = $UI/StandbyScreen
@@ -38,10 +39,12 @@ func _on_player_died(player: Player):
 # Rotates and flips player hands
 func _turn() -> void:
 	players.reverse()
-	players[0].flipped = true
+	players[0].is_active = true
 	players[0].rotation = 0
-	players[1].flipped = false
+	players[0].update_disp()
+	players[1].is_active = false
 	players[1].rotation = PI
+	players[1].update_disp()
 	await get_tree().create_timer(2).timeout
 	
 
