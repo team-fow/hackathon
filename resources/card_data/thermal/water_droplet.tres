@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://c53l4pa5n4qyd"]
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://c53l4pa5n4qyd"]
 
-[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_kv1ws"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_ucbaw"]
+[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_x86sj"]
+[ext_resource type="Texture2D" uid="uid://bbbjf6q1lfe62" path="res://assets/card/front/thermal/water_drip.png" id="2_i7t54"]
 
 [sub_resource type="GDScript" id="GDScript_5qiuh"]
 script/source = "extends CardBehavior
@@ -14,7 +15,7 @@ func play(game : Node) -> void:
 [resource]
 script = ExtResource("1_ucbaw")
 name = "Water Droplet"
-background = ExtResource("1_kv1ws")
-art = ExtResource("1_kv1ws")
+front = ExtResource("2_i7t54")
+back = ExtResource("1_x86sj")
 description = "Decrease your opponent's temperature by 1."
 card_script = SubResource("GDScript_5qiuh")

@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://rwvb6uqo7wmh"]
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://rwvb6uqo7wmh"]
 
-[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_syp1x"]
-[ext_resource type="Texture2D" uid="uid://ck1wpm4yjkmto" path="res://assets/card/backgrounds/fish_dud.png" id="2_qvt6j"]
+[ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="1_g0t5e"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="2_uq4hf"]
 
 [sub_resource type="GDScript" id="GDScript_8mhpf"]
@@ -15,7 +14,7 @@ func play(game: Node) -> void:
 [resource]
 script = ExtResource("2_uq4hf")
 name = "Test"
-background = ExtResource("2_qvt6j")
-art = ExtResource("1_syp1x")
+front = ExtResource("1_g0t5e")
+back = ExtResource("1_g0t5e")
 description = "This is a Test Card"
 card_script = SubResource("GDScript_8mhpf")

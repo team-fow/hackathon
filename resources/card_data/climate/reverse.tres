@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://b01vgic5v27fx"]
+
+[ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_1iv2i"]
+[ext_resource type="Texture2D" uid="uid://b55cebqijk6tr" path="res://assets/card/front/meta/reverse.png" id="2_70tdr"]
+[ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_xxe50"]
+
+[resource]
+script = ExtResource("3_xxe50")
+effect = "reverse"
+value = 0
+duration = 4
+name = "Thermal Shock"
+front = ExtResource("2_70tdr")
+back = ExtResource("1_1iv2i")
+description = "Reverses 🔥 and ❄️ for 4 rounds."

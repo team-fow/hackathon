@@ -1,6 +1,14 @@
+<<<<<<< Updated upstream
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://db7mjxx45p5mk"]
 
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_ey8q6"]
+=======
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://db7mjxx45p5mk"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_ey8q6"]
+[ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="1_vpqox"]
+[ext_resource type="Texture2D" uid="uid://ck1wpm4yjkmto" path="res://assets/card/front/meta/dud.png" id="2_ufq8h"]
+>>>>>>> Stashed changes
 
 [sub_resource type="GDScript" id="GDScript_fxx8b"]
 script/source = "extends CardBehavior
@@ -13,5 +21,11 @@ func play(game: Node) -> void:
 [resource]
 script = ExtResource("1_ey8q6")
 name = "Dud"
+<<<<<<< Updated upstream
 description = "An utterly useless card that helps you in no way."
+=======
+front = ExtResource("2_ufq8h")
+back = ExtResource("1_vpqox")
+description = "Useless."
+>>>>>>> Stashed changes
 card_script = SubResource("GDScript_fxx8b")

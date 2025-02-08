@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k7ws2r7woadr"]
 
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_51ywa"]
-[ext_resource type="Texture2D" uid="uid://ck1wpm4yjkmto" path="res://assets/card/backgrounds/fish_dud.png" id="2_mx6jh"]
+[ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="2_mgrr6"]
 [ext_resource type="FontVariation" uid="uid://ddrjae0a7mson" path="res://assets/ui/schoolbell_bold.tres" id="3_axucj"]
 
 [node name="Card" type="Control"]
@@ -29,7 +29,7 @@ mouse_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_mx6jh")
+texture = ExtResource("2_mgrr6")
 expand_mode = 1
 
 [node name="Margins" type="MarginContainer" parent="Panel"]
