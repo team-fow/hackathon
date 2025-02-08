@@ -16,7 +16,6 @@ script = ExtResource("2_jjdp4")
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(-800, 300)
 script = ExtResource("3_5fsjs")
-flipped = null
 
 [node name="Label" type="Label" parent="Deck"]
 anchors_preset = 7
@@ -35,7 +34,6 @@ horizontal_alignment = 1
 
 [node name="CardPlayed" type="Node2D" parent="."]
 script = ExtResource("4_kj1xb")
-flipped = null
 
 [node name="CardPlayedHistory" type="Node2D" parent="."]
 position = Vector2(400, 50)

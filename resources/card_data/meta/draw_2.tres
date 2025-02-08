@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://cvnt5k5bg1fec"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_bi0j5"]
+[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_iue61"]
+
+[sub_resource type="GDScript" id="GDScript_y0ngj"]
+script/source = "extends CardBehavior
+
+
+func play(game : Node) -> void:
+	card.player.draw(2)
+"
+
+[resource]
+script = ExtResource("1_bi0j5")
+name = "Draw 2"
+background = ExtResource("1_iue61")
+art = ExtResource("1_iue61")
+description = "Draw 2 cards."
+card_script = SubResource("GDScript_y0ngj")

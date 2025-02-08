@@ -8,7 +8,7 @@ const TWEEN_DURATION: float = 0.1 ## Duration of tweening effects.
 @export var flipped: bool : set = _set_flipped ## Whether cards are face-up and can be interacted with.
 
 var cards: Array[Card] ## All cards stored in this list.
-
+var tween: Tween
 
 
 # modifying list
@@ -55,10 +55,12 @@ func _order_cards() -> void:
 
 # Smoothly animates positioning and rotating a card.
 func _tween_card(card: Card, pos: Vector2, rot: float) -> void:
-	var tween: Tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
+	tween = get_tree().create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC)
+	card.tween = tween
 	tween.tween_property(card, "position", pos, TWEEN_DURATION)
 	tween.tween_property(card, "rotation", rot, TWEEN_DURATION)
 	await tween.finished
+	card.tween = null
 
 
 func _set_flipped(value: bool) -> void:

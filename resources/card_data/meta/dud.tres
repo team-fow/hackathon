@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3 uid="uid://db7mjxx45p5mk"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_ey8q6"]
+[ext_resource type="Texture2D" uid="uid://bs3siwm5tdbw4" path="res://icon.svg" id="1_vbclo"]
+
+[sub_resource type="GDScript" id="GDScript_fxx8b"]
+script/source = "extends CardBehavior
+
+
+func play(game: Node) -> void:
+	super(game)
+"
+
+[resource]
+script = ExtResource("1_ey8q6")
+name = "Dud"
+background = ExtResource("1_vbclo")
+art = ExtResource("1_vbclo")
+description = "An utterly useless card that helps you in no way."
+card_script = SubResource("GDScript_fxx8b")

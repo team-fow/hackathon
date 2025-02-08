@@ -7,6 +7,7 @@ const SIZE := Vector2(200, 300)
 
 var card_script: CardBehavior
 var player: Player
+var tween: Tween
 
 @onready var background: TextureRect = $Background
 @onready var info: VBoxContainer = $VBoxContainer
