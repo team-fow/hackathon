@@ -5,11 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://cpkd8su3h50xu" path="res://assets/card/front/thermal/match.png" id="2_ahs6t"]
 
 [sub_resource type="GDScript" id="GDScript_b8feh"]
+script/source = "extends CardBehavior
+
+func play(game: Node) -> void:
+	add_damage(game.get_opponent(card.player), 1)
+"
 
 [resource]
 script = ExtResource("1_fm5e1")
 name = "Match"
 front = ExtResource("2_ahs6t")
 back = ExtResource("1_yr7b1")
-description = "Description"
+description = "Increase your opponent's temperature by 1."
 card_script = SubResource("GDScript_b8feh")

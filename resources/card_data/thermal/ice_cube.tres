@@ -9,7 +9,7 @@ script/source = "extends CardBehavior
 
 
 func play(game: Node) -> void:
-	pass
+	add_damage(game.get_opponent(card.player), -2)
 "
 
 [resource]
@@ -17,5 +17,5 @@ script = ExtResource("1_53tqc")
 name = "Ice Cube"
 front = ExtResource("2_8hcjl")
 back = ExtResource("1_7eceg")
-description = "Description"
+description = "Decrease your opponent's temperature by 2."
 card_script = SubResource("GDScript_ictys")
