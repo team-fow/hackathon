@@ -5,13 +5,15 @@ extends CardBehavior
 func play(game: Node) -> void:
 	self.game = game
 	
-	if card.effect == "reverse": game.reverse = card.value
-	else: game[card.effect] += card.value
+	var res: CardData = card.card_resource
 	
-	await wait_rounds(card.duration)
+	if res.effect == "reverse": game.reverse = res.value
+	else: game[res.effect] += res.value
 	
-	if card.effect == "reverse": game.reverse = 0
-	else: game[card.effect] -= card.value
+	await wait_rounds(res.duration)
+	
+	if res.effect == "reverse": game.reverse = 0
+	else: game[res.effect] -= res.value
 
 
 func wait_rounds(rounds: int) -> void:

@@ -14,7 +14,7 @@ position = Vector2(0, 350)
 script = ExtResource("2_jjdp4")
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(-800, 300)
+position = Vector2(650, 50)
 script = ExtResource("3_5fsjs")
 
 [node name="Label" type="Label" parent="Deck"]
@@ -33,10 +33,11 @@ text = "Deck"
 horizontal_alignment = 1
 
 [node name="CardPlayed" type="Node2D" parent="."]
+scale = Vector2(1.25, 1.25)
 script = ExtResource("4_kj1xb")
 
 [node name="CardPlayedHistory" type="Node2D" parent="."]
-position = Vector2(400, 50)
+position = Vector2(300, 0)
 script = ExtResource("5_iuisj")
 
 [node name="Label" type="Label" parent="CardPlayedHistory"]
