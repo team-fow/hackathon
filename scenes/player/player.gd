@@ -47,7 +47,7 @@ func _send_card_to_played(card: Card) -> void:
 		card.scale = Vector2.ONE
 		card_played.add_card(card)
 	else:
-		hand._add_card_to_list(card, -1)
+		hand._add_card_to_list(card, hand.held_card_idx)
 
 
 func update_disp():
