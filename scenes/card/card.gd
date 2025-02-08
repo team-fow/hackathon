@@ -12,7 +12,6 @@ var tween: Tween
 @onready var background: TextureRect = $Panel/Background
 @onready var info: VBoxContainer = $Panel/Margins/VBox
 @onready var cardname: Label = $Panel/Margins/VBox/Name
-@onready var art: TextureRect = $Panel/Margins/VBox/Art
 @onready var description: Label = $Panel/Margins/VBox/Description
 
 
@@ -21,7 +20,6 @@ func _ready() -> void:
 	var card = card_resource
 	background.texture = card.background
 	cardname.text = card.name
-	art.texture = card.art
 	description.text = card.description
 	card_script = card.card_script.new()
 	card_script.card = self

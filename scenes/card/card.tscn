@@ -51,7 +51,7 @@ theme_type_variation = &"CardLabel"
 theme_override_fonts/font = ExtResource("3_axucj")
 horizontal_alignment = 1
 
-[node name="Art" type="TextureRect" parent="Panel/Margins/VBox"]
+[node name="Spacer" type="Control" parent="Panel/Margins/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
