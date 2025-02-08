@@ -1,8 +1,6 @@
 class_name ClimateCardBehavior
 extends CardBehavior
 
-var game: Game
-
 
 func play(game: Node) -> void:
 	self.game = game
