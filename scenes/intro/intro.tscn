@@ -45,12 +45,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 4
+current_tab = 0
 tabs_visible = false
 script = ExtResource("1_23cci")
 
 [node name="Credits" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 100
@@ -276,6 +275,7 @@ but not your own. Stay safe!"
 horizontal_alignment = 1
 
 [node name="Actions" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
