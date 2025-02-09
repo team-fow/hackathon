@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=50 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -36,7 +36,6 @@
 [ext_resource type="Texture2D" uid="uid://dspv21b2xumjv" path="res://assets/ui/active_player_name.png" id="26_y6yuo"]
 [ext_resource type="Texture2D" uid="uid://bigtnk5hms6sm" path="res://assets/play_frame.png" id="27_yy44a"]
 [ext_resource type="Texture2D" uid="uid://5iv2g17pfmnq" path="res://assets/ui/play_frame.png" id="28_8xyb6"]
-[ext_resource type="Texture2D" uid="uid://c11hbo1nx1ub1" path="res://assets/deck.png" id="28_fd1xb"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="31_a4xtm"]
 [ext_resource type="Texture2D" uid="uid://c6nusal4xvfm3" path="res://assets/ui/timer.png" id="31_ws4k2"]
 [ext_resource type="Texture2D" uid="uid://m6ntpjm512ka" path="res://assets/ui/settings.png" id="32_d04lk"]
@@ -153,30 +152,15 @@ scale = Vector2(0.9, 0.9)
 texture = ExtResource("27_yy44a")
 
 [node name="PlayFrame2" type="TextureRect" parent="Background/PlayFrame"]
-visible = false
 layout_mode = 0
 offset_left = -34.4444
 offset_top = -15.5556
 offset_right = 360.556
 offset_bottom = 482.444
+rotation = -0.0174533
+scale = Vector2(0.7, 0.75)
+pivot_offset = Vector2(197.5, 249)
 texture = ExtResource("28_8xyb6")
-
-[node name="Table3" type="TextureRect" parent="Background"]
-offset_left = 1528.0
-offset_top = 476.0
-offset_right = 1853.0
-offset_bottom = 938.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("28_fd1xb")
-
-[node name="Table4" type="TextureRect" parent="Background"]
-offset_left = 231.0
-offset_top = 362.0
-offset_right = 556.0
-offset_bottom = 824.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("28_fd1xb")
-flip_v = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 

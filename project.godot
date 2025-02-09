@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=2000
 window/size/viewport_height=1200
+window/stretch/mode="viewport"
 
 [gui]
 

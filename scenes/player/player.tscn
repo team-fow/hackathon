@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqlbtioqk3m5q"]
+[gd_scene load_steps=19 format=3 uid="uid://dqlbtioqk3m5q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_g6b4q"]
 [ext_resource type="Script" path="res://scenes/card_list/hand.gd" id="2_jjdp4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d2j15iqklklxc" path="res://assets/fire_particles.png" id="5_7uoy0"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played_history.gd" id="5_iuisj"]
 [ext_resource type="Texture2D" uid="uid://bm2hf34illh4j" path="res://assets/cold_particles.png" id="6_miuve"]
+[ext_resource type="Texture2D" uid="uid://c11hbo1nx1ub1" path="res://assets/deck.png" id="9_w3tjj"]
 
 [sub_resource type="Curve" id="Curve_qiwpx"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -70,6 +71,24 @@ script = ExtResource("2_jjdp4")
 position = Vector2(650, 50)
 script = ExtResource("3_5fsjs")
 
+[node name="Background" type="TextureRect" parent="Deck"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -125.0
+offset_right = 75.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_w3tjj")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Label" type="Label" parent="Deck"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -77,13 +96,14 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -50.0
-offset_top = 160.0
+offset_top = 150.0
 offset_right = 50.0
-offset_bottom = 183.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("4_vi6xc")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Deck"
 horizontal_alignment = 1
 
@@ -119,19 +139,38 @@ explosiveness = 0.75
 position = Vector2(300, 0)
 script = ExtResource("5_iuisj")
 
+[node name="Background" type="TextureRect" parent="CardPlayedHistory"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -125.0
+offset_right = 75.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_w3tjj")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Label" type="Label" parent="CardPlayedHistory"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = 160.0
-offset_right = 50.0
-offset_bottom = 183.0
+offset_left = -96.0
+offset_top = 150.0
+offset_right = 96.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("4_vi6xc")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Played Cards"
 horizontal_alignment = 1
