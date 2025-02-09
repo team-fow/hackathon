@@ -62,9 +62,9 @@ var all_cards_played: Array[CardData]
 @export var active_player_disp: TextureRect
 @export var inactive_player_disp: TextureRect
 @export var end_turn_button: TextureButton
-@onready var active_effects_container: VBoxContainer = $UI/Top/VBox2/EffectsScroll/ActiveEffectsContainer
+@export var active_effects_container: VBoxContainer
 @onready var title_screen: ColorRect = $UI/TitleScreen
-@onready var card_queue_box: VBoxContainer = $UI/Top/VBox3/QueueScroll/CardQueue
+@export var card_queue_box: VBoxContainer
 @onready var turn_timer: Timer = $UI/Top/VBox/Timer/Timer
 @onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
 @onready var music: AudioStreamPlayer = $GameMusic
@@ -182,7 +182,7 @@ func _resolve_cards() -> void:
 	players[1].card_played_history.up = 1
 	active_player_disp.hide()
 	inactive_player_disp.hide()
-	card_queue_box.hide()
+	$UI/Top.hide()
 	$UI/PlayedCardLabels.show()
 	
 	music.volume_db = linear_to_db(0.5)
@@ -215,7 +215,7 @@ func _resolve_cards() -> void:
 		player.deck.show()
 	active_player_disp.show()
 	inactive_player_disp.show()
-	card_queue_box.show()
+	$UI/Top.show()
 	$UI/PlayedCardLabels.hide()
 	
 	players.shuffle()

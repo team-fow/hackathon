@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=35 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cq6t0hpmyal8u" path="res://assets/ui/opponent_player_name.png" id="6_s1jiu"]
 [ext_resource type="Script" path="res://scenes/game/inactive_player_display.gd" id="8_8sx5v"]
 [ext_resource type="Texture2D" uid="uid://dptyqf3p1f7s1" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
+[ext_resource type="Texture2D" uid="uid://323cx6piu74q" path="res://assets/ui/dropdown_collapsed.png" id="9_qrowi"]
+[ext_resource type="Script" path="res://scenes/game/dropdown.gd" id="10_lgvig"]
 [ext_resource type="Script" path="res://scenes/game/active_effects_container.gd" id="15_qadym"]
 [ext_resource type="Texture2D" uid="uid://csx31ibcmpwqn" path="res://assets/ui/button_3.png" id="16_ajqk7"]
 [ext_resource type="PackedScene" uid="uid://cjrbdoqkjljdi" path="res://scenes/standby/standby_screen.tscn" id="16_yuwma"]
@@ -58,6 +60,10 @@ metadata/_snap_enabled = true
 content_margin_top = 32.0
 content_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bb2f1"]
+content_margin_left = 60.0
+content_margin_right = 60.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_repam"]
 content_margin_left = 50.0
 content_margin_top = 25.0
@@ -72,13 +78,15 @@ content_margin_right = 50.0
 content_margin_bottom = 25.0
 texture = ExtResource("17_11x85")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("players", "active_player_disp", "inactive_player_disp", "end_turn_button")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("players", "active_player_disp", "inactive_player_disp", "end_turn_button", "active_effects_container", "card_queue_box")]
 position = Vector2(1000, 600)
 script = ExtResource("1_yqxqw")
 players = [NodePath("Player2"), NodePath("Player1")]
 active_player_disp = NodePath("UI/Top/VBox2/ActivePlayerDisplay")
 inactive_player_disp = NodePath("UI/Top/VBox3/InactivePlayerDisplay")
 end_turn_button = NodePath("UI/Bottom/EndTurn")
+active_effects_container = NodePath("UI/Top/VBox2/DropDown/VBoxContainer/EffectsScroll/ActiveEffectsContainer")
+card_queue_box = NodePath("UI/Top/VBox3/DropDown/VBoxContainer/QueueScroll/CardQueue")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -212,24 +220,45 @@ theme_override_fonts/font = ExtResource("31_a4xtm")
 theme_override_font_sizes/font_size = 56
 text = "??"
 
-[node name="EffectName" type="Label" parent="UI/Top/VBox2"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.313726)
-theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("31_a4xtm")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y1pyw")
-text = "climate effects"
-vertical_alignment = 1
-
-[node name="EffectsScroll" type="ScrollContainer" parent="UI/Top/VBox2"]
-custom_minimum_size = Vector2(300, 400)
+[node name="DropDown" type="TextureRect" parent="UI/Top/VBox2"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 0
+texture = ExtResource("9_qrowi")
+expand_mode = 5
+script = ExtResource("10_lgvig")
+open = true
 
-[node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Top/VBox2/EffectsScroll"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top/VBox2/DropDown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EffectName" type="Label" parent="UI/Top/VBox2/DropDown/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.870588, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1pyw")
+text = "climate effects"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectsScroll" type="ScrollContainer" parent="UI/Top/VBox2/DropDown/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bb2f1")
+
+[node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Top/VBox2/DropDown/VBoxContainer/EffectsScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -321,25 +350,45 @@ horizontal_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="CardQueueName" type="Label" parent="UI/Top/VBox3"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.313726)
-theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("31_a4xtm")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y1pyw")
-text = "queued cards"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="QueueScroll" type="ScrollContainer" parent="UI/Top/VBox3"]
-custom_minimum_size = Vector2(300, 400)
+[node name="DropDown" type="TextureRect" parent="UI/Top/VBox3"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 0
+texture = ExtResource("9_qrowi")
+expand_mode = 5
+script = ExtResource("10_lgvig")
+open = true
 
-[node name="CardQueue" type="VBoxContainer" parent="UI/Top/VBox3/QueueScroll"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top/VBox3/DropDown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EffectName" type="Label" parent="UI/Top/VBox3/DropDown/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.870588, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1pyw")
+text = "queued cards"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QueueScroll" type="ScrollContainer" parent="UI/Top/VBox3/DropDown/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bb2f1")
+
+[node name="CardQueue" type="VBoxContainer" parent="UI/Top/VBox3/DropDown/VBoxContainer/QueueScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
