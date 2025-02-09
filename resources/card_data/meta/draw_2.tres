@@ -7,10 +7,10 @@
 
 [resource]
 script = ExtResource("1_bi0j5")
-name = "Grabby Hands"
+name = "Cold Logic"
 front = ExtResource("2_jbaci")
 back = ExtResource("1_hhp4e")
-description = "Draw 3 cards."
+description = "Draw 3 cards, but 2 ❄️ to you."
 card_script = ExtResource("2_t1n8f")
-element = 0
+element = 2
 changes_temperature = false
