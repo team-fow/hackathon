@@ -224,7 +224,7 @@ func _resolve_cards() -> void:
 	for player : Player in players:
 		player.card_played_history._order_cards()
 	
-	await end_turn_button.pressed
+	await get_tree().create_timer(1.0).timeout
 	round_ended.emit()
 	players.shuffle()
 
