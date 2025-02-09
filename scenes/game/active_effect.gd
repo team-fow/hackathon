@@ -1,8 +1,8 @@
-extends VBoxContainer
+extends PanelContainer
 
 @export var card_resource: ClimateCardData
-@onready var effect_name: Label = $EffectName
-@onready var effect_description: Label = $EffectDescription
+@onready var effect_name: Label = $VBox/EffectName
+@onready var effect_description: Label = $VBox/EffectDescription
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=51 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -71,6 +71,10 @@ fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1pyw"]
+content_margin_top = 32.0
+content_margin_bottom = 8.0
+
 [sub_resource type="Animation" id="Animation_xnwms"]
 length = 0.001
 tracks/0/type = "value"
@@ -132,7 +136,7 @@ players = [NodePath("Player1"), NodePath("Player2")]
 initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_0bl3m"), ExtResource("4_l175b"), ExtResource("5_dvl5v"), ExtResource("8_fuu2g"), ExtResource("5_dqfjo"), ExtResource("8_1o41y"), ExtResource("9_mf810"), ExtResource("9_kn5mi"), ExtResource("11_1i5bd"), ExtResource("12_i8kge"), ExtResource("13_8ppeq"), ExtResource("14_7cn3c"), ExtResource("4_lwy3h"), ExtResource("7_abmaq"), ExtResource("17_oef1q"), ExtResource("6_0hf3h"), ExtResource("19_3hmlb"), ExtResource("6_rb8ak"), ExtResource("21_qxs2p"), ExtResource("8_w82ig"), ExtResource("7_3vj2g"), ExtResource("4_psr8p"), ExtResource("25_r8le7")])
 active_player_disp = NodePath("UI/Margins/VBox2/ActivePlayerDisplay")
 inactive_player_disp = NodePath("UI/Margins/InactivePlayerDisplay")
-end_turn_button = NodePath("UI/Margins/EndTurn")
+end_turn_button = NodePath("UI/Margins2/EndTurn")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -235,6 +239,17 @@ theme_override_font_sizes/font_size = 40
 text = "Player 1"
 horizontal_alignment = 1
 
+[node name="EffectName" type="Label" parent="UI/Margins/VBox2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.313726)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y1pyw")
+text = "climate effects"
+vertical_alignment = 1
+
 [node name="EffectsScroll" type="ScrollContainer" parent="UI/Margins/VBox2"]
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
@@ -245,6 +260,7 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 script = ExtResource("15_qadym")
 
 [node name="InactivePlayerDisplay" type="TextureRect" parent="UI/Margins" node_paths=PackedStringArray("player")]
@@ -303,23 +319,33 @@ size_flags_vertical = 0
 layout_mode = 2
 texture = ExtResource("31_ws4k2")
 
-[node name="EndTurn" type="TextureButton" parent="UI/Margins"]
-custom_minimum_size = Vector2(400, 100)
+[node name="Margins2" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="EndTurn" type="TextureButton" parent="UI/Margins2"]
+custom_minimum_size = Vector2(328.462, 120)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture_normal = ExtResource("9_mtb6r")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 0
 
-[node name="Settings" type="TextureButton" parent="UI/Margins"]
-custom_minimum_size = Vector2(400, 100)
+[node name="Settings" type="TextureButton" parent="UI/Margins2"]
+custom_minimum_size = Vector2(328.462, 120)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture_normal = ExtResource("32_d04lk")
 ignore_texture_size = true
-stretch_mode = 5
+stretch_mode = 0
 
 [node name="StandbyScreen" type="ColorRect" parent="UI"]
 visible = false
@@ -387,5 +413,5 @@ is_active = true
 [node name="Player2" parent="." instance=ExtResource("2_thlmk")]
 rotation = 3.14159
 
-[connection signal="pressed" from="UI/Margins/EndTurn" to="." method="_on_end_turn_pressed"]
+[connection signal="pressed" from="UI/Margins2/EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="UI/TitleScreen/BeginGame" to="." method="_on_begin_game_pressed"]

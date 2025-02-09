@@ -135,6 +135,14 @@ texture = ExtResource("6_miuve")
 one_shot = true
 explosiveness = 0.75
 
+[node name="Meter" type="GPUParticles2D" parent="CardPlayed"]
+material = SubResource("CanvasItemMaterial_snwrr")
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_agu3c")
+texture = ExtResource("6_miuve")
+one_shot = true
+explosiveness = 0.75
+
 [node name="CardPlayedHistory" type="Node2D" parent="."]
 position = Vector2(300, 0)
 script = ExtResource("5_iuisj")
