@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b0tlif0e8vrdi"]
+[gd_scene load_steps=31 format=3 uid="uid://b0tlif0e8vrdi"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_23cci"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_1kose"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="12_f8uk5"]
 [ext_resource type="Theme" uid="uid://bvgd2wroq4sh7" path="res://assets/ui/theme.tres" id="12_vp37b"]
 [ext_resource type="Texture2D" uid="uid://btyoku1mjjl5f" path="res://assets/card/back/meter.png" id="13_s642u"]
+[ext_resource type="Texture2D" uid="uid://devy6p0nbdi86" path="res://assets/ui/dropdown.png" id="19_v2pss"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otvca"]
 bg_color = Color(0, 0, 0, 1)
@@ -41,6 +42,17 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 gradient = SubResource("Gradient_5nk7n")
 fill_to = Vector2(1, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hh5rh"]
+content_margin_top = 32.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk66k"]
+content_margin_left = 60.0
+content_margin_right = 60.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osf87"]
+content_margin_top = 8.0
+
 [node name="Intro" type="TabContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 4
+current_tab = 7
 tabs_visible = false
 script = ExtResource("1_23cci")
 
@@ -328,6 +340,7 @@ clip_text = true
 text_overrun_behavior = 3
 
 [node name="Rounds" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
@@ -422,96 +435,6 @@ text = "[center]Playing a card with the [img]res://assets/card/next_icon.png[/im
 You can also end your turn using the End Turn button or by waiting for your time to run out.[/center]"
 fit_content = true
 
-[node name="ActionPhase" type="MarginContainer" parent="."]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 5
-
-[node name="VBoxContainer" type="HBoxContainer" parent="ActionPhase"]
-layout_mode = 2
-theme_override_constants/separation = 100
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 25
-
-[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "During the"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label1" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_1kose")
-theme_override_font_sizes/font_size = 128
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "Action phase"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "cards take effect in the order they were played.
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-texture = ExtResource("10_pbnye")
-expand_mode = 5
-
-[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 56
-text = "Pay attention to card backs to guess at your temperature!"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Label6" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 56
-text = "Meter cards flip to reveal a color when played—hotter, colder, or neither."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-texture = ExtResource("10_lr2ji")
-expand_mode = 5
-
 [node name="CardAnatomy" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 2
@@ -519,7 +442,7 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
-metadata/_tab_index = 6
+metadata/_tab_index = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CardAnatomy"]
 layout_mode = 2
@@ -882,6 +805,262 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("13_s642u")
+expand_mode = 5
+
+[node name="Lists" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Lists"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Lists/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="DropDown" type="TextureRect" parent="Lists/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("19_v2pss")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lists/HBoxContainer/VBoxContainer/DropDown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EffectName" type="Label" parent="Lists/HBoxContainer/VBoxContainer/DropDown/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.870588, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hh5rh")
+text = "climate cards"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QueueScroll" type="PanelContainer" parent="Lists/HBoxContainer/VBoxContainer/DropDown/VBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sk66k")
+
+[node name="EffectName" type="Label" parent="Lists/HBoxContainer/VBoxContainer/DropDown/VBoxContainer/QueueScroll"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_osf87")
+text = "climate
+effects
+are listed
+here!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lists/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="Lists/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "climate cards"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Lists/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "linger for a while
+after they're played."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="Lists/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lists/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="Lists/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "played cards"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Lists/HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "are queued until the action phase."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DropDown" type="TextureRect" parent="Lists/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("19_v2pss")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lists/HBoxContainer/VBoxContainer2/DropDown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EffectName" type="Label" parent="Lists/HBoxContainer/VBoxContainer2/DropDown/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.870588, 1)
+theme_override_colors/font_outline_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hh5rh")
+text = "queued cards"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QueueScroll" type="PanelContainer" parent="Lists/HBoxContainer/VBoxContainer2/DropDown/VBoxContainer"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sk66k")
+
+[node name="EffectName" type="Label" parent="Lists/HBoxContainer/VBoxContainer2/DropDown/VBoxContainer/QueueScroll"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_osf87")
+text = "queued
+cards are
+listed here!"
+horizontal_alignment = 1
+
+[node name="ActionPhase" type="MarginContainer" parent="."]
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="VBoxContainer" type="HBoxContainer" parent="ActionPhase"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "During the"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label1" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "Action phase"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "cards take effect in the order they were played.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_pbnye")
+expand_mode = 5
+
+[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "Pay attention to card backs to guess at your temperature!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label6" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "Meter cards flip to reveal a color when played—hotter, colder, or neither."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_lr2ji")
 expand_mode = 5
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
