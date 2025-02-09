@@ -12,5 +12,5 @@ front = ExtResource("2_jbaci")
 back = ExtResource("1_hhp4e")
 description = "Draw 3 cards, but 2 ❄️ to you."
 card_script = ExtResource("2_t1n8f")
-element = 2
+element = 0
 changes_temperature = false
