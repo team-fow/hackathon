@@ -10,40 +10,40 @@ enum Phase {TURN, ACTION, MAX}
 
 var initial_deck: Dictionary = {
 	# climate (heat)
-	"climate/cold/fog": 2,
-	"climate/cold/iceberg": 1,
-	"climate/cold/rain": 2,
-	"climate/cold/wind": 2,
+	"climate/cold/fog": 4,
+	"climate/cold/iceberg": 2,
+	"climate/cold/rain": 4,
+	"climate/cold/wind": 4,
 	# climate (cold)
-	"climate/heat/magnifier": 2,
-	"climate/heat/meteorite": 2,
-	"climate/heat/spicy_sauce": 2,
-	"climate/heat/sun": 1,
+	"climate/heat/magnifier": 4,
+	"climate/heat/meteorite": 4,
+	"climate/heat/spicy_sauce": 4,
+	"climate/heat/sun": 2,
 	# climate (neutral)
-	"climate/reverse": 2,
+	"climate/reverse": 4,
 	# meta
-	"meta/discard": 1,
-	"meta/discard_hand": 1,
-	"meta/draw_1": 4,
-	"meta/draw_2": 4,
-	"meta/duds_to_deck": 3,
-	"meta/duds_to_hand": 3,
+	"meta/discard": 2,
+	"meta/discard_hand": 2,
+	"meta/draw_1": 8,
+	"meta/draw_2": 8,
+	"meta/duds_to_deck": 6,
+	"meta/duds_to_hand": 6,
 	"meta/dud": 0,
 	# meter
-	"meter/crystal_ball": 2,
-	"meter/eyeball": 2,
+	"meter/crystal_ball": 6,
+	"meter/eyeball": 6,
 	# thermal (heat)
-	"thermal/heat/flame": 2,
-	"thermal/heat/match": 3,
-	"thermal/heat/torch": 4,
+	"thermal/heat/flame": 4,
+	"thermal/heat/match": 6,
+	"thermal/heat/torch": 8,
 	"thermal/heat/strong_heat": 1,
-	"thermal/heat/vent_heat": 2,
+	"thermal/heat/vent_heat": 4,
 	# thermal (cold)
-	"thermal/cold/ice_cube": 3,
-	"thermal/cold/snow": 2,
-	"thermal/cold/water_droplet": 4,
+	"thermal/cold/ice_cube": 6,
+	"thermal/cold/snow": 4,
+	"thermal/cold/water_droplet": 8,
 	"thermal/cold/strong_cold": 1,
-	"thermal/cold/absorb_heat": 2
+	"thermal/cold/absorb_heat": 4
 }
 
 var curr_phase : Phase
