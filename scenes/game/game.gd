@@ -200,6 +200,7 @@ func _resolve_cards() -> void:
 		player.hand.show()
 		player.deck.show()
 	
+	players.shuffle()
 	music.volume_db = linear_to_db(1)
 
 
@@ -208,7 +209,7 @@ func _standby() -> void:
 	if curr_phase == Phase.ACTION:
 		$UI/StandbyScreen/VBoxContainer/Label2.text = "Let both players peek!\nAnd pay attention."
 	else:
-		$UI/StandbyScreen/VBoxContainer/Label2.text = "Pass the computer\nto the next player!"
+		$UI/StandbyScreen/VBoxContainer/Label2.text = "Pass the computer\nto " + players[1].player_name + "!" 
 	
 	if standby_screen.modulate != Color(1,1,1,1):
 		standby_screen.fadein()
