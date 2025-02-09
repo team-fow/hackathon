@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://m6ntpjm512ka" path="res://assets/ui/settings.png" id="32_d04lk"]
 [ext_resource type="Script" path="res://scenes/game/standby_screen.gd" id="33_xaas7"]
 [ext_resource type="Texture2D" uid="uid://bkb04vu1dl3tk" path="res://assets/ui/background.png" id="40_i2e7s"]
-[ext_resource type="PackedScene" uid="uid://1nlgodg5mius" path="res://scenes/game/title_screen.tscn" id="41_7n2rr"]
+[ext_resource type="PackedScene" path="res://scenes/game/title_screen.tscn" id="41_7n2rr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
 
@@ -155,6 +155,7 @@ offset_top = 392.0
 offset_right = 1175.0
 offset_bottom = 854.0
 scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(162.5, 231)
 texture = ExtResource("27_yy44a")
 
 [node name="PlayFrame2" type="TextureRect" parent="Background/PlayFrame"]
@@ -410,6 +411,7 @@ libraries = {
 speed_scale = 2.0
 
 [node name="TitleScreen" parent="UI" instance=ExtResource("41_7n2rr")]
+visible = false
 
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
 is_active = true
