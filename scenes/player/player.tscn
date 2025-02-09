@@ -61,9 +61,6 @@ scale_curve = SubResource("CurveTexture_iht17")
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_g6b4q")
-temperature = null
-is_active = null
-player_name = null
 
 [node name="Hand" type="Node2D" parent="."]
 position = Vector2(0, 350)

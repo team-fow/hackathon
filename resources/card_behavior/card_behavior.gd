@@ -16,3 +16,6 @@ func add_damage(player: Player, damage_value: int) -> void:
 		player.temperature += (damage_value + game.cold_bonus + player.heat_bonus) * game.cold_multiplier * player.heat_multiplier
 	else:
 		pass
+
+
+func get_cardtype() -> String: return "effect"

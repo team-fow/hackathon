@@ -39,3 +39,6 @@ func play(game_node: Node) -> void:
 func wait_rounds(rounds: int) -> void:
 	for i: int in rounds + 1:
 		await game.round_ended
+		
+
+func get_cardtype() -> String: return "climate"

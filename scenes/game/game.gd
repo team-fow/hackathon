@@ -44,6 +44,10 @@ func _ready() -> void:
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
 		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
+		player.play_card.connect(func(c:Card): 
+			c.play(self) 
+			var active_effect = c.card_resource
+			active_effects_container.add_effect(active_effect))
 		
 		for data: CardData in initial_deck:
 			var card: Card = preload("res://scenes/card/card.tscn").instantiate()
