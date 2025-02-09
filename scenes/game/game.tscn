@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=50 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -40,7 +40,6 @@
 [ext_resource type="Texture2D" uid="uid://c6nusal4xvfm3" path="res://assets/ui/timer.png" id="31_ws4k2"]
 [ext_resource type="Texture2D" uid="uid://m6ntpjm512ka" path="res://assets/ui/settings.png" id="32_d04lk"]
 [ext_resource type="Script" path="res://scenes/game/standby_screen.gd" id="33_xaas7"]
-[ext_resource type="Texture2D" uid="uid://bkb04vu1dl3tk" path="res://assets/ui/background.png" id="40_i2e7s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nvf1"]
 
@@ -72,29 +71,19 @@ fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 1)
 metadata/_snap_enabled = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kukh"]
-content_margin_top = 32.0
-content_margin_bottom = 8.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1dr6"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-
 [sub_resource type="Animation" id="Animation_xnwms"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1.0]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_opvja"]
@@ -103,14 +92,14 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_x6xwn"]
@@ -119,14 +108,14 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tp6uv"]
@@ -143,7 +132,7 @@ players = [NodePath("Player1"), NodePath("Player2")]
 initial_deck = Array[ExtResource("2_juss8")]([ExtResource("3_0bl3m"), ExtResource("4_l175b"), ExtResource("5_dvl5v"), ExtResource("8_fuu2g"), ExtResource("5_dqfjo"), ExtResource("8_1o41y"), ExtResource("9_mf810"), ExtResource("9_kn5mi"), ExtResource("11_1i5bd"), ExtResource("12_i8kge"), ExtResource("13_8ppeq"), ExtResource("14_7cn3c"), ExtResource("4_lwy3h"), ExtResource("7_abmaq"), ExtResource("17_oef1q"), ExtResource("6_0hf3h"), ExtResource("19_3hmlb"), ExtResource("6_rb8ak"), ExtResource("21_qxs2p"), ExtResource("8_w82ig"), ExtResource("7_3vj2g"), ExtResource("4_psr8p"), ExtResource("25_r8le7")])
 active_player_disp = NodePath("UI/Margins/VBox2/ActivePlayerDisplay")
 inactive_player_disp = NodePath("UI/Margins/InactivePlayerDisplay")
-end_turn_button = NodePath("UI/Margins2/EndTurn")
+end_turn_button = NodePath("UI/Margins/EndTurn")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -223,7 +212,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="ActivePlayerDisplay" type="TextureRect" parent="UI/Margins/VBox2" node_paths=PackedStringArray("player")]
-custom_minimum_size = Vector2(0, 180)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -234,58 +223,32 @@ player = NodePath("../../../../Player1")
 
 [node name="Name" type="Label" parent="UI/Margins/VBox2/ActivePlayerDisplay"]
 layout_mode = 1
-offset_left = 181.0
-offset_top = 57.0
-offset_right = 347.0
-offset_bottom = 92.0
+offset_left = 156.0
+offset_top = 49.0
+offset_right = 300.0
+offset_bottom = 99.0
 theme = ExtResource("6_fan8s")
 theme_type_variation = &"HeaderLarge"
-theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("31_a4xtm")
 theme_override_font_sizes/font_size = 40
 text = "Player 1"
-clip_text = true
-text_overrun_behavior = 3
-
-[node name="Label" type="Label" parent="UI/Margins/VBox2/ActivePlayerDisplay"]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 101.0
-offset_right = 374.0
-offset_bottom = 145.0
-theme_override_colors/font_color = Color(0.988235, 0.941176, 0.870588, 1)
-theme_override_colors/font_outline_color = Color(0.372549, 0.294118, 0.14902, 1)
-theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 32
-text = "It's your turn!"
-
-[node name="Label" type="Label" parent="UI/Margins/VBox2"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.313726)
-theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("31_a4xtm")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8kukh")
-text = "Active Effects"
-vertical_alignment = 1
+horizontal_alignment = 1
 
 [node name="EffectsScroll" type="ScrollContainer" parent="UI/Margins/VBox2"]
-custom_minimum_size = Vector2(400, 600)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxEmpty_e1dr6")
 
 [node name="ActiveEffectsContainer" type="VBoxContainer" parent="UI/Margins/VBox2/EffectsScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 24
 script = ExtResource("15_qadym")
 
 [node name="InactivePlayerDisplay" type="TextureRect" parent="UI/Margins" node_paths=PackedStringArray("player")]
-custom_minimum_size = Vector2(0, 180)
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -296,15 +259,13 @@ player = NodePath("../../../Player2")
 
 [node name="Temperature" type="Label" parent="UI/Margins/InactivePlayerDisplay"]
 layout_mode = 1
-offset_left = 27.0776
-offset_top = 26.0
-offset_right = 94.0776
-offset_bottom = 81.0
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 91.0
+offset_bottom = 74.0
 theme = ExtResource("6_fan8s")
-theme_override_colors/font_outline_color = Color(0.258824, 0.239216, 0.176471, 1)
-theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("31_a4xtm")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="Name" type="Label" parent="UI/Margins/InactivePlayerDisplay"]
@@ -315,19 +276,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0388
-offset_top = -34.0
-offset_right = 62.9612
-offset_bottom = 16.0
+offset_left = -88.8544
+offset_top = -30.0
+offset_right = 61.1456
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_fan8s")
-theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("31_a4xtm")
 theme_override_font_sizes/font_size = 40
 text = "PLAYEr 2"
-clip_text = true
-text_overrun_behavior = 3
+horizontal_alignment = 1
 
 [node name="VBox" type="VBoxContainer" parent="UI/Margins"]
 layout_mode = 2
@@ -343,18 +303,8 @@ size_flags_vertical = 0
 layout_mode = 2
 texture = ExtResource("31_ws4k2")
 
-[node name="Margins2" type="MarginContainer" parent="UI"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="EndTurn" type="TextureButton" parent="UI/Margins2"]
-custom_minimum_size = Vector2(328.462, 120)
+[node name="EndTurn" type="TextureButton" parent="UI/Margins"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -362,8 +312,8 @@ texture_normal = ExtResource("9_mtb6r")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Settings" type="TextureButton" parent="UI/Margins2"]
-custom_minimum_size = Vector2(328.462, 120)
+[node name="Settings" type="TextureButton" parent="UI/Margins"]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -378,52 +328,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.782113, 0.475248, 0.187253, 1)
 script = ExtResource("33_xaas7")
-
-[node name="TextureRect" type="TextureRect" parent="UI/StandbyScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("40_i2e7s")
-stretch_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/StandbyScreen"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -43.5
-offset_right = 115.0
-offset_bottom = 43.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="UI/StandbyScreen/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("31_a4xtm")
-theme_override_font_sizes/font_size = 256
-text = "Standby"
-
-[node name="Label2" type="Label" parent="UI/StandbyScreen/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Pass the computer around!"
-horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/StandbyScreen"]
 libraries = {
 "": SubResource("AnimationLibrary_tp6uv")
 }
-speed_scale = 2.0
 
 [node name="TitleScreen" type="ColorRect" parent="UI"]
 visible = false
@@ -477,5 +387,5 @@ is_active = true
 [node name="Player2" parent="." instance=ExtResource("2_thlmk")]
 rotation = 3.14159
 
-[connection signal="pressed" from="UI/Margins2/EndTurn" to="." method="_on_end_turn_pressed"]
+[connection signal="pressed" from="UI/Margins/EndTurn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="UI/TitleScreen/BeginGame" to="." method="_on_begin_game_pressed"]

@@ -26,8 +26,11 @@ func add_card(card: Card, idx: int = -1) -> void:
 	card.mouse_entered.connect(_on_card_moused.bind(card, true))
 	card.mouse_exited.connect(_on_card_moused.bind(card, false))
 	accepting_card = false
+	create_particles(card.card_resource.element)
 	
-	match card.card_resource.element:
+	
+func create_particles(element : CardData.Element) -> void:	
+	match element:
 		CardData.Element.HEAT:
 			cloud_particles.modulate = Color("#fa3e16bf")
 			heat_particles.restart()

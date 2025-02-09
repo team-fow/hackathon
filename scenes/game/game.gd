@@ -38,9 +38,7 @@ func _ready() -> void:
 	await begin_game.pressed
 	title_screen.hide()
 	active = true
-	
 	#initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
-	
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
 		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
@@ -122,7 +120,7 @@ func _resolve_cards() -> void:
 		pile.remove_card(card)
 		center.add_card(card)
 		await get_tree().create_timer(0.5).timeout
-		card.play(self)
+		await card.play(self)
 		center.remove_card(card)
 		pile.add_card(card)
 
