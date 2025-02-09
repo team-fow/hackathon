@@ -8,10 +8,10 @@ func play(game: Node) -> void:
 	
 	# drawing
 	var i: int = 0
-	for card: Card in card.player.deck.cards:
-		if card.card_resource.element == CardData.Element.COLD:
-			card.player.deck.remove_card(card)
-			card.player._send_card_to_hand(card)
+	for deckcard: Card in card.player.deck.cards:
+		if deckcard.card_resource.element == CardData.Element.COLD:
+			card.player.deck.remove_card(deckcard)
+			card.player._send_card_to_hand(deckcard)
 			i += 1
 			if i == 3: break
 	

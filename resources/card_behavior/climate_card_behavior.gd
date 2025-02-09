@@ -11,18 +11,22 @@ func play(game_node: Node) -> void:
 		0:
 			card.player.active_effects.append(res)
 			card.player[res.effect] += res.value
+			print("applying " + res.name + " to " + card.player.player_name)
+			
 			await wait_rounds(res.duration)
 			card.player[res.effect] -= res.value
 			card.player.active_effects.erase(res)
 		1:
 			game.get_opponent(card.player).active_effects.append(res)
 			game.get_opponent(card.player)[res.effect] += res.value
+			print("applying " + res.name + " to " + game.get_opponent(card.player).player_name)
 			await wait_rounds(res.duration)
 			game.get_opponent(card.player)[res.effect] -= res.value
 			game.get_opponent(card.player).active_effects.erase(res)
 		_: 
 			if res.effect == "reverse": game.reverse = res.value
 			else: game[res.effect] += res.value
+			print("applying " + res.name + " to game")
 			
 			card.player.active_effects.append(res)
 			game.get_opponent(card.player).active_effects.append(res)
