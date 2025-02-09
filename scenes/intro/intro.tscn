@@ -32,11 +32,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 0
+current_tab = 2
 tabs_visible = false
 script = ExtResource("1_23cci")
 
 [node name="Credits" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 100
@@ -154,7 +155,6 @@ text = "Click anywhere else to continue."
 horizontal_alignment = 1
 
 [node name="1" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 100
@@ -179,7 +179,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
-text = "HOTTER COLDER"
+text = "thermalwiz"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="1/VBox"]
