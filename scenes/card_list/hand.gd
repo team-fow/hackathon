@@ -33,7 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			held_card.position = get_local_mouse_position()
 		
 		elif event.is_action_released("click"):
-			if get_local_mouse_position().y > -Card.SIZE.y/2:
+			print(get_tree().current_scene.get_local_mouse_position())
+			if get_local_mouse_position().y > -Card.SIZE.y/2 or get_tree().current_scene.get_local_mouse_position().length() > 400:
 				_add_card_to_list(held_card, held_card_idx)
 				SFX.play("return_to_hand")
 			else:

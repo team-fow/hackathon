@@ -1,7 +1,6 @@
 extends PanelContainer
 
 signal intro_requested
-signal end_requested
 
 
 func _on_settings_pressed() -> void:
@@ -15,7 +14,8 @@ func _on_continue_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	var game = get_tree().current_scene
+	game._on_player_died(game.players[0])
 
 
 func _on_music_value_changed(value: float) -> void:
