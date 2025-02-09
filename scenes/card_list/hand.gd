@@ -97,9 +97,13 @@ func remove_card(card: Card) -> void:
 func _add_card_to_list(card: Card, idx: int) -> void:
 	super(card, idx)
 	card.set_input(true)
+	var hand_label = get_child(0)
+	hand_label.text = str(cards.size()) + "/7 cards"
 
 
 func _remove_card_from_list(card: Card) -> void:
 	super(card)
 	card.set_input(false)
 	card.rotation = 0
+	var hand_label = get_child(0)
+	hand_label.text = str(cards.size()) + "/7 cards"
