@@ -67,11 +67,11 @@ var all_cards_played: Array[CardData]
 @export var active_effects_container: VBoxContainer
 @onready var title_screen: ColorRect = $UI/TitleScreen
 @export var card_queue_box: VBoxContainer
-@onready var turn_timer: Timer = $UI/Top/VBox/Timer/Timer
-@onready var turn_timer_texture: TextureRect = $UI/Top/VBox/Timer
+@onready var turn_timer: Timer = $UI/Top/Control/Timer/Timer
+@onready var turn_timer_texture: TextureRect = $UI/Top/Control/Timer
 @onready var music: AudioStreamPlayer = $GameMusic
 @onready var end_screen: TextureRect = $UI/EndScreen
-@onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
+@onready var turn_timer_label: Label = $UI/Top/Control/Timer/Label
 @onready var player_1: Player = $Player1
 @onready var player_2: Player = $Player2
 
@@ -162,7 +162,8 @@ func _turn() -> void:
 	while players[0].hand.cards.size() < 3:
 		players[0].draw(1)
 	var timer_tween = create_tween()
-	timer_tween.tween_property(turn_timer_texture, "scale:y", 1, 0.15)
+	timer_tween.tween_property(turn_timer_texture, "scale", Vector2(3, 3), 0.15)
+	timer_tween.tween_property(turn_timer_texture, "scale", Vector2.ONE, 0.15)
 	await timer_tween.finished
 	turn_timer.start()
 	await turn_ended

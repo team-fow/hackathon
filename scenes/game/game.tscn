@@ -267,19 +267,26 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 script = ExtResource("15_qadym")
 
-[node name="VBox" type="VBoxContainer" parent="UI/Top"]
+[node name="Control" type="Control" parent="UI/Top"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-mouse_filter = 2
 
-[node name="Timer" type="TextureRect" parent="UI/Top/VBox"]
+[node name="Timer" type="TextureRect" parent="UI/Top/Control"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.3768
+offset_right = 96.3768
+offset_bottom = 100.0
+grow_horizontal = 2
+pivot_offset = Vector2(96.377, 0)
 texture = ExtResource("31_ws4k2")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="UI/Top/VBox/Timer"]
+[node name="Label" type="Label" parent="UI/Top/Control/Timer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -297,9 +304,15 @@ vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Timer" type="Timer" parent="UI/Top/VBox/Timer"]
-wait_time = 40.0
+[node name="Timer" type="Timer" parent="UI/Top/Control/Timer"]
+wait_time = 41.0
 one_shot = true
+
+[node name="VBox" type="VBoxContainer" parent="UI/Top"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
 
 [node name="VBox3" type="VBoxContainer" parent="UI/Top"]
 layout_mode = 2
@@ -482,7 +495,7 @@ player_name = "Spoingus"
 process_mode = 3
 stream = ExtResource("44_mlt3a")
 
-[connection signal="timeout" from="UI/Top/VBox/Timer/Timer" to="." method="_end_turn"]
+[connection signal="timeout" from="UI/Top/Control/Timer/Timer" to="." method="_end_turn"]
 [connection signal="pressed" from="UI/Bottom/EndTurn" to="." method="_end_turn"]
 [connection signal="pressed" from="UI/Bottom/Settings" to="UI/Settings" method="_on_settings_pressed"]
 [connection signal="intro_requested" from="UI/Settings" to="UI/Intro" method="_on_settings_intro_requested"]
