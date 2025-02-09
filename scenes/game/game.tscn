@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=36 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -70,6 +70,9 @@ content_margin_top = 25.0
 content_margin_right = 50.0
 content_margin_bottom = 25.0
 texture = ExtResource("16_ajqk7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ykdd"]
+content_margin_top = 12.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfg8o"]
 content_margin_left = 50.0
@@ -465,6 +468,26 @@ horizontal_alignment = 2
 [node name="Control" type="Control" parent="UI/PlayedCardLabels"]
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
+
+[node name="Label1" type="Label" parent="UI/PlayedCardLabels/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 133.0
+offset_right = 375.0
+offset_bottom = 253.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.875727, 0.808324, 0.764196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ykdd")
+text = "action phase"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="UI/PlayedCardLabels"]
 layout_mode = 2

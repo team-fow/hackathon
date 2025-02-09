@@ -200,7 +200,7 @@ func _resolve_cards() -> void:
 	
 	music.volume_db = linear_to_db(0.5)
 	
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	
 	for card in card_queue:
 		var pile = card.player.card_played_history
