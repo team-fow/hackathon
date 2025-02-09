@@ -72,6 +72,8 @@ var all_cards_played: Array[CardData]
 @onready var music: AudioStreamPlayer = $GameMusic
 @onready var end_screen: TextureRect = $UI/EndScreen
 @onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
+@onready var player_1: Player = $Player1
+@onready var player_2: Player = $Player2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -183,6 +185,8 @@ func _resolve_cards() -> void:
 		player.deck.hide()
 	
 	players[0].deck.up = -1
+	player_1.rotation = 0
+	player_2.rotation = PI
 	players[0].card_played_history.up = -1
 	players[1].deck.up = 1
 	players[1].card_played_history.up = 1
@@ -221,19 +225,7 @@ func _resolve_cards() -> void:
 	
 	await end_turn_button.pressed
 	round_ended.emit()
-	
-	await get_tree().create_timer(0.5).timeout
-	for player : Player in players:
-		player.card_played_history._order_cards()
-		player.hand.show()
-		player.deck.show()
-	active_player_disp.show()
-	inactive_player_disp.show()
-	$UI/Top.show()
-	$UI/PlayedCardLabels.hide()
-	
 	players.shuffle()
-	music.volume_db = linear_to_db(1)
 
 
 # Hides the game state and waits for player input.
@@ -250,7 +242,17 @@ func _standby() -> void:
 		var event: InputEvent = await standby_screen.gui_input
 		if event.is_action_released("click"):
 			break
+			
+	for player : Player in players:
+		player.card_played_history._order_cards()
+		player.hand.show()
+		player.deck.show()
+	active_player_disp.show()
+	inactive_player_disp.show()
+	$UI/Top.show()
+	$UI/PlayedCardLabels.hide()
 	
+	music.volume_db = linear_to_db(1)
 	standby_screen.fadeout()
 
 
