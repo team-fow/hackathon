@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://1nlgodg5mius"]
+
+[ext_resource type="Theme" uid="uid://bvgd2wroq4sh7" path="res://assets/ui/theme.tres" id="1_lg3eh"]
+[ext_resource type="Texture2D" uid="uid://iss36l4yi0e7" path="res://assets/ui/button_1.png" id="2_fy7mx"]
+
+[node name="TitleScreen" type="ColorRect"]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lg3eh")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 180
+text = "Video Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BeginGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 211.0
+offset_right = -22.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Play"
+
+[node name="Player1NameTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 280.0
+offset_right = 1896.0
+offset_bottom = 735.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_fy7mx")
+
+[node name="P1NameInput" type="TextEdit" parent="Player1NameTexture"]
+custom_minimum_size = Vector2(1000, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lg3eh")
+theme_override_font_sizes/font_size = 150
+placeholder_text = "Player 1 Name"
+caret_blink = true
+
+[node name="Player2NameTexture2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1070.0
+offset_top = 280.0
+offset_right = 2711.0
+offset_bottom = 735.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_fy7mx")
+flip_h = true
+flip_v = true
+
+[node name="P2NameInput" type="TextEdit" parent="Player2NameTexture2"]
+custom_minimum_size = Vector2(1000, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -150.0
+offset_right = 500.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lg3eh")
+theme_override_font_sizes/font_size = 150
+placeholder_text = "Player 2 Name"
