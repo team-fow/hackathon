@@ -264,4 +264,4 @@ func _end_turn() -> void:
 func _process(_delta: float) -> void:
 	var time_left: int = int(turn_timer.time_left)
 	turn_timer_label.text = str(time_left)
-	turn_timer_label.modulate = Color.RED if time_left <= 5 else Color.WHITE
+	turn_timer_texture.modulate = Color.RED if time_left <= 5 else Color.WHITE
