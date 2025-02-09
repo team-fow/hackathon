@@ -25,6 +25,7 @@ func play(game_node: Node) -> void:
 			game.get_opponent(card.player).active_effects.erase(res)
 		_: 
 			if res.effect == "reverse": game.reverse = res.value
+			elif res.effect.ends_with("multiplier"): game[res.effect] *= res.value
 			else: game[res.effect] += res.value
 			print("applying " + res.name + " to game")
 			
@@ -36,8 +37,8 @@ func play(game_node: Node) -> void:
 			card.player.active_effects.erase(res)
 			game.get_opponent(card.player).active_effects.erase(res)
 			
-			if res.effect == "reverse": game.reverse = 0
-			else: game[res.effect] -= res.value
+			if res.effect.ends_with("multiplier"): game[res.effect] /= res.value
+			elif res.effect.ends_with("bonus"): game[res.effect] -= res.value
 
 
 func wait_rounds(rounds: int) -> void:
