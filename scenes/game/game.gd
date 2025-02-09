@@ -20,7 +20,7 @@ var initial_deck: Dictionary = {
 	"climate/heat/spicy_sauce": 2,
 	"climate/heat/sun": 1,
 	# climate (neutral)
-	"climate/reverse": 1,
+	"climate/reverse": 2,
 	# meta
 	"meta/discard": 1,
 	"meta/discard_hand": 1,
@@ -30,8 +30,8 @@ var initial_deck: Dictionary = {
 	"meta/duds_to_hand": 3,
 	"meta/dud": 0,
 	# meter
-	"meter/crystal_ball": 1,
-	"meter/eyeball": 1,
+	"meter/crystal_ball": 2,
+	"meter/eyeball": 2,
 	# thermal (heat)
 	"thermal/heat/flame": 2,
 	"thermal/heat/match": 3,

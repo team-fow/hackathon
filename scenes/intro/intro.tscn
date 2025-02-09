@@ -275,20 +275,230 @@ text = "You know your opponent's temperature,
 but not your own. Stay safe!"
 horizontal_alignment = 1
 
-[node name="CardTypes" type="BoxContainer" parent="."]
+[node name="CardElements" type="BoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 200
 alignment = 1
-vertical = true
 metadata/_tab_index = 4
 
-[node name="Label1" type="Label" parent="CardTypes"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardElements"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="CardElements/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "card elements"
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CardElements/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Cards are of three
+different elements."
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="GridContainer" parent="CardElements"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Heat"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Pushes players toward overheating."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Hot" type="TextureRect" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_pbnye")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tjq0f")
+expand_mode = 1
+
+[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("12_5wcp0")
+expand_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Cold"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Pushes players toward freezing."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Hot2" type="TextureRect" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_yrw1x")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot2"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tjq0f")
+expand_mode = 1
+
+[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_jj6ki")
+expand_mode = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Neutral"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Has other effects."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Hot3" type="TextureRect" parent="CardElements/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("12_f8uk5")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot3"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tjq0f")
+expand_mode = 1
+
+[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot3/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("13_s642u")
+expand_mode = 5
+
+[node name="CardTypes" type="BoxContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+vertical = true
+metadata/_tab_index = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardTypes"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="CardTypes/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "TYPES OF CARD"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CardTypes/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Cards are of four types."
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="GridContainer" parent="CardTypes"]
@@ -449,7 +659,7 @@ autowrap_mode = 2
 visible = false
 layout_mode = 2
 mouse_filter = 2
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="4"]
 custom_minimum_size = Vector2(1200, 0)
