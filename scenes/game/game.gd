@@ -29,8 +29,6 @@ var card_queue: Array[Card]
 @onready var active_effects_container: VBoxContainer = $UI/Margins/VBox2/EffectsScroll/ActiveEffectsContainer
 @onready var begin_game: Button = $UI/TitleScreen/BeginGame
 @onready var title_screen: ColorRect = $UI/TitleScreen
-@onready var p_1_name_input: TextEdit = $UI/TitleScreen/Player1NameTexture/P1NameInput
-@onready var p_2_name_input: TextEdit = $UI/TitleScreen/Player2NameTexture2/P2NameInput
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,9 +36,6 @@ func _ready() -> void:
 	title_screen.show()
 	standby_screen.modulate = Color(1,1,1,1)
 	await begin_game.pressed
-	players[0].player_name = p_1_name_input.text
-	players[1].player_name = p_2_name_input.text
-	players.reverse
 	title_screen.hide()
 	active = true
 	#initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
