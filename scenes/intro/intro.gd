@@ -4,6 +4,7 @@ signal done
 
 
 func start() -> void:
+	current_tab = 0
 	show()
 	$Music.play()
 
