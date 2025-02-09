@@ -30,7 +30,6 @@ func play(game: Node):
 
 
 func set_input(value: bool) -> void:
-	if card_resource.name == "Dud": return
 	mouse_filter = Control.MOUSE_FILTER_STOP if value else Control.MOUSE_FILTER_IGNORE
 
 
