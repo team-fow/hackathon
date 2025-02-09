@@ -81,6 +81,7 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 
 func add_card(card: Card, idx: int = -1) -> void:
 	super(card, idx)
+	await card.tween.finished
 	card.gui_input.connect(_on_card_input.bind(card))
 	card.mouse_entered.connect(_on_card_moused.bind(card, true))
 	card.mouse_exited.connect(_on_card_moused.bind(card, false))
