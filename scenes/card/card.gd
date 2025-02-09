@@ -23,6 +23,7 @@ func _ready() -> void:
 	description.text = card.description
 	card_script = card.card_script.new()
 	card_script.card = self
+	$Panel/Margins/VBox/Description/Next.visible = card.changes_temperature
 
 
 func play(game: Node):
