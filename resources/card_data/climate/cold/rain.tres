@@ -14,5 +14,6 @@ player_affected = 0
 name = "Rain"
 front = ExtResource("3_ysn6m")
 back = ExtResource("1_m5cb0")
-description = "Increases ❄️ effects by 1 for 1 round."
+description = "Increases ❄️ changes by 1 for 1 round."
 card_script = ExtResource("2_jj3i0")
+element = 2

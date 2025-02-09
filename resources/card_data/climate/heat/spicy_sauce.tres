@@ -14,6 +14,6 @@ player_affected = 2
 name = "Spicy Sauce"
 front = ExtResource("2_dlwmj")
 back = ExtResource("1_2t0ij")
-description = "Decreases 🔥 by 2 for 1 rounds."
+description = "Increases 🔥 changes by 2 for 1 rounds."
 card_script = ExtResource("2_t8tns")
 element = 1

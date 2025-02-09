@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://bvgd2wroq4sh7"]
 
-[ext_resource type="FontFile" uid="uid://btxf8skp1a0e5" path="res://assets/ui/font/schoolbell.ttf" id="1_76gbu"]
+[ext_resource type="FontFile" uid="uid://btxf8skp1a0e5" path="res://assets/ui/font/schoolbell.ttf" id="1_k6krd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0q3w"]
 content_margin_left = 8.0
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="FontVariation" id="FontVariation_bcpjc"]
-base_font = ExtResource("1_76gbu")
+base_font = ExtResource("1_k6krd")
 
 [resource]
 default_font = SubResource("FontVariation_bcpjc")

@@ -14,6 +14,6 @@ player_affected = 2
 name = "Magnifier"
 front = ExtResource("3_5gs0n")
 back = ExtResource("1_h760c")
-description = "Increases 🔥 effects by 1 for 1 round."
+description = "Increases 🔥 changes by 1 for 1 round."
 card_script = ExtResource("2_xokux")
 element = 1
