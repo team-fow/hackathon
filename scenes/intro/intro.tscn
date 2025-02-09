@@ -275,65 +275,127 @@ text = "You know your opponent's temperature,
 but not your own. Stay safe!"
 horizontal_alignment = 1
 
-[node name="CardElements" type="BoxContainer" parent="."]
+[node name="Actions" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 200
-alignment = 1
 metadata/_tab_index = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CardElements"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Actions"]
 layout_mode = 2
-size_flags_vertical = 4
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Actions/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label1" type="Label" parent="CardElements/VBoxContainer2"]
+[node name="Label1" type="Label" parent="Actions/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "Elements"
+text = "ROUNDS"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="CardElements/VBoxContainer2"]
+[node name="Label4" type="Label" parent="Actions/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 56
-text = "Cards are of three
-different elements."
+text = "Rounds are structured in phases."
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="GridContainer" parent="CardElements"]
+[node name="HBoxContainer" type="GridContainer" parent="Actions/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 25
-theme_override_constants/v_separation = 50
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 25
 columns = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Label1" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "TURN"
+horizontal_alignment = 2
 
-[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 56
-text = "Heat"
+text = "A random player takes a turn."
 horizontal_alignment = 1
 
-[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Pushes players toward overheating."
-horizontal_alignment = 1
-autowrap_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "TURN"
+horizontal_alignment = 2
 
-[node name="Hot" type="TextureRect" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Label6" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "The other player takes a turn."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "ACTION"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 56
+text = "Played cards trigger all at once."
+horizontal_alignment = 1
+
+[node name="CardAnatomy" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+metadata/_tab_index = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardAnatomy"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardAnatomy/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 100
+
+[node name="Label1" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "Types"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="GridContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Hot" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -341,7 +403,7 @@ mouse_filter = 2
 texture = ExtResource("10_pbnye")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot"]
+[node name="TextureRect" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -352,7 +414,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tjq0f")
 expand_mode = 1
 
-[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot/TextureRect"]
+[node name="Card5" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -365,29 +427,26 @@ mouse_filter = 2
 texture = ExtResource("12_5wcp0")
 expand_mode = 5
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer2"]
+[node name="Label4" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 56
-text = "Cold"
-horizontal_alignment = 1
+text = "Heat"
 
-[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer2"]
+[node name="Label10" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Pushes players toward freezing."
-horizontal_alignment = 1
+text = "Pushes players toward overheating."
 autowrap_mode = 2
 
-[node name="Hot2" type="TextureRect" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Hot2" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -395,7 +454,7 @@ mouse_filter = 2
 texture = ExtResource("11_yrw1x")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot2"]
+[node name="TextureRect" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot2"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -406,7 +465,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tjq0f")
 expand_mode = 1
 
-[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot2/TextureRect"]
+[node name="Card5" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -419,29 +478,26 @@ mouse_filter = 2
 texture = ExtResource("11_jj6ki")
 expand_mode = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Label4" type="Label" parent="CardElements/VBoxContainer/VBoxContainer3"]
+[node name="Label5" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 56
-text = "Neutral"
-horizontal_alignment = 1
+text = "Cold"
 
-[node name="Label10" type="Label" parent="CardElements/VBoxContainer/VBoxContainer3"]
+[node name="Label11" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Has other effects."
-horizontal_alignment = 1
+text = "Pushes players toward freezing."
 autowrap_mode = 2
 
-[node name="Hot3" type="TextureRect" parent="CardElements/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Hot3" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -449,7 +505,7 @@ mouse_filter = 2
 texture = ExtResource("12_f8uk5")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="CardElements/VBoxContainer/Hot3"]
+[node name="TextureRect" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot3"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -460,7 +516,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tjq0f")
 expand_mode = 1
 
-[node name="Card5" type="TextureRect" parent="CardElements/VBoxContainer/Hot3/TextureRect"]
+[node name="Card5" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/Hot3/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -473,44 +529,67 @@ mouse_filter = 2
 texture = ExtResource("13_s642u")
 expand_mode = 5
 
-[node name="CardTypes" type="BoxContainer" parent="."]
-visible = false
+[node name="VBoxContainer3" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label6" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Neutral"
+
+[node name="Label12" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Has other effects."
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardAnatomy/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 100
-alignment = 1
-vertical = true
-metadata/_tab_index = 5
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CardTypes"]
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Label1" type="Label" parent="CardTypes/VBoxContainer2"]
+[node name="Label1" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "TYPES OF CARD"
+text = "ELEMENTS"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="CardTypes/VBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Cards are of four types."
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="GridContainer" parent="CardTypes"]
+[node name="VBoxContainer" type="GridContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 25
-columns = 4
+columns = 2
 
-[node name="Card" type="TextureRect" parent="CardTypes/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Thermal"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Change players'temperature."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Card" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -518,7 +597,7 @@ mouse_filter = 2
 texture = ExtResource("10_pbnye")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="CardTypes/VBoxContainer/Card"]
+[node name="TextureRect" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/Card"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -529,8 +608,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tjq0f")
 expand_mode = 1
 
-[node name="Card5" type="TextureRect" parent="CardTypes/VBoxContainer/Card/TextureRect"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Card5" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/Card/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -543,8 +621,27 @@ mouse_filter = 2
 texture = ExtResource("11_yrw1x")
 expand_mode = 5
 
-[node name="Card2" type="TextureRect" parent="CardTypes/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label5" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Climate"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Increase the effect of temperature changes."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Card2" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -552,7 +649,7 @@ mouse_filter = 2
 texture = ExtResource("11_jj6ki")
 expand_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="CardTypes/VBoxContainer/Card2"]
+[node name="TextureRect" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/Card2"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -563,8 +660,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tjq0f")
 expand_mode = 1
 
-[node name="Card5" type="TextureRect" parent="CardTypes/VBoxContainer/Card2/TextureRect"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Card5" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/Card2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -577,8 +673,28 @@ mouse_filter = 2
 texture = ExtResource("12_5wcp0")
 expand_mode = 5
 
-[node name="Card3" type="TextureRect" parent="CardTypes/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer3" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label6" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Exploit"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Manipulate players'
+hands and decks."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Card3" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -586,74 +702,34 @@ mouse_filter = 2
 texture = ExtResource("12_f8uk5")
 expand_mode = 5
 
-[node name="Card4" type="TextureRect" parent="CardTypes/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer4" type="VBoxContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label7" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Meter"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Reveal clues about
+your temperature."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Card4" type="TextureRect" parent="CardAnatomy/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("13_s642u")
 expand_mode = 5
-
-[node name="Label4" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Thermal"
-horizontal_alignment = 1
-
-[node name="Label5" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Climate"
-horizontal_alignment = 1
-
-[node name="Label6" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Exploit"
-horizontal_alignment = 1
-
-[node name="Label7" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Meter"
-horizontal_alignment = 1
-
-[node name="Label8" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Change players' temperature."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label9" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Increase the effect of temperature changes."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label10" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Manipulate players' hands and decks."
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label11" type="Label" parent="CardTypes/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Reveal clues about your temperature."
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="4" type="CenterContainer" parent="."]
 visible = false
