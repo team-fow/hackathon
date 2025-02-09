@@ -11,5 +11,7 @@ name = "Ice Cube"
 front = ExtResource("3_c5dbk")
 back = ExtResource("1_benhf")
 description = "1 ❄️ to both players."
+short_description = "❄️+1 to both"
 card_script = ExtResource("2_45dki")
 element = 2
+changes_temperature = true

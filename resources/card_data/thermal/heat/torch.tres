@@ -13,3 +13,4 @@ back = ExtResource("1_fqfbn")
 description = "1 🔥 to your opponent."
 card_script = ExtResource("2_s3e4g")
 element = 1
+changes_temperature = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://bxpwrbivkgd4o"]
+
+[ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_fy1nq"]
+[ext_resource type="Script" path="res://resources/card_behavior/discard_hand.gd" id="2_6dn85"]
+[ext_resource type="Texture2D" uid="uid://dnfx0mmaf8s4m" path="res://assets/card/front/meta/add_hand.png" id="3_xrhve"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_45wmm"]
+
+[resource]
+script = ExtResource("4_45wmm")
+name = "Bye Bye"
+front = ExtResource("3_xrhve")
+back = ExtResource("1_fy1nq")
+description = "Your opponent discards their hand."
+card_script = ExtResource("2_6dn85")
+element = 0

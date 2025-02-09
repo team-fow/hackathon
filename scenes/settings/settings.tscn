@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhlde4kf1h43t"]
+
+[ext_resource type="Script" path="res://scenes/game/settings.gd" id="1_vydad"]
+[ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_ccied"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxyje"]
+content_margin_left = 100.0
+content_margin_top = 100.0
+content_margin_right = 100.0
+content_margin_bottom = 100.0
+bg_color = Color(0, 0, 0, 0.74902)
+
+[node name="Settings" type="PanelContainer"]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oxyje")
+script = ExtResource("1_vydad")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ccied")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"StyledButton"
+text = "Continue"
+
+[node name="Quit" type="Button" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"StyledButton"
+text = "Quit"
+
+[connection signal="pressed" from="VBox/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBox/Quit" to="." method="_on_quit_pressed"]

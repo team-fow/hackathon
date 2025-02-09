@@ -11,5 +11,7 @@ name = "Snow"
 front = ExtResource("3_k2pew")
 back = ExtResource("1_5lysj")
 description = "2 ❄️ to both players."
+short_description = "❄️+2 to both"
 card_script = ExtResource("2_hg1nb")
 element = 2
+changes_temperature = true

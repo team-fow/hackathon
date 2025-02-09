@@ -7,9 +7,10 @@
 
 [resource]
 script = ExtResource("1_n7hpp")
-name = "Draw 1"
+name = "Draw"
 front = ExtResource("2_rqxo8")
 back = ExtResource("1_alt41")
 description = "Draw 1 card."
 card_script = ExtResource("2_s2k33")
 element = 0
+changes_temperature = false

@@ -15,5 +15,7 @@ name = "Fog"
 front = ExtResource("2_huiie")
 back = ExtResource("1_pr8b5")
 description = "Increases ❄️ changes by 1 for 2 rounds."
+short_description = "❄️+1 for 2"
 card_script = ExtResource("2_rfpo4")
 element = 2
+changes_temperature = false

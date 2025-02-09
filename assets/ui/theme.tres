@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bvgd2wroq4sh7"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bvgd2wroq4sh7"]
 
+[ext_resource type="Texture2D" uid="uid://iss36l4yi0e7" path="res://assets/ui/button_1.png" id="1_hj06o"]
 [ext_resource type="FontFile" uid="uid://btxf8skp1a0e5" path="res://assets/ui/font/schoolbell.ttf" id="1_k6krd"]
+[ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="1_nhfd5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0q3w"]
 content_margin_left = 8.0
@@ -18,6 +20,31 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6oqun"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpst0"]
+content_margin_left = 100.0
+content_margin_top = 20.0
+content_margin_right = 100.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_hj06o")
+modulate_color = Color(1.1, 1.1, 1.1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtow2"]
+content_margin_left = 100.0
+content_margin_top = 20.0
+content_margin_right = 100.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_hj06o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_supcy"]
+content_margin_left = 100.0
+content_margin_top = 20.0
+content_margin_right = 100.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_hj06o")
+modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
+
 [sub_resource type="FontVariation" id="FontVariation_bcpjc"]
 base_font = ExtResource("1_k6krd")
 
@@ -28,3 +55,13 @@ CardLabel/base_type = &"Label"
 CardLabel/colors/font_color = Color(0, 0, 0, 1)
 CardLabel/constants/line_spacing = 0
 CardLabel/styles/normal = SubResource("StyleBoxFlat_w0q3w")
+StyledButton/base_type = &"Button"
+StyledButton/colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+StyledButton/colors/font_hover_color = Color(0.372549, 0.294118, 0.14902, 1)
+StyledButton/colors/font_pressed_color = Color(0.372549, 0.294118, 0.14902, 1)
+StyledButton/font_sizes/font_size = 32
+StyledButton/fonts/font = ExtResource("1_nhfd5")
+StyledButton/styles/focus = SubResource("StyleBoxEmpty_6oqun")
+StyledButton/styles/hover = SubResource("StyleBoxTexture_vpst0")
+StyledButton/styles/normal = SubResource("StyleBoxTexture_wtow2")
+StyledButton/styles/pressed = SubResource("StyleBoxTexture_supcy")

@@ -10,5 +10,6 @@ script = ExtResource("1_gd6gw")
 name = "Doom"
 front = ExtResource("2_882w8")
 back = ExtResource("1_2ppdl")
-description = "Adds 2 dud cards to your opponent's deck."
+description = "Adds 2 duds to your opponent's deck."
 card_script = ExtResource("2_vft1x")
+element = 0

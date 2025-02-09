@@ -1,0 +1,298 @@
+[gd_scene load_steps=21 format=3 uid="uid://cjrbdoqkjljdi"]
+
+[ext_resource type="Script" path="res://scenes/game/standby_screen.gd" id="1_tnyb0"]
+[ext_resource type="Texture2D" uid="uid://bkb04vu1dl3tk" path="res://assets/ui/background.png" id="2_nq43c"]
+[ext_resource type="Texture2D" uid="uid://bgpjgjmqig3uf" path="res://assets/card/front/thermal/snow.png" id="3_srybl"]
+[ext_resource type="Texture2D" uid="uid://cb17wcq1xjgro" path="res://assets/card/front/climate/meteorite.png" id="4_xderm"]
+[ext_resource type="Texture2D" uid="uid://btyoku1mjjl5f" path="res://assets/card/back/meter.png" id="5_daeag"]
+[ext_resource type="Texture2D" uid="uid://cgd2i18wc1fha" path="res://assets/card/front/thermal/ice_cube.png" id="6_xooeb"]
+[ext_resource type="Texture2D" uid="uid://cdm5rnvi4wny0" path="res://assets/card/back/dud.png" id="7_v851h"]
+[ext_resource type="Texture2D" uid="uid://cimbxp08jgntu" path="res://assets/card/front/climate/wind.png" id="8_w5flv"]
+[ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="9_5k5i7"]
+[ext_resource type="Texture2D" uid="uid://cpkd8su3h50xu" path="res://assets/card/front/thermal/match.png" id="10_dbmv3"]
+[ext_resource type="Texture2D" uid="uid://dc1ypi564g4d2" path="res://assets/card/front/climate/spicy_sauce.png" id="11_5efb5"]
+[ext_resource type="Texture2D" uid="uid://cuel47m3pnlg0" path="res://assets/card/front/meter/crystal_ball.png" id="12_brcih"]
+[ext_resource type="Texture2D" uid="uid://7rbl27pcmafu" path="res://assets/card/front/meta/dud_to_hand.png" id="13_gc6tq"]
+[ext_resource type="Texture2D" uid="uid://yabwkd5btx7u" path="res://assets/card/front/thermal/flame.png" id="14_rynq5"]
+[ext_resource type="Texture2D" uid="uid://dxoxf46h03tx8" path="res://assets/card/back/cold_block.png" id="15_5w852"]
+[ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="16_2c1oq"]
+
+[sub_resource type="Animation" id="Animation_xnwms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_opvja"]
+resource_name = "fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_x6xwn"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tp6uv"]
+_data = {
+"RESET": SubResource("Animation_xnwms"),
+"fadein": SubResource("Animation_opvja"),
+"fadeout": SubResource("Animation_x6xwn")
+}
+
+[node name="StandbyScreen" type="ColorRect"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_tnyb0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_nq43c")
+stretch_mode = 1
+
+[node name="Card4" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = -177.0
+offset_top = 903.0
+offset_right = 123.0
+offset_bottom = 1327.35
+rotation = -0.438235
+mouse_filter = 2
+texture = ExtResource("3_srybl")
+expand_mode = 5
+
+[node name="Card3" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 238.0
+offset_top = 675.0
+offset_right = 538.0
+offset_bottom = 1099.35
+rotation = 0.4047
+mouse_filter = 2
+texture = ExtResource("4_xderm")
+expand_mode = 5
+
+[node name="Card5" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 642.0
+offset_top = 954.0
+offset_right = 942.0
+offset_bottom = 1378.35
+rotation = 0.343044
+mouse_filter = 2
+texture = ExtResource("5_daeag")
+expand_mode = 5
+
+[node name="Card2" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 231.0
+offset_top = 1071.0
+offset_right = 531.0
+offset_bottom = 1495.35
+rotation = -0.539984
+mouse_filter = 2
+texture = ExtResource("6_xooeb")
+expand_mode = 5
+
+[node name="Card1" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = -36.0
+offset_top = 881.0
+offset_right = 264.0
+offset_bottom = 1305.35
+rotation = -0.238536
+mouse_filter = 2
+texture = ExtResource("7_v851h")
+expand_mode = 5
+
+[node name="Card6" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 755.0
+offset_top = 986.0
+offset_right = 1055.0
+offset_bottom = 1410.35
+rotation = -0.0965875
+mouse_filter = 2
+texture = ExtResource("8_w5flv")
+expand_mode = 5
+
+[node name="Card13" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1635.0
+offset_top = 777.0
+offset_right = 1935.0
+offset_bottom = 1201.35
+rotation = 0.0171669
+mouse_filter = 2
+texture = ExtResource("9_5k5i7")
+expand_mode = 5
+
+[node name="Card8" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1152.0
+offset_top = 1067.0
+offset_right = 1452.0
+offset_bottom = 1491.35
+rotation = -0.210038
+mouse_filter = 2
+texture = ExtResource("10_dbmv3")
+expand_mode = 5
+
+[node name="Card7" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1010.0
+offset_top = 1102.0
+offset_right = 1310.0
+offset_bottom = 1526.35
+rotation = 0.0646844
+mouse_filter = 2
+texture = ExtResource("11_5efb5")
+expand_mode = 5
+
+[node name="Card10" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1495.0
+offset_top = 851.0
+offset_right = 1795.0
+offset_bottom = 1275.35
+rotation = -0.268271
+mouse_filter = 2
+texture = ExtResource("12_brcih")
+expand_mode = 5
+
+[node name="Card9" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1378.0
+offset_top = 909.0
+offset_right = 1678.0
+offset_bottom = 1333.35
+rotation = 0.0653206
+mouse_filter = 2
+texture = ExtResource("13_gc6tq")
+expand_mode = 5
+
+[node name="Card11" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1759.0
+offset_top = 817.0
+offset_right = 2059.0
+offset_bottom = 1241.35
+rotation = 0.0653206
+mouse_filter = 2
+texture = ExtResource("14_rynq5")
+expand_mode = 5
+
+[node name="Card12" type="TextureRect" parent="TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+offset_left = 1764.0
+offset_top = 1133.0
+offset_right = 2064.0
+offset_bottom = 1557.35
+rotation = -0.228321
+mouse_filter = 2
+texture = ExtResource("15_5w852")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.5
+offset_top = -164.5
+offset_right = 460.5
+offset_bottom = 164.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.780392, 0.47451, 0.188235, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("16_2c1oq")
+theme_override_font_sizes/font_size = 256
+text = "standby"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.780392, 0.47451, 0.188235, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 80
+text = "Pass the computer
+to the next player!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.780392, 0.47451, 0.188235, 1)
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/font_size = 40
+text = "(Click to continue.)"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tp6uv")
+}
+speed_scale = 2.0

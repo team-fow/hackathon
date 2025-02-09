@@ -15,5 +15,7 @@ name = "Meteor Shower"
 front = ExtResource("3_6ymwu")
 back = ExtResource("1_1uc4k")
 description = "Increases 🔥 changes by 1 for 2 rounds."
+short_description = "🔥+1 for 2"
 card_script = ExtResource("2_nhvgy")
 element = 1
+changes_temperature = false

@@ -15,5 +15,7 @@ name = "Icy Wind"
 front = ExtResource("2_topdn")
 back = ExtResource("1_6klo6")
 description = "Increases ❄️ changes by 2 for 1 round."
+short_description = "❄️+2 for 1"
 card_script = ExtResource("2_lfy2e")
 element = 2
+changes_temperature = false

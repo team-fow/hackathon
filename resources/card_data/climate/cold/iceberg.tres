@@ -15,5 +15,7 @@ name = "Ice Age"
 front = ExtResource("3_18ith")
 back = ExtResource("1_qtfa4")
 description = "Doubles ❄️ changes for 2 rounds."
+short_description = "❄️x2 for 2"
 card_script = ExtResource("2_h27la")
 element = 2
+changes_temperature = false

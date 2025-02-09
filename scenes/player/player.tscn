@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://scenes/card_list/deck.gd" id="3_5fsjs"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played.gd" id="4_kj1xb"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="4_vi6xc"]
-[ext_resource type="Texture2D" uid="uid://d2j15iqklklxc" path="res://assets/fire_particles.png" id="5_7uoy0"]
+[ext_resource type="Texture2D" uid="uid://d2j15iqklklxc" path="res://assets/vfx/fire_particles.png" id="5_7uoy0"]
 [ext_resource type="Script" path="res://scenes/card_list/card_played_history.gd" id="5_iuisj"]
-[ext_resource type="Texture2D" uid="uid://bm2hf34illh4j" path="res://assets/cold_particles.png" id="6_miuve"]
-[ext_resource type="Texture2D" uid="uid://c11hbo1nx1ub1" path="res://assets/deck.png" id="9_w3tjj"]
+[ext_resource type="Texture2D" uid="uid://bm2hf34illh4j" path="res://assets/vfx/cold_particles.png" id="6_miuve"]
+[ext_resource type="Texture2D" uid="uid://c11hbo1nx1ub1" path="res://assets/ui/deck.png" id="9_w3tjj"]
 
 [sub_resource type="Curve" id="Curve_qiwpx"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -59,6 +59,7 @@ initial_velocity_min = 400.0
 initial_velocity_max = 400.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_iht17")
+anim_offset_max = 1.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_g6b4q")
@@ -90,6 +91,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Deck"]
+z_index = -1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -166,6 +168,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CardPlayedHistory"]
+z_index = -1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

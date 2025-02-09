@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://1nlgodg5mius"]
+[gd_scene load_steps=4 format=3 uid="uid://ca4ohmfqi6ivx"]
 
+[ext_resource type="Script" path="res://scenes/game/title_screen.gd" id="1_g1p78"]
 [ext_resource type="Theme" uid="uid://bvgd2wroq4sh7" path="res://assets/ui/theme.tres" id="1_lg3eh"]
 [ext_resource type="Texture2D" uid="uid://iss36l4yi0e7" path="res://assets/ui/button_1.png" id="2_fy7mx"]
 
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_g1p78")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -57,7 +59,7 @@ offset_bottom = 735.0
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_fy7mx")
 
-[node name="P1NameInput" type="TextEdit" parent="Player1NameTexture"]
+[node name="P1NameInput" type="LineEdit" parent="Player1NameTexture"]
 custom_minimum_size = Vector2(1000, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -65,10 +67,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -500.0
+offset_top = -150.0
+offset_right = 500.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lg3eh")
@@ -87,7 +89,7 @@ texture = ExtResource("2_fy7mx")
 flip_h = true
 flip_v = true
 
-[node name="P2NameInput" type="TextEdit" parent="Player2NameTexture2"]
+[node name="P2NameInput" type="LineEdit" parent="Player2NameTexture2"]
 custom_minimum_size = Vector2(1000, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -104,3 +106,6 @@ grow_vertical = 2
 theme = ExtResource("1_lg3eh")
 theme_override_font_sizes/font_size = 150
 placeholder_text = "Player 2 Name"
+
+[connection signal="text_changed" from="Player1NameTexture/P1NameInput" to="." method="_on_p_1_name_input_text_changed"]
+[connection signal="text_changed" from="Player2NameTexture2/P2NameInput" to="." method="_on_p_2_name_input_text_changed"]

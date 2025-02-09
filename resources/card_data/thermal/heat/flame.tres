@@ -13,3 +13,4 @@ back = ExtResource("1_lh64p")
 description = "2 🔥 to both players."
 card_script = ExtResource("2_6sin2")
 element = 1
+changes_temperature = true

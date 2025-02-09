@@ -47,6 +47,8 @@ func draw(amount: int) -> void:
 		deck.remove_card(card)
 		_send_card_to_hand(card)
 	
+	SFX.play("draw")
+	
 	# discarding extra cards
 	if hand.cards.size() > MAX_HAND_SIZE:
 		discard(hand.cards.size() - MAX_HAND_SIZE)
@@ -57,6 +59,8 @@ func discard(amount: int) -> void:
 		var card: Card = hand.cards.front()
 		hand.remove_card(card)
 		card_played_history.add_card(card)
+	
+	SFX.play("discard")
 
 
 func _set_temperature(value: int) -> void:
@@ -84,6 +88,9 @@ func _send_card_to_played(card: Card) -> void:
 		add_card_to_queue.emit(card)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
+		
+		if card.card_resource.changes_temperature:
+			get_tree().current_scene.turn_ended.emit()
 	else:
 		hand._add_card_to_list(card, hand.held_card_idx)
 

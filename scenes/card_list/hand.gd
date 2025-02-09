@@ -11,7 +11,6 @@ const HOVERED_CARD_SCALE := Vector2(1.2, 1.2) ## Scaling applied to the currentl
 
 var held_card: Card ## The card currently being dragged out of the hand.
 var held_card_idx: int ## The previous index of [member held_card] in the list.
-var drop_area := Rect2(0, -Card.SIZE.y/2, 0, Card.SIZE.y + MAX_FAN_OFFSET) ## The area in which [member held_card] can be dropped without playing it.
 
 
 # grabbing cards
@@ -22,6 +21,8 @@ func _on_card_input(event: InputEvent, card: Card) -> void:
 		held_card = card
 		held_card_idx = cards.find(held_card)
 		_remove_card_from_list(card)
+		
+		SFX.play("draw")
 
 
 # Handles dragging/dropping the held card.
@@ -32,8 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			held_card.position = get_local_mouse_position()
 		
 		elif event.is_action_released("click"):
-			if drop_area.has_point(get_local_mouse_position()):
+			if get_local_mouse_position().y > -Card.SIZE.y/2:
 				_add_card_to_list(held_card, held_card_idx)
+				SFX.play("return_to_hand")
 			else:
 				move_card_to_played.emit(held_card)
 			held_card = null
@@ -58,10 +60,6 @@ func _order_cards() -> void:
 				Vector2(left + CARD_SEPARATION * i, abs(percent) * MAX_FAN_OFFSET),
 				percent * MAX_FAN_ROTATION
 			)
-	
-	# resizing drop area
-	drop_area.position.x = left - CARD_SEPARATION
-	drop_area.size.x = width + CARD_SEPARATION * 2
 
 
 func _on_card_moused(card: Card, mouse_inside: bool) -> void:
@@ -71,6 +69,7 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 		
 		if mouse_inside:
 			_tween_card(card, card.position, 0)
+			SFX.play("click")
 		elif cards.size() > 1:
 			var half_count: float = (cards.size() - 1) / 2.0
 			var percent: float = (cards.find(card) - half_count) / half_count

@@ -10,6 +10,7 @@ func fadein():
 
 func fadeout():
 	animation_player.play("fadeout")
+	await animation_player.animation_finished
 	mouse_filter = MOUSE_FILTER_IGNORE
 
 

@@ -15,5 +15,7 @@ name = "Magnifier"
 front = ExtResource("3_5gs0n")
 back = ExtResource("1_h760c")
 description = "Increases 🔥 changes by 1 for 1 round."
+short_description = "🔥+1 for 1"
 card_script = ExtResource("2_xokux")
 element = 1
+changes_temperature = false

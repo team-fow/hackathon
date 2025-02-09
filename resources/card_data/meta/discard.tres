@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://1yf6hsgxxcda"]
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://1yf6hsgxxcda"]
 
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_5h864"]
 [ext_resource type="Script" path="res://resources/card_behavior/discard.gd" id="1_o80ow"]
+[ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="1_y3y60"]
+[ext_resource type="Texture2D" uid="uid://bqtru62u0hbj1" path="res://assets/card/front/meta/erase.png" id="3_jv0yh"]
 
 [resource]
 script = ExtResource("1_5h864")
-name = "Discard"
-description = "Force your opponent to discard a card."
+name = "Nuh Uh"
+front = ExtResource("3_jv0yh")
+back = ExtResource("1_y3y60")
+description = "Your opponent discards a card."
 card_script = ExtResource("1_o80ow")
+element = 0

@@ -10,5 +10,6 @@ script = ExtResource("3_s3udb")
 name = "Fish Slap"
 front = ExtResource("2_3ldp1")
 back = ExtResource("1_4v1pn")
-description = "Adds 2 dud cards to your opponent's hand."
+description = "Adds 2 duds to your opponent's hand."
 card_script = ExtResource("2_jgfif")
+element = 0

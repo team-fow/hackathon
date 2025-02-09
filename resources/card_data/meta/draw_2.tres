@@ -7,8 +7,9 @@
 
 [resource]
 script = ExtResource("1_bi0j5")
-name = "Draw 2"
+name = "Grabby Hands"
 front = ExtResource("2_jbaci")
 back = ExtResource("1_hhp4e")
 description = "Draw 2 cards."
 card_script = ExtResource("2_t1n8f")
+element = 0
