@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal intro_requested
+
 
 func _on_settings_pressed() -> void:
 	get_tree().paused = true
@@ -31,3 +33,8 @@ func _on_texture_progress_bar_gui_input(event: InputEvent) -> void:
 func _on_texture_progress_bar_2_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") or event is InputEventMouse and Input.is_action_pressed("click"):
 		$Panel/Margins/VBox/TextureProgressBar2.value = event.position.x / $Panel/Margins/VBox/TextureProgressBar2.get_rect().size.x
+
+
+func _on_button_pressed() -> void:
+	_on_continue_pressed()
+	intro_requested.emit()

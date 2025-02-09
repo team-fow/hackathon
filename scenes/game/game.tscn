@@ -463,6 +463,7 @@ text = "Spoingus"
 [node name="StandbyScreen" parent="UI" instance=ExtResource("16_yuwma")]
 
 [node name="Settings" parent="UI" instance=ExtResource("31_xeqph")]
+visible = false
 
 [node name="EndScreen" parent="UI" instance=ExtResource("20_bqs28")]
 
@@ -486,3 +487,4 @@ stream = ExtResource("44_mlt3a")
 [connection signal="timeout" from="UI/Top/VBox/Timer/Timer" to="." method="_end_turn"]
 [connection signal="pressed" from="UI/Bottom/EndTurn" to="." method="_end_turn"]
 [connection signal="pressed" from="UI/Bottom/Settings" to="UI/Settings" method="_on_settings_pressed"]
+[connection signal="intro_requested" from="UI/Settings" to="UI/Intro" method="_on_settings_intro_requested"]
