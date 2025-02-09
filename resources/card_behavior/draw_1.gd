@@ -2,4 +2,4 @@ extends CardBehavior
 
 
 func play(game : Node) -> void:
-	card.player.draw(1)
+	card.player.draw(2)

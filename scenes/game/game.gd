@@ -24,22 +24,24 @@ var initial_deck: Dictionary = {
 	# meta
 	"meta/discard": 1,
 	"meta/discard_hand": 1,
-	"meta/draw_1": 1,
-	"meta/draw_2": 1,
-	"meta/duds_to_deck": 1,
-	"meta/duds_to_hand": 1,
+	"meta/draw_1": 6,
+	"meta/draw_2": 6,
+	"meta/duds_to_deck": 3,
+	"meta/duds_to_hand": 3,
 	"meta/dud": 0,
 	# meter
 	"meter/crystal_ball": 1,
 	"meter/eyeball": 1,
 	# thermal (heat)
-	"thermal/heat/flame": 1,
-	"thermal/heat/match": 1,
-	"thermal/heat/torch": 1,
+	"thermal/heat/flame": 2,
+	"thermal/heat/match": 3,
+	"thermal/heat/torch": 4,
+	"thermal/heat/strong_heat": 1,
 	# thermal (cold)
-	"thermal/cold/ice_cube": 1,
-	"thermal/cold/snow": 1,
-	"thermal/cold/water_droplet": 1,
+	"thermal/cold/ice_cube": 3,
+	"thermal/cold/snow": 2,
+	"thermal/cold/water_droplet": 4,
+	"thermal/cold/strong_cold": 1,
 }
 
 var curr_phase : Phase

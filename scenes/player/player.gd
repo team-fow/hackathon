@@ -64,6 +64,7 @@ func discard(amount: int) -> void:
 
 
 func _set_temperature(value: int) -> void:
+	prints(player_name, "temperature now", value, "(", value - temperature, ")")
 	temperature = value
 	temperature_changed.emit(value)
 	

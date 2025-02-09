@@ -25,6 +25,7 @@ SFX="*res://scenes/sfx/sfx.tscn"
 window/size/viewport_width=2000
 window/size/viewport_height=1200
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/point.png"
 
 [gui]
 
