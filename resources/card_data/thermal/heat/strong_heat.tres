@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://do4d425yfud4f"]
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cc1x6n6q1f3do"]
 
 [ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="1_ym42w"]
 [ext_resource type="Script" path="res://resources/card_behavior/strong_heat.gd" id="2_oqdfh"]

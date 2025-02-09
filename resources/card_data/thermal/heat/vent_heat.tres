@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://m3ugimustra"]
+
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="1_2itdf"]
+[ext_resource type="Texture2D" uid="uid://dmu0o1l1n1du0" path="res://assets/card/front/thermal/neutral_cold.png" id="1_6d2jn"]
+[ext_resource type="Texture2D" uid="uid://mkt2e1jkd2tp" path="res://assets/card/back/neutral damage.png" id="1_n8tcl"]
+[ext_resource type="Script" path="res://resources/card_behavior/vent_heat.gd" id="2_aqeci"]
+
+[resource]
+script = ExtResource("1_2itdf")
+name = "Vent Heat"
+front = ExtResource("1_6d2jn")
+back = ExtResource("1_n8tcl")
+description = "2 ❄️ to you, 2 🔥 to your opponent. "
+card_script = ExtResource("2_aqeci")
+element = 0
+changes_temperature = true

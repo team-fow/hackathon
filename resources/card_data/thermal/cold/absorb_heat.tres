@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://bjh52e0en6ls8"]
+
+[ext_resource type="Texture2D" uid="uid://mkt2e1jkd2tp" path="res://assets/card/back/neutral damage.png" id="1_1pb6v"]
+[ext_resource type="Script" path="res://resources/card_behavior/absorb_heat.gd" id="2_7c48h"]
+[ext_resource type="Texture2D" uid="uid://jm0e4h24r2wh" path="res://assets/card/front/thermal/neutral_hot.png" id="2_nw1dy"]
+[ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_bpt3v"]
+
+[resource]
+script = ExtResource("4_bpt3v")
+name = "Absorb Heat"
+front = ExtResource("2_nw1dy")
+back = ExtResource("1_1pb6v")
+description = "2 🔥 to you, 2 ❄️ to your opponent. "
+card_script = ExtResource("2_7c48h")
+element = 0
+changes_temperature = true

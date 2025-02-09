@@ -37,11 +37,13 @@ var initial_deck: Dictionary = {
 	"thermal/heat/match": 3,
 	"thermal/heat/torch": 4,
 	"thermal/heat/strong_heat": 1,
+	"thermal/heat/vent_heat": 2,
 	# thermal (cold)
 	"thermal/cold/ice_cube": 3,
 	"thermal/cold/snow": 2,
 	"thermal/cold/water_droplet": 4,
 	"thermal/cold/strong_cold": 1,
+	"thermal/cold/absorb_heat": 2
 }
 
 var curr_phase : Phase
