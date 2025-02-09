@@ -347,6 +347,7 @@ autowrap_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kpvll")
+bus = &"Music"
 
 [connection signal="text_changed" from="0/Inputs/P1" to="." method="_on_p_1_text_changed"]
 [connection signal="text_changed" from="0/Inputs/P2" to="." method="_on_p_2_text_changed"]

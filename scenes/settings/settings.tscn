@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhlde4kf1h43t"]
+[gd_scene load_steps=11 format=3 uid="uid://dhlde4kf1h43t"]
 
 [ext_resource type="Script" path="res://scenes/game/settings.gd" id="1_vydad"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_ccied"]
+[ext_resource type="Texture2D" uid="uid://cmo3cjdow65d" path="res://assets/ui/settings/panel.png" id="2_it27m"]
+[ext_resource type="Texture2D" uid="uid://hsaw0ntk77qq" path="res://assets/ui/settings/concede.png" id="3_8v2jj"]
+[ext_resource type="Texture2D" uid="uid://blnovv1ab8b8w" path="res://assets/ui/settings/continue.png" id="3_f0jpy"]
+[ext_resource type="Texture2D" uid="uid://dco7077p2tav4" path="res://assets/ui/settings/continue_hover.png" id="4_j64yk"]
+[ext_resource type="Texture2D" uid="uid://cf87knhsqsoe7" path="res://assets/ui/settings/bar_empty.png" id="4_mnca6"]
+[ext_resource type="Texture2D" uid="uid://1hu5uxl2mnas" path="res://assets/ui/settings/concede_hover.png" id="4_tum6d"]
+[ext_resource type="Texture2D" uid="uid://bqx3ydfg2m72q" path="res://assets/ui/settings/bar.png" id="5_rj0k7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxyje"]
 content_margin_left = 100.0
 content_margin_top = 100.0
 content_margin_right = 100.0
 content_margin_bottom = 100.0
-bg_color = Color(0, 0, 0, 0.74902)
+bg_color = Color(0, 0, 0, 0.501961)
 
 [node name="Settings" type="PanelContainer"]
 process_mode = 3
@@ -21,31 +28,85 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oxyje")
 script = ExtResource("1_vydad")
 
-[node name="VBox" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/separation = 25
-
-[node name="Label1" type="Label" parent="VBox"]
+[node name="Panel" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_it27m")
+
+[node name="Margins" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 250
+
+[node name="VBox" type="GridContainer" parent="Panel/Margins"]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 64
+columns = 2
+
+[node name="Label" type="Label" parent="Panel/Margins/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
 theme_override_fonts/font = ExtResource("2_ccied")
-theme_override_font_sizes/font_size = 64
-text = "Settings"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 80
+text = "MUSIC"
 
-[node name="Continue" type="Button" parent="VBox"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel/Margins/VBox"]
 layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("4_mnca6")
+texture_progress = ExtResource("5_rj0k7")
+
+[node name="Label2" type="Label" parent="Panel/Margins/VBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_fonts/font = ExtResource("2_ccied")
+theme_override_font_sizes/font_size = 80
+text = "SFX"
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="Panel/Margins/VBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("4_mnca6")
+texture_progress = ExtResource("5_rj0k7")
+
+[node name="Concede" type="TextureButton" parent="Panel"]
+layout_mode = 2
+offset_left = 116.0
+offset_top = 522.0
+offset_right = 521.0
+offset_bottom = 707.0
 size_flags_horizontal = 4
 theme_type_variation = &"StyledButton"
-text = "Continue"
+texture_normal = ExtResource("3_8v2jj")
+texture_hover = ExtResource("4_tum6d")
 
-[node name="Quit" type="Button" parent="VBox"]
+[node name="Continue" type="TextureButton" parent="Panel"]
 layout_mode = 2
+offset_left = 672.0
+offset_top = 522.0
+offset_right = 1077.0
+offset_bottom = 707.0
 size_flags_horizontal = 4
 theme_type_variation = &"StyledButton"
-text = "Quit"
+texture_normal = ExtResource("3_f0jpy")
+texture_hover = ExtResource("4_j64yk")
 
-[connection signal="pressed" from="VBox/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="VBox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="gui_input" from="Panel/Margins/VBox/TextureProgressBar" to="." method="_on_texture_progress_bar_gui_input"]
+[connection signal="value_changed" from="Panel/Margins/VBox/TextureProgressBar" to="." method="_on_music_value_changed"]
+[connection signal="gui_input" from="Panel/Margins/VBox/TextureProgressBar2" to="." method="_on_texture_progress_bar_2_gui_input"]
+[connection signal="value_changed" from="Panel/Margins/VBox/TextureProgressBar2" to="." method="_on_sfx_value_changed"]
+[connection signal="pressed" from="Panel/Concede" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
