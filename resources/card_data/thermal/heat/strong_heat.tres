@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://do4d425yfud4f"]
 
-[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_0xybl"]
+[ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="1_ym42w"]
 [ext_resource type="Script" path="res://resources/card_behavior/strong_heat.gd" id="2_oqdfh"]
-[ext_resource type="Texture2D" uid="uid://bbbjf6q1lfe62" path="res://assets/card/front/thermal/water_drip.png" id="2_rhk0x"]
+[ext_resource type="Texture2D" uid="uid://bt5pfidlx62bx" path="res://assets/card/front/thermal/strong_heat.png" id="3_q0spg"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="3_x7ekt"]
 
 [resource]
 script = ExtResource("3_x7ekt")
-name = "Strong Heat"
-front = ExtResource("2_rhk0x")
-back = ExtResource("1_0xybl")
-description = "7 🔥 to you."
+name = "Heat Death"
+front = ExtResource("3_q0spg")
+back = ExtResource("1_ym42w")
+description = "7 🔥 to you.
+3 ❄️ to your opponent.
+Draws 3 cold cards."
 card_script = ExtResource("2_oqdfh")
-element = 2
+element = 1
 changes_temperature = true

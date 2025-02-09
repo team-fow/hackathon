@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_ycrwf"]
 [ext_resource type="Script" path="res://resources/card_behavior/strong_cold.gd" id="2_qqy02"]
-[ext_resource type="Texture2D" uid="uid://bbbjf6q1lfe62" path="res://assets/card/front/thermal/water_drip.png" id="3_ltm0m"]
+[ext_resource type="Texture2D" uid="uid://5p478u3oww4k" path="res://assets/card/front/thermal/strong_cold.png" id="3_r1a4h"]
 [ext_resource type="Script" path="res://resources/card_data/card_data.gd" id="4_kan04"]
 
 [resource]
 script = ExtResource("4_kan04")
 name = "Strong Cold"
-front = ExtResource("3_ltm0m")
+front = ExtResource("3_r1a4h")
 back = ExtResource("1_ycrwf")
-description = "7 ❄️ to you."
+description = "7 ❄️ to you.
+3 🔥 to your opponent.
+Draws 3 heat cards."
 card_script = ExtResource("2_qqy02")
 element = 2
 changes_temperature = true

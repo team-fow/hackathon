@@ -318,6 +318,7 @@ autowrap_mode = 2
 
 [node name="Label3" type="RichTextLabel" parent="4/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "Your turn ends when you (a) play any card with [img]res://assets/card/next_icon.png[/img] or (b) run out of time."
