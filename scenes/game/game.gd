@@ -68,6 +68,7 @@ var all_cards_played: Array[CardData]
 @onready var turn_timer: Timer = $UI/Top/VBox/Timer/Timer
 @onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
 @onready var music: AudioStreamPlayer = $GameMusic
+@onready var end_screen: TextureRect = $UI/EndScreen
 
 
 # Called when the node enters the scene tree for the first time.
@@ -119,6 +120,8 @@ func cycle() -> void:
 
 # Called when the player's health reaches an extreme
 func _on_player_died(player: Player):
+	end_screen.set_winner(player.player_name, get_opponent(player).player_name)
+	end_screen.load_card_grid(all_cards_played)
 	active = false
 
 
@@ -196,8 +199,8 @@ func _resolve_cards() -> void:
 		else: await card.play(self)
 		center.remove_card(card)
 		pile.add_card(card)
-
-	all_cards_played.assign(card_queue.map(func(card: Card) -> CardData: return card.card_resource))
+		all_cards_played.append(card.card_resource)
+	
 	card_queue.clear()
 	for player : Player in players:
 		player.card_played_history._order_cards()
