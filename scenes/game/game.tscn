@@ -171,9 +171,9 @@ texture = ExtResource("28_fd1xb")
 
 [node name="Table4" type="TextureRect" parent="Background"]
 offset_left = 231.0
-offset_top = 381.0
+offset_top = 362.0
 offset_right = 556.0
-offset_bottom = 843.0
+offset_bottom = 824.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("28_fd1xb")
 flip_v = true
@@ -338,6 +338,7 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="StandbyScreen" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
