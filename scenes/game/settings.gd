@@ -19,11 +19,11 @@ func _on_quit_pressed() -> void:
 
 
 func _on_music_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(1, linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 
 func _on_sfx_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(2, linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 
 func _on_texture_progress_bar_gui_input(event: InputEvent) -> void:

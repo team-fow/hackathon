@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=38 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -63,6 +63,13 @@ content_margin_bottom = 8.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bb2f1"]
 content_margin_left = 60.0
 content_margin_right = 60.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_jnvui"]
+action = &"settings"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_l2lof"]
+events = [SubResource("InputEventAction_jnvui")]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_repam"]
 content_margin_left = 50.0
@@ -438,10 +445,12 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Settings" type="TextureButton" parent="UI/Bottom"]
+process_mode = 3
 custom_minimum_size = Vector2(328.462, 120)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+shortcut = SubResource("Shortcut_l2lof")
 texture_normal = ExtResource("32_d04lk")
 ignore_texture_size = true
 stretch_mode = 0
@@ -500,12 +509,12 @@ text = "Spoingus"
 
 [node name="StandbyScreen" parent="UI" instance=ExtResource("16_yuwma")]
 
-[node name="Settings" parent="UI" instance=ExtResource("31_xeqph")]
-visible = false
-
 [node name="EndScreen" parent="UI" instance=ExtResource("20_bqs28")]
 
 [node name="Intro" parent="UI" instance=ExtResource("42_yorcd")]
+visible = false
+
+[node name="Settings" parent="UI" instance=ExtResource("31_xeqph")]
 visible = false
 
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
