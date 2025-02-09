@@ -140,6 +140,8 @@ func get_opponent(player: Player) -> Player:
 # Rotates and flips player hands
 func _turn() -> void:
 	turn_idx += 1
+	turn_timer.start()
+	turn_timer.set_paused(true)
 	
 	turn_timer_texture.scale.y = 0
 	players.reverse()
@@ -163,9 +165,9 @@ func _turn() -> void:
 		players[0].draw(1)
 	var timer_tween = create_tween()
 	timer_tween.tween_property(turn_timer_texture, "scale", Vector2(3, 3), 0.15)
+	turn_timer.set_paused(false)
 	timer_tween.tween_property(turn_timer_texture, "scale", Vector2.ONE, 0.15)
 	await timer_tween.finished
-	turn_timer.start()
 	await turn_ended
 	turn_timer.stop()
 	
@@ -198,7 +200,7 @@ func _resolve_cards() -> void:
 	
 	music.volume_db = linear_to_db(0.5)
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	
 	for card in card_queue:
 		var pile = card.player.card_played_history
