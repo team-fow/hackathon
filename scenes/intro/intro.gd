@@ -16,10 +16,6 @@ func _gui_input(event: InputEvent) -> void:
 			hide()
 		else:
 			current_tab += 1
-	
-	elif event.is_action_pressed("right_click"):
-		current_tab = max(0, current_tab - 1)
-
 
 func _on_p_1_text_changed(new_text: String) -> void:
 	get_node("/root/Game/Player1").player_name = new_text

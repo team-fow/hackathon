@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b0tlif0e8vrdi"]
+[gd_scene load_steps=25 format=3 uid="uid://b0tlif0e8vrdi"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_23cci"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_1kose"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crd2qb46u6jfg" path="res://assets/card/front/climate/iceberg.png" id="5_b6uji"]
 [ext_resource type="Texture2D" uid="uid://csx31ibcmpwqn" path="res://assets/ui/button_3.png" id="5_nag6d"]
 [ext_resource type="AudioStream" uid="uid://dx18f5a7ivw0m" path="res://assets/music/intro.mp3" id="7_kpvll"]
+[ext_resource type="Texture2D" uid="uid://cuel47m3pnlg0" path="res://assets/card/front/meter/crystal_ball.png" id="10_lr2ji"]
 [ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="10_pbnye"]
 [ext_resource type="Texture2D" uid="uid://b46g5pr6c5vgp" path="res://assets/card/back/cold_climate.png" id="11_jj6ki"]
 [ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="11_yrw1x"]
@@ -45,7 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 5
+current_tab = 6
 tabs_visible = false
 script = ExtResource("1_23cci")
 
@@ -371,10 +372,11 @@ text = "[center]Your turn ends when you play a card with a [img]res://assets/car
 fit_content = true
 
 [node name="ActionPhase" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ActionPhase"]
+[node name="VBoxContainer" type="HBoxContainer" parent="ActionPhase"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
@@ -383,7 +385,15 @@ alignment = 1
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 25
+
+[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "During the"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Label1" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -398,24 +408,60 @@ horizontal_alignment = 1
 [node name="Label4" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
-text = "Cards take effect in the order they were played.
+text = "cards take effect in the order they were played.
 "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ActionPhase/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
 
-[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_pbnye")
+expand_mode = 5
+
+[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 56
 text = "Pay attention to card backs to guess at your temperature!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label6" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "Meter cards flip to reveal a color when played—hotter, colder, or neither."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Card" type="TextureRect" parent="ActionPhase/VBoxContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("10_lr2ji")
+expand_mode = 5
+
 [node name="CardAnatomy" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
@@ -438,12 +484,13 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "Types"
+text = "card temps"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="GridContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 25
 columns = 2
@@ -612,13 +659,13 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "ELEMENTS"
+text = "card types"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="GridContainer" parent="CardAnatomy/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 6
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 25
 columns = 2
@@ -638,7 +685,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Change players'temperature."
+text = "Changes players' temperature."
 horizontal_alignment = 2
 autowrap_mode = 2
 
@@ -690,7 +737,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Increase the effect of temperature changes."
+text = "Increases the effect of temperature changes."
 horizontal_alignment = 2
 autowrap_mode = 2
 
@@ -742,7 +789,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Manipulate players'
+text = "Manipulates players'
 hands and decks."
 horizontal_alignment = 2
 autowrap_mode = 2
@@ -771,7 +818,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "Reveal clues about
+text = "Reveals clues about
 your temperature."
 horizontal_alignment = 2
 autowrap_mode = 2
