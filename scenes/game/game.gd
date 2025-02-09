@@ -187,12 +187,14 @@ func _resolve_cards() -> void:
 		player.hand.hide()
 		player.deck.hide()
 	
-	players[0].deck.up = -1
 	player_1.rotation = 0
+	player_1.deck.up = -1
+	player_1.card_played_history.up = -1
+	
 	player_2.rotation = PI
-	players[0].card_played_history.up = -1
-	players[1].deck.up = 1
-	players[1].card_played_history.up = 1
+	player_2.deck.up = 1
+	player_2.card_played_history.up = 1
+	
 	active_player_disp.hide()
 	inactive_player_disp.hide()
 	$UI/Top.hide()
