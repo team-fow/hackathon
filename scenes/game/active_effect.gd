@@ -9,4 +9,3 @@ extends PanelContainer
 func _ready() -> void:
 	effect_name.text = card_resource.name
 	effect_description.text = card_resource.description
-	print(effect_name)

@@ -10,9 +10,8 @@ script = ExtResource("3_x7ekt")
 name = "Heat Death"
 front = ExtResource("3_q0spg")
 back = ExtResource("1_ym42w")
-description = "7 🔥 to you.
-3 ❄️ to your opponent.
-Draws 3 cold cards."
+description = "7 🔥 to you, 3 ❄️ to opp.
+Draw 3 cold cards."
 card_script = ExtResource("2_oqdfh")
 element = 1
 changes_temperature = true

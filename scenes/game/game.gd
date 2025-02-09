@@ -194,6 +194,7 @@ func _resolve_cards() -> void:
 		var center = card.player.card_played
 		pile.remove_card(card)
 		center.add_card(card)
+		print("%s played %s" % [card.player.player_name, card.card_resource.name])
 		await get_tree().create_timer(0.5).timeout
 		if card.card_script.get_cardtype() == "climate": card.play(self)
 		else: await card.play(self)

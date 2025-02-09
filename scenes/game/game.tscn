@@ -427,6 +427,7 @@ player_name = "Spoingus"
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("44_mlt3a")
+bus = &"Music"
 
 [connection signal="timeout" from="UI/Top/VBox/Timer/Timer" to="." method="_end_turn"]
 [connection signal="pressed" from="UI/Bottom/EndTurn" to="." method="_end_turn"]
