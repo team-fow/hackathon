@@ -38,6 +38,9 @@ func _ready() -> void:
 	await begin_game.pressed
 	title_screen.hide()
 	active = true
+	
+	initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
+	
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
 		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
@@ -124,6 +127,7 @@ func _resolve_cards() -> void:
 	active_player_disp.show()
 	inactive_player_disp.show()
 	active_effects_container.show()
+	round_ended.emit()
 
 
 # Hides the game state and waits for player input.

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://w2xc2bhqcq7f"]
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=5 format=3 uid="uid://w2xc2bhqcq7f"]
 
 [ext_resource type="Texture2D" uid="uid://mwcnpjsuca4v" path="res://assets/card/back/heat_block.png" id="1_2t0ij"]
 [ext_resource type="Texture2D" uid="uid://dc1ypi564g4d2" path="res://assets/card/front/climate/spicy_sauce.png" id="2_dlwmj"]
+[ext_resource type="Script" path="res://resources/card_behavior/climate_card_behavior.gd" id="2_t8tns"]
 [ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_324hd"]
 
 [resource]
@@ -9,9 +10,10 @@ script = ExtResource("3_324hd")
 effect = "heat_bonus"
 value = 2
 duration = 2
-player_affected = 0
+player_affected = 2
 name = "Spicy Sauce"
 front = ExtResource("2_dlwmj")
 back = ExtResource("1_2t0ij")
 description = "Decreases 🔥 by 2 for 1 rounds."
+card_script = ExtResource("2_t8tns")
 element = 1

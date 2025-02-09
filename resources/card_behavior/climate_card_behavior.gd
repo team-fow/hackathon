@@ -14,7 +14,7 @@ func play(game_node: Node) -> void:
 			await wait_rounds(res.duration)
 			card.player[res.effect] -= res.value
 			card.player.active_effects.erase(res)
-		1:	
+		1:
 			game.get_opponent(card.player).active_effects.append(res)
 			game.get_opponent(card.player)[res.effect] += res.value
 			await wait_rounds(res.duration)
@@ -37,5 +37,5 @@ func play(game_node: Node) -> void:
 
 
 func wait_rounds(rounds: int) -> void:
-	for i: int in rounds:
+	for i: int in rounds + 1:
 		await game.round_ended

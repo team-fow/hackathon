@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 @export var card_resource: ClimateCardData
 @onready var effect_name: Label = $EffectName

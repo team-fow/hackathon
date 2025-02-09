@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ClimateCardData" load_steps=4 format=3 uid="uid://blv3kmi1plrp6"]
+[gd_resource type="Resource" script_class="ClimateCardData" load_steps=5 format=3 uid="uid://blv3kmi1plrp6"]
 
 [ext_resource type="Texture2D" uid="uid://b46g5pr6c5vgp" path="res://assets/card/back/cold_climate.png" id="1_pr8b5"]
 [ext_resource type="Texture2D" uid="uid://m0p6q60udfg5" path="res://assets/card/front/climate/cloud.png" id="2_huiie"]
+[ext_resource type="Script" path="res://resources/card_behavior/climate_card_behavior.gd" id="2_rfpo4"]
 [ext_resource type="Script" path="res://resources/card_data/climate/climate_card_data.gd" id="3_erkfr"]
 
 [resource]
@@ -9,9 +10,10 @@ script = ExtResource("3_erkfr")
 effect = "cold_bonus"
 value = 1
 duration = 2
-player_affected = 0
+player_affected = 2
 name = "Fog"
 front = ExtResource("2_huiie")
 back = ExtResource("1_pr8b5")
 description = "Decreases incoming ❄️ by 1 for 2 rounds."
+card_script = ExtResource("2_rfpo4")
 element = 2
