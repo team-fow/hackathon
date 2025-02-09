@@ -56,6 +56,7 @@ func draw(amount: int) -> void:
 
 func discard(amount: int) -> void:
 	for i: int in amount:
+		if hand.cards.is_empty(): return
 		var card: Card = hand.cards.front()
 		hand.remove_card(card)
 		card_played_history.add_card(card)
