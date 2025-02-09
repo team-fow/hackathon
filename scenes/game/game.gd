@@ -29,6 +29,7 @@ var card_queue: Array[Card]
 @onready var active_effects_container: VBoxContainer = $UI/Margins/VBox2/EffectsScroll/ActiveEffectsContainer
 @onready var begin_game: Button = $UI/TitleScreen/BeginGame
 @onready var title_screen: ColorRect = $UI/TitleScreen
+@onready var card_queue_box: VBoxContainer = $UI/Margins/VBox3/QueueScroll/CardQueue
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,7 +42,7 @@ func _ready() -> void:
 	#initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
-		player.add_card_to_queue.connect(func(c:Card): card_queue.append(c))
+		player.add_card_to_queue.connect(_add_to_card_queue)
 		player.play_card.connect(func(c:Card): 
 			c.play(self) 
 			var active_effect = c.card_resource
@@ -84,6 +85,7 @@ func _turn() -> void:
 	turn_idx += 1
 	
 	players.reverse()
+	card_queue_box.kill_children()
 	active_player_disp.show_info(players[0])
 	inactive_player_disp.show_info(players[1])
 	
@@ -106,7 +108,13 @@ func _turn() -> void:
 	turn_ended.emit()
 
 
+func _add_to_card_queue(card : Card) -> void:
+	card_queue.append(card)
+	card_queue_box.add_card(card.card_resource)
+
+
 func _resolve_cards() -> void:
+	card_queue_box.kill_children()
 	for player : Player in players:
 		player.is_active = false
 		player.update_disp()
@@ -120,7 +128,8 @@ func _resolve_cards() -> void:
 		pile.remove_card(card)
 		center.add_card(card)
 		await get_tree().create_timer(0.5).timeout
-		await card.play(self)
+		if card.card_script.get_cardtype() == "climate": card.play(self)
+		else: await card.play(self)
 		center.remove_card(card)
 		pile.add_card(card)
 

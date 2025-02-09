@@ -81,10 +81,7 @@ func _send_card_to_played(card: Card) -> void:
 		
 		await get_tree().create_timer(0.5).timeout
 		
-		if card.card_script.get_cardtype() == "effect":
-			add_card_to_queue.emit(card)
-		else:
-			play_card.emit(card)
+		add_card_to_queue.emit(card)
 		card_played.remove_card(card)
 		card_played_history.add_card(card)
 	else:

@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@export var card_resource: ClimateCardData
+@export var card_resource: CardData
 @onready var effect_name: Label = $VBox/EffectName
 @onready var effect_description: Label = $VBox/EffectDescription
 
