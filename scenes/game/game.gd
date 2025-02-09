@@ -103,6 +103,8 @@ func _turn() -> void:
 	
 	print(1)
 	await end_turn_button.pressed
+	while players[0].hand.cards.size() < 3:
+		players[0].draw(1)
 	turn_ended.emit()
 
 
