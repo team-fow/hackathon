@@ -68,8 +68,10 @@ func _set_temperature(value: int) -> void:
 	temperature = value
 	temperature_changed.emit(value)
 	
-	if absi(temperature) > 10:
-		died.emit()
+	if is_node_ready():
+		await get_tree().current_scene.round_ended
+		if absi(temperature) > 10:
+			died.emit()
 
 
 # Moves the card in the played zone back to the player's hand

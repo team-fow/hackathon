@@ -465,17 +465,18 @@ text = "Spoingus"
 [node name="Settings" parent="UI" instance=ExtResource("31_xeqph")]
 
 [node name="EndScreen" parent="UI" instance=ExtResource("20_bqs28")]
-modulate = Color(1, 1, 1, 1)
 
 [node name="Intro" parent="UI" instance=ExtResource("42_yorcd")]
 visible = false
 
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
+temperature = 10
 is_active = true
 player_name = "Bingle"
 
 [node name="Player2" parent="." instance=ExtResource("2_thlmk")]
 rotation = 3.14159
+temperature = 10
 player_name = "Spoingus"
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]

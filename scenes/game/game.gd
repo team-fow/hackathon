@@ -123,7 +123,8 @@ func cycle() -> void:
 
 # Called when the player's health reaches an extreme
 func _on_player_died(player: Player):
-	end_screen.set_winner(player, get_opponent(player))
+	end_screen.set_winner(get_opponent(player), player)
+	end_screen.show()
 	active = false
 
 
