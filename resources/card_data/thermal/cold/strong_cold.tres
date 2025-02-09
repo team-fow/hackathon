@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("4_kan04")
-name = "Strong Cold"
+name = "Freezerburn"
 front = ExtResource("3_r1a4h")
 back = ExtResource("1_ycrwf")
 description = "7 ❄️ to you.
