@@ -22,9 +22,6 @@ func _on_card_moused(card: Card, mouse_inside: bool) -> void:
 
 func add_card(card: Card, idx: int = -1) -> void:
 	super(card, idx)
-	card.gui_input.connect(_on_card_input.bind(card))
-	card.mouse_entered.connect(_on_card_moused.bind(card, true))
-	card.mouse_exited.connect(_on_card_moused.bind(card, false))
 	accepting_card = false
 	create_particles(card.card_resource.element)
 
@@ -48,9 +45,3 @@ func create_particles(element : CardData.Element) -> void:
 func remove_card(card: Card) -> void:
 	super(card)
 	accepting_card = true
-
-# Handles grabbing cards.
-func _on_card_input(event: InputEvent, card: Card) -> void:
-	if event.is_action_pressed("click"):
-		remove_card(card)
-		send_to_hand.emit(card)
