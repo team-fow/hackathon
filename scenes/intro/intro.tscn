@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0tlif0e8vrdi"]
+[gd_scene load_steps=17 format=3 uid="uid://b0tlif0e8vrdi"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_23cci"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_1kose"]
 [ext_resource type="Texture2D" uid="uid://3btlic4aya3i" path="res://assets/fow.png" id="2_7s7cc"]
 [ext_resource type="Texture2D" uid="uid://cuel47m3pnlg0" path="res://assets/card/front/meter/crystal_ball.png" id="2_k154y"]
 [ext_resource type="Texture2D" uid="uid://3rkkapqn4f6i" path="res://assets/card/front/meta/draw_1.png" id="2_s44l5"]
+[ext_resource type="Texture2D" uid="uid://dikw7pj3n2euw" path="res://assets/title.png" id="3_i2orw"]
 [ext_resource type="Texture2D" uid="uid://die4objbi1kd8" path="res://assets/ui/button_2.png" id="4_2qorq"]
 [ext_resource type="Texture2D" uid="uid://cc4cqdml0hesx" path="res://assets/card/front/climate/sun.png" id="4_7c5t1"]
 [ext_resource type="Texture2D" uid="uid://crd2qb46u6jfg" path="res://assets/card/front/climate/iceberg.png" id="5_b6uji"]
@@ -135,6 +136,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ve3nr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cooep")
 text = "Bingle"
 alignment = 1
+max_length = 8
 
 [node name="P2" type="LineEdit" parent="0/Inputs"]
 custom_minimum_size = Vector2(400, 0)
@@ -146,6 +148,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ve3nr")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hxh6t")
 text = "Spoingus"
 alignment = 1
+max_length = 8
 
 [node name="Label2" type="Label" parent="0"]
 layout_mode = 2
@@ -174,13 +177,10 @@ layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Label1" type="Label" parent="1/VBox"]
+[node name="TextureRect" type="TextureRect" parent="1/VBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_1kose")
-theme_override_font_sizes/font_size = 128
-text = "thermalwiz"
-horizontal_alignment = 1
+texture = ExtResource("3_i2orw")
+expand_mode = 5
 
 [node name="Label2" type="Label" parent="1/VBox"]
 layout_mode = 2

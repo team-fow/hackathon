@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1b5byliw5f6i"]
+[gd_scene load_steps=31 format=3 uid="uid://c1b5byliw5f6i"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_yqxqw"]
 [ext_resource type="Script" path="res://scenes/game/player_display.gd" id="2_bjjhx"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://scenes/game/inactive_player_display.gd" id="8_8sx5v"]
 [ext_resource type="Texture2D" uid="uid://dptyqf3p1f7s1" path="res://assets/ui/end_turn.png" id="9_mtb6r"]
 [ext_resource type="Script" path="res://scenes/game/active_effects_container.gd" id="15_qadym"]
+[ext_resource type="Texture2D" uid="uid://csx31ibcmpwqn" path="res://assets/ui/button_3.png" id="16_ajqk7"]
 [ext_resource type="PackedScene" uid="uid://cjrbdoqkjljdi" path="res://scenes/standby/standby_screen.tscn" id="16_yuwma"]
+[ext_resource type="Texture2D" uid="uid://die4objbi1kd8" path="res://assets/ui/button_2.png" id="17_11x85"]
 [ext_resource type="Texture2D" uid="uid://tp3qpohjggoq" path="res://assets/table.png" id="26_ocpvk"]
 [ext_resource type="Texture2D" uid="uid://dspv21b2xumjv" path="res://assets/ui/active_player_name.png" id="26_y6yuo"]
 [ext_resource type="Texture2D" uid="uid://bigtnk5hms6sm" path="res://assets/ui/play_back.png" id="27_yy44a"]
@@ -54,6 +56,20 @@ metadata/_snap_enabled = true
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1pyw"]
 content_margin_top = 32.0
 content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_repam"]
+content_margin_left = 50.0
+content_margin_top = 25.0
+content_margin_right = 50.0
+content_margin_bottom = 25.0
+texture = ExtResource("16_ajqk7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfg8o"]
+content_margin_left = 50.0
+content_margin_top = 25.0
+content_margin_right = 50.0
+content_margin_bottom = 25.0
+texture = ExtResource("17_11x85")
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("players", "active_player_disp", "inactive_player_disp", "end_turn_button")]
 position = Vector2(1000, 600)
@@ -250,7 +266,7 @@ clip_text = true
 text_overrun_behavior = 3
 
 [node name="Timer" type="Timer" parent="UI/Top/VBox/Timer"]
-wait_time = 60.0
+wait_time = 40.0
 one_shot = true
 
 [node name="VBox3" type="VBoxContainer" parent="UI/Top"]
@@ -357,6 +373,38 @@ size_flags_vertical = 8
 texture_normal = ExtResource("32_d04lk")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="PlayedCardLabels" type="HBoxContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="UI/PlayedCardLabels"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_repam")
+text = "bingle"
+horizontal_alignment = 2
+
+[node name="Control" type="Control" parent="UI/PlayedCardLabels"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="UI/PlayedCardLabels"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.372549, 0.294118, 0.14902, 1)
+theme_override_fonts/font = ExtResource("31_a4xtm")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxTexture_xfg8o")
+text = "Spoingus"
 
 [node name="StandbyScreen" parent="UI" instance=ExtResource("16_yuwma")]
 

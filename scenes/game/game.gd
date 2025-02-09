@@ -10,22 +10,22 @@ enum Phase {TURN, ACTION, MAX}
 
 var initial_deck: Dictionary = {
 	# climate (heat)
-	"climate/cold/fog": 1,
+	"climate/cold/fog": 2,
 	"climate/cold/iceberg": 1,
-	"climate/cold/rain": 1,
-	"climate/cold/wind": 1,
+	"climate/cold/rain": 2,
+	"climate/cold/wind": 2,
 	# climate (cold)
-	"climate/heat/magnifier": 1,
-	"climate/heat/meteorite": 1,
-	"climate/heat/spicy_sauce": 1,
+	"climate/heat/magnifier": 2,
+	"climate/heat/meteorite": 2,
+	"climate/heat/spicy_sauce": 2,
 	"climate/heat/sun": 1,
 	# climate (neutral)
 	"climate/reverse": 1,
 	# meta
 	"meta/discard": 1,
 	"meta/discard_hand": 1,
-	"meta/draw_1": 6,
-	"meta/draw_2": 6,
+	"meta/draw_1": 4,
+	"meta/draw_2": 4,
 	"meta/duds_to_deck": 3,
 	"meta/duds_to_hand": 3,
 	"meta/dud": 0,
@@ -53,6 +53,7 @@ var cold_bonus: int
 var cold_multiplier: int = 1
 var reverse: int = 1
 var card_queue: Array[Card]
+var all_cards_played: Array[CardData]
 
 @export var active: bool
 
@@ -95,6 +96,10 @@ func _ready() -> void:
 	$UI/Intro.start()
 	await $UI/Intro.done
 	$GameMusic.play()
+	
+	# names
+	$UI/PlayedCardLabels/Label.text = players[0].player_name
+	$UI/PlayedCardLabels/Label2.text = players[1].player_name
 	
 	# starting
 	active = true
@@ -172,6 +177,10 @@ func _resolve_cards() -> void:
 	players[0].card_played_history.up = -1
 	players[1].deck.up = 1
 	players[1].card_played_history.up = 1
+	active_player_disp.hide()
+	inactive_player_disp.hide()
+	card_queue_box.hide()
+	$UI/PlayedCardLabels.show()
 	
 	music.volume_db = linear_to_db(0.5)
 	
@@ -188,6 +197,7 @@ func _resolve_cards() -> void:
 		center.remove_card(card)
 		pile.add_card(card)
 
+	all_cards_played.assign(card_queue.map(func(card: Card) -> CardData: return card.card_resource))
 	card_queue.clear()
 	for player : Player in players:
 		player.card_played_history._order_cards()
@@ -199,6 +209,10 @@ func _resolve_cards() -> void:
 		player.card_played_history._order_cards()
 		player.hand.show()
 		player.deck.show()
+	active_player_disp.show()
+	inactive_player_disp.show()
+	card_queue_box.show()
+	$UI/PlayedCardLabels.hide()
 	
 	players.shuffle()
 	music.volume_db = linear_to_db(1)
