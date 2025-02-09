@@ -68,8 +68,21 @@ script = ExtResource("1_g6b4q")
 position = Vector2(0, 350)
 script = ExtResource("2_jjdp4")
 
+[node name="Label" type="Label" parent="Hand"]
+modulate = Color(1, 1, 1, 0.501961)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = 188.0
+offset_right = 62.0
+offset_bottom = 232.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "5/7 cards"
+
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(650, 50)
+position = Vector2(550, 25)
 script = ExtResource("3_5fsjs")
 
 [node name="Background" type="TextureRect" parent="Deck"]
@@ -146,7 +159,7 @@ one_shot = true
 explosiveness = 0.75
 
 [node name="CardPlayedHistory" type="Node2D" parent="."]
-position = Vector2(300, 0)
+position = Vector2(300, 25)
 script = ExtResource("5_iuisj")
 
 [node name="Background" type="TextureRect" parent="CardPlayedHistory"]

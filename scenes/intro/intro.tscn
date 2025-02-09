@@ -45,11 +45,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 0
+current_tab = 5
 tabs_visible = false
 script = ExtResource("1_23cci")
 
 [node name="Credits" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 100
@@ -274,21 +275,21 @@ text = "You know your opponent's temperature,
 but not your own. Stay safe!"
 horizontal_alignment = 1
 
-[node name="Actions" type="MarginContainer" parent="."]
+[node name="Rounds" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Actions"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Rounds"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Actions/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Rounds/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Label1" type="Label" parent="Actions/VBoxContainer/VBoxContainer"]
+[node name="Label1" type="Label" parent="Rounds/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
@@ -298,21 +299,21 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
 text = "ROUNDS"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Actions/VBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Rounds/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 56
 text = "Rounds are structured in phases."
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="GridContainer" parent="Actions/VBoxContainer"]
+[node name="HBoxContainer" type="GridContainer" parent="Rounds/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 25
 columns = 2
 
-[node name="Label1" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label1" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_1kose")
@@ -321,14 +322,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
 text = "TURN"
 horizontal_alignment = 2
 
-[node name="Label4" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label4" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 56
 text = "A random player takes a turn."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_1kose")
@@ -337,14 +338,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
 text = "TURN"
 horizontal_alignment = 2
 
-[node name="Label6" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label6" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 56
 text = "The other player takes a turn."
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_1kose")
@@ -353,12 +354,65 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
 text = "ACTION"
 horizontal_alignment = 2
 
-[node name="Label5" type="Label" parent="Actions/VBoxContainer/HBoxContainer"]
+[node name="Label5" type="Label" parent="Rounds/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 56
 text = "Played cards trigger all at once."
 horizontal_alignment = 1
+
+[node name="Label4" type="RichTextLabel" parent="Rounds/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Your turn ends when you play a card with a [img]res://assets/card/next_icon.png[/img] or your time runs out.[/center]"
+fit_content = true
+
+[node name="ActionPhase" type="MarginContainer" parent="."]
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionPhase"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionPhase/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Label1" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_1kose")
+theme_override_font_sizes/font_size = 128
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
+text = "Action phase"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="ActionPhase/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Cards take effect in the order they were played.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionPhase/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="ActionPhase/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Pay attention to card backs to guess at your temperature!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="CardAnatomy" type="MarginContainer" parent="."]
 visible = false
@@ -367,7 +421,7 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CardAnatomy"]
 layout_mode = 2
@@ -730,63 +784,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("13_s642u")
 expand_mode = 5
-
-[node name="4" type="CenterContainer" parent="."]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-metadata/_tab_index = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="4"]
-custom_minimum_size = Vector2(1200, 0)
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 25
-
-[node name="Label1" type="Label" parent="4/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("2_1kose")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "how to play"
-
-[node name="Label2" type="Label" parent="4/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 48
-text = "Play cards on your turn."
-autowrap_mode = 2
-
-[node name="Label3" type="RichTextLabel" parent="4/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 48
-bbcode_enabled = true
-text = "Your turn ends when you (a) play any card with [img]res://assets/card/next_icon.png[/img] or (b) run out of time."
-fit_content = true
-autowrap_mode = 2
-
-[node name="Label6" type="Label" parent="4/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 48
-text = "Your hand can't go over 7 cards."
-autowrap_mode = 2
-
-[node name="Label5" type="Label" parent="4/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 48
-text = "Pass the computer around between turns."
-autowrap_mode = 2
-
-[node name="Label4" type="Label" parent="4/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 48
-text = "Card effects trigger all at once, after both players have taken their turn."
-autowrap_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kpvll")
