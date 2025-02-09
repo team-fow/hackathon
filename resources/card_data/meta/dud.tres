@@ -12,3 +12,5 @@ front = ExtResource("2_isxlt")
 back = ExtResource("1_dw1ao")
 description = "Useless."
 card_script = ExtResource("2_5ubsf")
+element = 0
+changes_temperature = true
