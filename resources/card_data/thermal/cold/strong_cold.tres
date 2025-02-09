@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://blbemcon7lyo2"]
+[gd_resource type="Resource" script_class="CardData" load_steps=5 format=3 uid="uid://cb2b4ow6nr0on"]
 
 [ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="1_ycrwf"]
 [ext_resource type="Script" path="res://resources/card_behavior/strong_cold.gd" id="2_qqy02"]

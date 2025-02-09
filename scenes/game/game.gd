@@ -66,9 +66,10 @@ var all_cards_played: Array[CardData]
 @onready var title_screen: ColorRect = $UI/TitleScreen
 @export var card_queue_box: VBoxContainer
 @onready var turn_timer: Timer = $UI/Top/VBox/Timer/Timer
-@onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
+@onready var turn_timer_texture: TextureRect = $UI/Top/VBox/Timer
 @onready var music: AudioStreamPlayer = $GameMusic
 @onready var end_screen: TextureRect = $UI/EndScreen
+@onready var turn_timer_label: Label = $UI/Top/VBox/Timer/Label
 
 
 # Called when the node enters the scene tree for the first time.
@@ -136,6 +137,7 @@ func get_opponent(player: Player) -> Player:
 func _turn() -> void:
 	turn_idx += 1
 	
+	turn_timer_texture.scale.y = 0
 	players.reverse()
 	card_queue_box.kill_children()
 	active_player_disp.show_info(players[0])
@@ -155,7 +157,9 @@ func _turn() -> void:
 	players[0].draw(1)
 	while players[0].hand.cards.size() < 3:
 		players[0].draw(1)
-	
+	var timer_tween = create_tween()
+	timer_tween.tween_property(turn_timer_texture, "scale:y", 1, 0.15)
+	await timer_tween.finished
 	turn_timer.start()
 	await turn_ended
 	turn_timer.stop()
