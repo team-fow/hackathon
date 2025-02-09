@@ -26,6 +26,5 @@ func _on_p_2_text_changed(new_text: String) -> void:
 
 
 func _on_settings_intro_requested() -> void:
-	print(1)
-	current_tab = 0
+	current_tab = 2
 	show()

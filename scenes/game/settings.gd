@@ -1,6 +1,7 @@
 extends PanelContainer
 
 signal intro_requested
+signal end_requested
 
 
 func _on_settings_pressed() -> void:
