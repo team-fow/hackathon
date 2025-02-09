@@ -471,13 +471,11 @@ visible = false
 visible = false
 
 [node name="Player1" parent="." instance=ExtResource("2_thlmk")]
-temperature = 10
 is_active = true
 player_name = "Bingle"
 
 [node name="Player2" parent="." instance=ExtResource("2_thlmk")]
 rotation = 3.14159
-temperature = 10
 player_name = "Spoingus"
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]

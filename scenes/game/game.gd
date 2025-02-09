@@ -222,6 +222,7 @@ func _resolve_cards() -> void:
 	await end_turn_button.pressed
 	round_ended.emit()
 	
+	await get_tree().create_timer(0.5).timeout
 	for player : Player in players:
 		player.card_played_history._order_cards()
 		player.hand.show()
