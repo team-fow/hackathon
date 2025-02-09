@@ -39,7 +39,7 @@ func _ready() -> void:
 	title_screen.hide()
 	active = true
 	
-	initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
+	#initial_deck = initial_deck.filter(func(card) -> bool: return card is ClimateCardData)
 	
 	for player: Player in players:
 		player.died.connect(_on_player_died.bind(player))
