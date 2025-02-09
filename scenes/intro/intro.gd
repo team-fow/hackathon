@@ -14,6 +14,7 @@ func _gui_input(event: InputEvent) -> void:
 		if current_tab == get_child_count() - 2:
 			done.emit()
 			hide()
+			$Music.stop()
 		else:
 			current_tab += 1
 
