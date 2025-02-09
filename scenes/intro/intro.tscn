@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0tlif0e8vrdi"]
+[gd_scene load_steps=24 format=3 uid="uid://b0tlif0e8vrdi"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_23cci"]
 [ext_resource type="FontFile" uid="uid://diu6d7tppnq3i" path="res://assets/ui/font/liberator_heavy.ttf" id="2_1kose"]
 [ext_resource type="Texture2D" uid="uid://3btlic4aya3i" path="res://assets/fow.png" id="2_7s7cc"]
-[ext_resource type="Texture2D" uid="uid://cuel47m3pnlg0" path="res://assets/card/front/meter/crystal_ball.png" id="2_k154y"]
 [ext_resource type="Texture2D" uid="uid://3rkkapqn4f6i" path="res://assets/card/front/meta/draw_1.png" id="2_s44l5"]
 [ext_resource type="Texture2D" uid="uid://dikw7pj3n2euw" path="res://assets/title.png" id="3_i2orw"]
 [ext_resource type="Texture2D" uid="uid://die4objbi1kd8" path="res://assets/ui/button_2.png" id="4_2qorq"]
@@ -11,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://crd2qb46u6jfg" path="res://assets/card/front/climate/iceberg.png" id="5_b6uji"]
 [ext_resource type="Texture2D" uid="uid://csx31ibcmpwqn" path="res://assets/ui/button_3.png" id="5_nag6d"]
 [ext_resource type="AudioStream" uid="uid://dx18f5a7ivw0m" path="res://assets/music/intro.mp3" id="7_kpvll"]
+[ext_resource type="Texture2D" uid="uid://d2phfayy8rb44" path="res://assets/card/back/heat_damage.png" id="10_pbnye"]
+[ext_resource type="Texture2D" uid="uid://b46g5pr6c5vgp" path="res://assets/card/back/cold_climate.png" id="11_jj6ki"]
+[ext_resource type="Texture2D" uid="uid://bs346cgwga7eh" path="res://assets/card/back/cold_damage.png" id="11_yrw1x"]
+[ext_resource type="Texture2D" uid="uid://b2p3irb8qkt7e" path="res://assets/card/back/hot_climate.png" id="12_5wcp0"]
+[ext_resource type="Texture2D" uid="uid://ct2ew8j3ah5ht" path="res://assets/card/back/meta.png" id="12_f8uk5"]
+[ext_resource type="Texture2D" uid="uid://btyoku1mjjl5f" path="res://assets/card/back/meter.png" id="13_s642u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otvca"]
 bg_color = Color(0, 0, 0, 1)
@@ -26,6 +31,13 @@ texture = ExtResource("4_2qorq")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbq7x"]
 content_margin_top = 12.0
 
+[sub_resource type="Gradient" id="Gradient_5nk7n"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjq0f"]
+gradient = SubResource("Gradient_5nk7n")
+fill_to = Vector2(1, 1)
+
 [node name="Intro" type="TabContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otvca")
-current_tab = 5
+current_tab = 4
 tabs_visible = false
 script = ExtResource("1_23cci")
 
@@ -87,7 +99,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Click anywhere to start."
 
-[node name="0" type="VBoxContainer" parent="."]
+[node name="Names" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 2
 mouse_filter = 2
@@ -95,7 +107,7 @@ theme_override_constants/separation = 100
 alignment = 1
 metadata/_tab_index = 1
 
-[node name="Label" type="Label" parent="0"]
+[node name="Label" type="Label" parent="Names"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
@@ -103,7 +115,7 @@ text = "Two players.
 Enter your names."
 horizontal_alignment = 1
 
-[node name="Inputs" type="GridContainer" parent="0"]
+[node name="Inputs" type="GridContainer" parent="Names"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -112,21 +124,21 @@ theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 25
 columns = 2
 
-[node name="Label" type="Label" parent="0/Inputs"]
+[node name="Label" type="Label" parent="Names/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 32
 text = "Player 1"
 
-[node name="Label2" type="Label" parent="0/Inputs"]
+[node name="Label2" type="Label" parent="Names/Inputs"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 32
 text = "Player 2"
 
-[node name="P1" type="LineEdit" parent="0/Inputs"]
+[node name="P1" type="LineEdit" parent="Names/Inputs"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
@@ -138,7 +150,7 @@ text = "Bingle"
 alignment = 1
 max_length = 8
 
-[node name="P2" type="LineEdit" parent="0/Inputs"]
+[node name="P2" type="LineEdit" parent="Names/Inputs"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
@@ -150,14 +162,14 @@ text = "Spoingus"
 alignment = 1
 max_length = 8
 
-[node name="Label2" type="Label" parent="0"]
+[node name="Label2" type="Label" parent="Names"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Click anywhere else to continue."
 horizontal_alignment = 1
 
-[node name="1" type="HBoxContainer" parent="."]
+[node name="Title" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 2
 mouse_filter = 2
@@ -165,7 +177,7 @@ theme_override_constants/separation = 100
 alignment = 1
 metadata/_tab_index = 2
 
-[node name="Card" type="TextureRect" parent="1"]
+[node name="Card" type="TextureRect" parent="Title"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -173,24 +185,24 @@ mouse_filter = 2
 texture = ExtResource("2_s44l5")
 expand_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="1"]
+[node name="VBox" type="VBoxContainer" parent="Title"]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="1/VBox"]
+[node name="TextureRect" type="TextureRect" parent="Title/VBox"]
 layout_mode = 2
 texture = ExtResource("3_i2orw")
 expand_mode = 5
 
-[node name="Label2" type="Label" parent="1/VBox"]
+[node name="Label2" type="Label" parent="Title/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "is a two-player card game."
 horizontal_alignment = 1
 
-[node name="2" type="HBoxContainer" parent="."]
+[node name="Temperature" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 2
 mouse_filter = 2
@@ -198,7 +210,12 @@ theme_override_constants/separation = 100
 alignment = 1
 metadata/_tab_index = 3
 
-[node name="Card" type="TextureRect" parent="2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Temperature"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="Card" type="TextureRect" parent="Temperature/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -206,19 +223,19 @@ mouse_filter = 2
 texture = ExtResource("4_7c5t1")
 expand_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Temperature/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="Label3" type="Label" parent="2/VBoxContainer"]
+[node name="Label3" type="Label" parent="Temperature/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
 text = "each player has a"
 horizontal_alignment = 1
 
-[node name="Label1" type="Label" parent="2/VBoxContainer"]
+[node name="Label1" type="Label" parent="Temperature/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
@@ -227,7 +244,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
 text = "TEMPERATURE."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="2/VBoxContainer"]
+[node name="Label2" type="Label" parent="Temperature/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
@@ -235,14 +252,14 @@ text = "you die when your temperature
 hits extreme hot or cold."
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="2/VBoxContainer"]
+[node name="Label4" type="Label" parent="Temperature/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "(that's -10 or 10.)"
 horizontal_alignment = 1
 
-[node name="Card2" type="TextureRect" parent="2"]
+[node name="Card2" type="TextureRect" parent="Temperature/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -250,47 +267,186 @@ mouse_filter = 2
 texture = ExtResource("5_b6uji")
 expand_mode = 5
 
-[node name="3" type="HBoxContainer" parent="."]
-visible = false
+[node name="Label4" type="Label" parent="Temperature"]
 layout_mode = 2
-mouse_filter = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "You know your opponent's temperature,
+but not your own. Stay safe!"
+horizontal_alignment = 1
+
+[node name="CardTypes" type="BoxContainer" parent="."]
+layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
+vertical = true
 metadata/_tab_index = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="3"]
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="Label1" type="Label" parent="3/VBoxContainer"]
+[node name="Label1" type="Label" parent="CardTypes"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_1kose")
 theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bbq7x")
-text = "the problem"
+text = "card elements"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="3/VBoxContainer"]
+[node name="VBoxContainer" type="GridContainer" parent="CardTypes"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
-text = "you can see your opponent's
-temperature, but not your own.
-stay safe."
-horizontal_alignment = 1
+size_flags_vertical = 4
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 25
+columns = 4
 
-[node name="Card2" type="TextureRect" parent="3"]
+[node name="Card" type="TextureRect" parent="CardTypes/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("2_k154y")
+texture = ExtResource("10_pbnye")
 expand_mode = 5
 
+[node name="TextureRect" type="TextureRect" parent="CardTypes/VBoxContainer/Card"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tjq0f")
+expand_mode = 1
+
+[node name="Card5" type="TextureRect" parent="CardTypes/VBoxContainer/Card/TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_yrw1x")
+expand_mode = 5
+
+[node name="Card2" type="TextureRect" parent="CardTypes/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("11_jj6ki")
+expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="CardTypes/VBoxContainer/Card2"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tjq0f")
+expand_mode = 1
+
+[node name="Card5" type="TextureRect" parent="CardTypes/VBoxContainer/Card2/TextureRect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("12_5wcp0")
+expand_mode = 5
+
+[node name="Card3" type="TextureRect" parent="CardTypes/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("12_f8uk5")
+expand_mode = 5
+
+[node name="Card4" type="TextureRect" parent="CardTypes/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("13_s642u")
+expand_mode = 5
+
+[node name="Label4" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Thermal"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Climate"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Exploit"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 56
+text = "Meter"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Change players' temperature."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label9" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Increase the effect of temperature changes."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label10" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Manipulate players' hands and decks."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label11" type="Label" parent="CardTypes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Reveal clues about your temperature."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="4" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 metadata/_tab_index = 5
@@ -350,5 +506,5 @@ autowrap_mode = 2
 stream = ExtResource("7_kpvll")
 bus = &"Music"
 
-[connection signal="text_changed" from="0/Inputs/P1" to="." method="_on_p_1_text_changed"]
-[connection signal="text_changed" from="0/Inputs/P2" to="." method="_on_p_2_text_changed"]
+[connection signal="text_changed" from="Names/Inputs/P1" to="." method="_on_p_1_text_changed"]
+[connection signal="text_changed" from="Names/Inputs/P2" to="." method="_on_p_2_text_changed"]
